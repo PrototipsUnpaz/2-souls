@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="clase_2_senales"
+config/name="Proyecto Two Souls"
 run/main_scene="res://scenes/WorldTest.tscn"
 config/icon="res://assets/icon.png"
 
