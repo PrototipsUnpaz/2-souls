@@ -1,8 +1,21 @@
-# Proyecto [NOMBRE DEL PROYECTO]
+# Proyecto [Two souls]
 # Unpaz 2020
 
 ## Descripción
-[REEMPLAZAR CON DESCRIPCIÓN DEL PROYECTO]
+[
+Integrantes del grupo: Daniel Cordoba, David Escalada.
+
+Juego basado en Binary Land: Ej: Link
+1 jugador pero 2 personajes
+Cuando el jugador mueve hacia izquierda un personaje se moverá a dicha dirección pero el otro a la dirección opuesta.
+Ambos personajes se mueven igual de arriba a abajo
+El mapa es como un laberinto
+Se pueden encontrar power ups
+Hay enemigos que se mueven libremente
+Para ganar un nivel ambos personajes deben encontrarse en un punto determinado del mapa, en el centro.
+Los personajes pueden realizar un ataque simple para deshacerse de los enemigos
+En la pantalla de inicio se debe poder elegir si usar el stick digital a la izquierda o derecha
+]
 
 ## Instrucciones de ejecución
 
