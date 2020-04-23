@@ -9,11 +9,15 @@ func _physics_process(delta):
 		velocity.y = 0
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -SPEED
+		velocity.y = 0
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = SPEED
+		velocity.y = 0
 	if Input.is_action_pressed("ui_up"):
 		velocity.y = -SPEED
+		velocity.x = 0
 	if Input.is_action_pressed("ui_down"):
 		velocity.y = SPEED
+		velocity.x = 0
 	move_and_slide(velocity)
 	pass
