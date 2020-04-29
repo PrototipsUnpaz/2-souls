@@ -6,7 +6,7 @@
 [node name="WorldTest" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 900.682, 363.328 )
+position = Vector2( 900, 363 )
 
 [node name="MirrorPlayer" parent="." instance=ExtResource( 2 )]
-position = Vector2( 403.816, 370.881 )
+position = Vector2( 403.816, 363 )
