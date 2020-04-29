@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/mirror_player/MirrorPlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/stage1/stage1.tscn" type="PackedScene" id=3]
 
 [node name="WorldTest" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 900, 363 )
+z_index = 2
 
 [node name="MirrorPlayer" parent="." instance=ExtResource( 2 )]
 position = Vector2( 403.816, 363 )
+z_index = 1
+
+[node name="Background" parent="." instance=ExtResource( 3 )]
+position = Vector2( 641.922, 363.802 )
