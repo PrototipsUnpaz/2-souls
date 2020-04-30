@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/mirror_player/MirrorPlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/stage1/stage1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/stage1/objets/BricksH.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/stage1/objets/BricksV.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/power_up/Adrenalin.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 640.64, 15.279 )
@@ -35,14 +38,39 @@ shape = SubResource( 1 )
 position = Vector2( 639.493, 724.681 )
 shape = SubResource( 1 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Side" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Side"]
 position = Vector2( 1281.24, 375.328 )
 shape = SubResource( 2 )
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="Side2" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Side2"]
 position = Vector2( 7.5365, 364.776 )
 shape = SubResource( 2 )
+
+[node name="BricksH" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1120.19, 574.376 )
+
+[node name="BricksH2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 663.229, 566.442 )
+
+[node name="BricksH3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 158.667, 560.096 )
+
+[node name="BricksV" parent="." instance=ExtResource( 5 )]
+position = Vector2( 490.282, 575.962 )
+
+[node name="BricksV2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 253.868, 396.668 )
+
+[node name="BricksV3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 988.497, 406.188 )
+
+[node name="BricksV4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 645.776, 177.707 )
+
+[node name="Adrenalin" parent="." instance=ExtResource( 6 )]
+position = Vector2( 382.388, 199.921 )
+scale = Vector2( 0.201384, 0.151603 )

@@ -1,7 +1,12 @@
 extends KinematicBody2D
 
-const SPEED = 300
+var SPEED = 300
 var velocity = Vector2()
+
+
+func adrenalin():
+	SPEED = SPEED * 1.5
+	pass
 
 func _physics_process(delta):
 	if Input.is_action_just_released("ui_down") or Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
@@ -28,3 +33,9 @@ func _physics_process(delta):
 		$AnimatedSprite.play("RunBot")
 	move_and_slide(velocity)
 	pass
+
+
+func _on_Area2D_area_entered(area):
+	adrenalin();
+	$Area.set_deferred("disable", true)
+	pass 
