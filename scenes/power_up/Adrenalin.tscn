@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/power_up/Adrenalin.gd" type="Script" id=1]
 [ext_resource path="res://assets/stage1/power_up/items.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 173.442
+radius = 189.309
 
-[node name="Adrenalin" type="RigidBody2D"]
-gravity_scale = 0.0
-script = ExtResource( 1 )
-
-[node name="Collision" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+[node name="Adrenalin" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Area"]
+position = Vector2( 9.52002, 6.34668 )
+shape = SubResource( 1 )

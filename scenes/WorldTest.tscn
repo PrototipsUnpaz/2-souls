@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/mirror_player/MirrorPlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/stage1/stage1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/stage1/objets/BricksH.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/stage1/objets/BricksV.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/power_up/Adrenalin.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 640.64, 15.279 )
@@ -69,3 +70,7 @@ position = Vector2( 988.497, 406.188 )
 
 [node name="BricksV4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 645.776, 177.707 )
+
+[node name="Adrenalin" parent="." instance=ExtResource( 6 )]
+position = Vector2( 382.388, 199.921 )
+scale = Vector2( 0.201384, 0.151603 )

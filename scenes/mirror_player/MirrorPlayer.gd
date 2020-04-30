@@ -26,5 +26,7 @@ func _physics_process(delta):
 		velocity.y = SPEED
 		velocity.x = 0
 		$AnimationSprite.play("RunBot")
+		
+	
 	move_and_slide(velocity)
 	pass
