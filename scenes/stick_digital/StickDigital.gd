@@ -21,7 +21,7 @@ func _process(_delta):
 		# Emite la misma señal que antes pero con la posición 0,0
 		emit_signal("stick_motion", $CenterPosition.position)
 	
-
-func _on_TouchArea_input_event( _viewport, event, _shape_idx ):
+func _on_TouchArea_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("touch") && touched == false:
 		touched = true
+	pass
