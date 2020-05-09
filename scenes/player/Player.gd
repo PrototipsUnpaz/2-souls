@@ -17,16 +17,11 @@ func adrenalin():
 	SPEED = SPEED * 1.15
 	pass
 
-
 # Funcion que se ejecuta al recibir la señal "get_motion"
 # este obtiene el vector "dirección" (hacia donde apunta)
 func get_motion_vector(motion):
 	new_motion_vector = motion
-	
-
-	
-	
-	
+		
 
 func _physics_process(delta):
 	# Usando el vector dirección recibido, multiplica para aumentar la fuerza de movimiento
