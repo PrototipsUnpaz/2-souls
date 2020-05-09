@@ -14,8 +14,9 @@ func _ready():
 		stickDigital.connect("stick_motion", self, "get_motion_vector")
 		
 func adrenalin():
-	SPEED = SPEED * 1.5
+	SPEED = SPEED * 1.15
 	pass
+
 
 # Funcion que se ejecuta al recibir la señal "get_motion"
 # este obtiene el vector "dirección" (hacia donde apunta)
@@ -58,8 +59,6 @@ func _physics_process(delta):
 		velocity = Vector2(0, 0)
 		$AnimatedSprite.play("Idle")
 	
-	
-	print (pos_stick_angle)
 		
 	move_and_slide(velocity)
 	pass
@@ -87,11 +86,9 @@ func _physics_process(delta):
 	#if Input.is_action_pressed("ui_down"):
 		#velocity.y = SPEED
 		#velocity.x = 0
-		
-	
-
 
 func _on_Area2D_area_entered(area):
 	adrenalin();
+	print (SPEED)
 	$Area.set_deferred("disable", true)
 	pass 
