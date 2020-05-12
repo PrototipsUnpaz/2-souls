@@ -10,13 +10,19 @@ func _ready():
 	# Si lo encuentra, lo conecto con el mismo (self) para recibir señales
 	# en caso de que no lo encuentre, no hará la conección y no habrá movimiento
 	var stickDigital = get_parent().get_node_or_null("StickDigital")
+	var buttonAttack = get_parent().get_node_or_null("ButtonAttack")
 	if stickDigital != null:
 		stickDigital.connect("stick_motion", self, "get_motion_vector")
+	if buttonAttack != null:
+		buttonAttack.connect("hit", self, "attack")
 		
 func adrenalin():
 	SPEED = SPEED * 1.15
 	pass
 
+func attack():
+	$AnimatedSprite.play("attack")
+	pass
 # Funcion que se ejecuta al recibir la señal "get_motion"
 # este obtiene el vector "dirección" (hacia donde apunta)
 func get_motion_vector(motion):
