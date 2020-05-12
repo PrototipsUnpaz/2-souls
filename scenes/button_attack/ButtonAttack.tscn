@@ -29,6 +29,6 @@ animation = "idle"
 
 [node name="AttackArea" type="Area2D" parent="."]
 
-[node name="AttackCollision" type="CollisionShape2D" parent="AttackArea"]
+[node name="CollisionArea" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource( 2 )
 [connection signal="input_event" from="AttackArea" to="." method="_on_AttackArea_input_event"]
