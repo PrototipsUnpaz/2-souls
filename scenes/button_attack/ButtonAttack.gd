@@ -16,9 +16,6 @@ func _process(delta):
 			emit_signal("hit")
 	pass
 
-
-
-
 func _on_AttackArea_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("touch") && touched == false:
 		touched = true

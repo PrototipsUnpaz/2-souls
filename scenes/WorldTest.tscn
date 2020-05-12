@@ -81,4 +81,4 @@ scale = Vector2( 0.201384, 0.151603 )
 position = Vector2( 1062.85, 647.191 )
 
 [node name="ButtonAttack" parent="." instance=ExtResource( 8 )]
-position = Vector2( 869.496, 660.056 )
+position = Vector2( 934.55, 653.709 )
