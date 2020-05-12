@@ -24,7 +24,7 @@ func get_motion_vector(motion):
 		
 
 func _physics_process(delta):
-	# Usando el vector dirección recibido, multiplica para aumentar la fuerza de movimiento
+	
 	pos_stick_angle = rad2deg(  new_motion_vector.angle_to(Vector2(1,0))  )
 	
 	#Movimiento derecha
@@ -53,7 +53,6 @@ func _physics_process(delta):
 	if pos_stick_angle == 0:
 		velocity = Vector2(0, 0)
 		$AnimatedSprite.play("Idle")
-	
 		
 	move_and_slide(velocity)
 	pass
