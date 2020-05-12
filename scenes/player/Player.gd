@@ -10,12 +10,21 @@ func _ready():
 	# Si lo encuentra, lo conecto con el mismo (self) para recibir señales
 	# en caso de que no lo encuentre, no hará la conección y no habrá movimiento
 	var stickDigital = get_parent().get_node_or_null("StickDigital")
+	var buttonAttack = get_parent().get_node_or_null("ButtonAttack")
+	if buttonAttack != null:
+		buttonAttack.connect("hit", self, "attack")
 	if stickDigital != null:
 		stickDigital.connect("stick_motion", self, "get_motion_vector")
+
 		
 func adrenalin():
 	SPEED = SPEED * 1.15
 	pass
+	
+func attack():
+	$AnimatedSprite.play("AtkTop")
+	pass
+	
 
 # Funcion que se ejecuta al recibir la señal "get_motion"
 # este obtiene el vector "dirección" (hacia donde apunta)
@@ -24,7 +33,7 @@ func get_motion_vector(motion):
 		
 
 func _physics_process(delta):
-	# Usando el vector dirección recibido, multiplica para aumentar la fuerza de movimiento
+	
 	pos_stick_angle = rad2deg(  new_motion_vector.angle_to(Vector2(1,0))  )
 	
 	#Movimiento derecha
@@ -53,7 +62,6 @@ func _physics_process(delta):
 	if pos_stick_angle == 0:
 		velocity = Vector2(0, 0)
 		$AnimatedSprite.play("Idle")
-	
 		
 	move_and_slide(velocity)
 	pass
