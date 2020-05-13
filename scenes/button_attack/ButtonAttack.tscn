@@ -28,6 +28,8 @@ frames = SubResource( 1 )
 animation = "idle"
 
 [node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionArea" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource( 2 )

@@ -1,9 +1,10 @@
-extends Area2D
+extends Node2D
 
 var direction = Vector2()
 const speed = 100
 func _ready():
 	$Timer.start()
+	$AnimatedSprite.flip_h = true
 	pass
 
 
@@ -19,4 +20,3 @@ func _on_PowerArea_body_entered(body):
 	
 func  _process(delta): 
 	direction = Vector2(speed, 0)* delta;
-

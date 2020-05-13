@@ -14,6 +14,13 @@ var onda_generator = preload ("res://scenes/power_hansel/PowerHansel.tscn")
 func generate_power():
 	var onda = onda_generator.instance()
 	add_child(onda)
+	onda.global_position = $PosPower.global_position
+#if right == 1:
+	#	onda.global_position = $PosPower.global_position
+	#if left == 1: 
+	#	onda.global_position = $PosPower.global_position - 10
+
+
 	pass
 	
 func _ready():
@@ -51,9 +58,8 @@ func get_motion_vector(motion):
 		
 
 func _physics_process(delta):
-	
 	pos_stick_angle = rad2deg(  new_motion_vector.angle_to(Vector2(1,0))  )
-	
+	print(SPEED)
 	#Movimiento derecha
 	if pos_stick_angle < 45 and pos_stick_angle >-45:
 		velocity = Vector2(SPEED, 0)

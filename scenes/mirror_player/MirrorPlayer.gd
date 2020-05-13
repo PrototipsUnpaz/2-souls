@@ -4,14 +4,39 @@ const SPEED = 300
 var velocity = Vector2()
 var new_motion_vector = Vector2(0,0)
 var pos_stick_angle
+var	idle = 0
+var	top = 0
+var	right = 0
+var	left = 0
+var	bot = 0
+var onda_generator2 = preload ("res://scenes/power_gretel/PowerGretel.tscn")
 
 func _ready():
 	# Obtengo el nodo llamado StickDigital buscando en el padre (la escena WorldTest en este caso)
 	# Si lo encuentra, lo conecto con el mismo (self) para recibir señales
 	# en caso de que no lo encuentre, no hará la conección y no habrá movimiento
 	var stickDigital = get_parent().get_node_or_null("StickDigital")
+	var buttonAttack = get_parent().get_node_or_null("ButtonAttack")
+	
+	if buttonAttack != null:
+		buttonAttack.connect("hit", self, "attack")
 	if stickDigital != null:
 		stickDigital.connect("stick_motion", self, "get_motion_vector")
+
+func generate_power():
+	var onda2 = onda_generator2.instance()
+	add_child(onda2)
+	onda2.global_position = $PosPower2.global_position
+
+func attack():
+	idle = 0
+	top = 0
+	right = 0
+	left = 0
+	bot = 0
+	$AnimationSprite.play("AtkRight")
+	generate_power()
+	pass
 
 func get_motion_vector(motion):
 	new_motion_vector = motion
