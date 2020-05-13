@@ -10,4 +10,5 @@ func delete ():
 
 func _on_Area_area_entered(area):
 	delete();
+	$Area.set_deferred("disable", true)
 	pass 

@@ -14,7 +14,6 @@ var onda_generator = preload ("res://scenes/power_hansel/PowerHansel.tscn")
 func generate_power():
 	var onda = onda_generator.instance()
 	add_child(onda)
-	
 	pass
 	
 func _ready():
