@@ -4,6 +4,11 @@ var SPEED = 300
 var velocity = Vector2()
 var new_motion_vector = Vector2(0,0)
 var pos_stick_angle
+var right = 0
+var left = 0
+var top = 0
+var bot = 0
+var idle = 0
 
 func _ready():
 	# Obtengo el nodo llamado StickDigital buscando en el padre (la escena WorldTest en este caso)
@@ -33,40 +38,68 @@ func get_motion_vector(motion):
 		
 
 func _physics_process(delta):
-	
+	print(new_motion_vector)
 	pos_stick_angle = rad2deg(  new_motion_vector.angle_to(Vector2(1,0))  )
+	
+	#Cuando se suelte el stick, se detiene el movimiento
+	if new_motion_vector == Vector2(0,0):
+		velocity = Vector2(0,0)
+		idle = 1
+		top = 0
+		left = 0
+		bot = 0
+	
 	
 	#Movimiento derecha
 	if pos_stick_angle < 45 and pos_stick_angle >-45:
 		velocity = Vector2(SPEED,0)
-		$AnimatedSprite.play("RunRight")
-		$AnimatedSprite.flip_h = false
+		
+		right = 1
+		top = 0
+		left = 0
+		bot = 0
+		idle = 0
 	#Movimiento izquierda
 	if pos_stick_angle < -128 and pos_stick_angle > -179 or pos_stick_angle < 179 and pos_stick_angle > 134:
 		velocity = Vector2(-SPEED, 0)
-		$AnimatedSprite.play("RunRight")
-		$AnimatedSprite.flip_h = true
 		
+		left = 1
+		top = 0
+		bot = 0
+		idle = 0
 	#Movimiento abajo	
 	if pos_stick_angle > -128 and pos_stick_angle < -45:
 		velocity = Vector2(0, SPEED)
-		$AnimatedSprite.play("RunBot")
-		
-	
+		bot = 1
+		top = 0
+		left = 0
+		idle = 0
 	#Movimiento arriba
 	if pos_stick_angle > 45 and pos_stick_angle < 133:
 		velocity = Vector2(0, -SPEED)
-		$AnimatedSprite.play("RunTop")
-		
-	#Cuando se suelte el stick, se detiene el movimiento
-	if pos_stick_angle == 0:
-		velocity = Vector2(0, 0)
-		$AnimatedSprite.play("Idle")
+		top = 1
+		left = 0
+		bot = 0
+		idle = 0
+	
 		
 	move_and_slide(velocity)
 	pass
 
-	
+	if right == 1: 
+		$AnimatedSprite.play("RunRight")
+		$AnimatedSprite.flip_h = false
+	if left == 1:
+		$AnimatedSprite.play("RunRight")
+		$AnimatedSprite.flip_h = true
+	if bot == 1:
+		$AnimatedSprite.play("RunBot")
+	if top == 1:
+		$AnimatedSprite.play("RunTop")
+	if idle == 1: 
+		$AnimatedSprite.play("Idle")
+		
+		
 	
 	
 	
