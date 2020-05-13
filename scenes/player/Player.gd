@@ -28,6 +28,10 @@ func adrenalin():
 	
 func attack():
 	idle = 0
+	top = 0
+	right = 0
+	left = 0
+	bot = 0
 	$AnimatedSprite.play("AtkTop")
 	pass
 	
