@@ -9,13 +9,21 @@ var left = 0
 var top = 0
 var bot = 0
 var idle = 0
+var onda_generator = preload ("res://scenes/power_hansel/PowerHansel.tscn")
 
+func generate_power():
+	var onda = onda_generator.instance()
+	add_child(onda)
+	
+	pass
+	
 func _ready():
 	# Obtengo el nodo llamado StickDigital buscando en el padre (la escena WorldTest en este caso)
 	# Si lo encuentra, lo conecto con el mismo (self) para recibir señales
 	# en caso de que no lo encuentre, no hará la conección y no habrá movimiento
 	var stickDigital = get_parent().get_node_or_null("StickDigital")
 	var buttonAttack = get_parent().get_node_or_null("ButtonAttack")
+
 	if buttonAttack != null:
 		buttonAttack.connect("hit", self, "attack")
 	if stickDigital != null:
@@ -33,6 +41,7 @@ func attack():
 	left = 0
 	bot = 0
 	$AnimatedSprite.play("AtkTop")
+	generate_power()
 	pass
 	
 
