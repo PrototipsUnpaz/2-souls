@@ -72,5 +72,5 @@ playing = true
 shape = SubResource( 3 )
 
 [node name="PosPower" type="Position2D" parent="."]
-position = Vector2( 30, 0 )
+position = Vector2( 40, 0 )
 [connection signal="area_entered" from="Area" to="." method="_on_Area2D_area_entered"]

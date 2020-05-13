@@ -9,7 +9,7 @@ var	top = 0
 var	right = 0
 var	left = 0
 var	bot = 0
-var onda_generator = preload ("res://scenes/power_hansel/PowerHansel.tscn")
+var onda_generator2 = preload ("res://scenes/power_gretel/PowerGretel.tscn")
 
 func _ready():
 	# Obtengo el nodo llamado StickDigital buscando en el padre (la escena WorldTest en este caso)
@@ -24,9 +24,9 @@ func _ready():
 		stickDigital.connect("stick_motion", self, "get_motion_vector")
 
 func generate_power():
-	var onda = onda_generator.instance()
-	add_child(onda)
-	onda.global_position = $PosPower.global_position
+	var onda2 = onda_generator2.instance()
+	add_child(onda2)
+	onda2.global_position = $PosPower2.global_position
 
 func attack():
 	idle = 0
@@ -34,7 +34,7 @@ func attack():
 	right = 0
 	left = 0
 	bot = 0
-	$AnimatedSprite.play("AtkTop")
+	$AnimationSprite.play("AtkRight")
 	generate_power()
 	pass
 
