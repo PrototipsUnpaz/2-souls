@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/Hansel/attack/powerh/el_onda1.png" type="Texture" id=1]
+[ext_resource path="res://assets/Hansel/attack/powerh/el_onda2.png" type="Texture" id=2]
+[ext_resource path="res://assets/Hansel/attack/powerh/el_onda3.png" type="Texture" id=3]
+[ext_resource path="res://scenes/power_hansel/PowerHansel.gd" type="Script" id=4]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 50.0782
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="PowerArea" type="Area2D"]
+collision_mask = 2
+script = ExtResource( 4 )
+
+[node name="CollisionArea" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="AnimatedPower" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+frame = 2
+playing = true
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="body_entered" from="." to="." method="_on_PowerArea_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
