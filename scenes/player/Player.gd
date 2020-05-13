@@ -23,7 +23,7 @@ func _ready():
 	# en caso de que no lo encuentre, no hará la conección y no habrá movimiento
 	var stickDigital = get_parent().get_node_or_null("StickDigital")
 	var buttonAttack = get_parent().get_node_or_null("ButtonAttack")
-
+	
 	if buttonAttack != null:
 		buttonAttack.connect("hit", self, "attack")
 	if stickDigital != null:
@@ -139,6 +139,5 @@ func _physics_process(delta):
 
 func _on_Area2D_area_entered(area):
 	adrenalin();
-	print (SPEED)
 	$Area.set_deferred("disable", true)
 	pass 
