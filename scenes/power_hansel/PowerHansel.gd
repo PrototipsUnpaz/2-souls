@@ -17,11 +17,6 @@ func _on_PowerArea_body_entered(body):
 	queue_free()
 	pass 
 	
-func _physics_process(delta) -> void: 
-	move_local_x(direction.x * speed * delta);
-	
-	if direction.y == 1:
-		move_local_y(direction.y * (speed*2) * delta);
-	else: 
-		move_local_y(direction.y * speed * delta);
-		
+func  _process(delta): 
+	direction = Vector2(speed, 0)* delta;
+
