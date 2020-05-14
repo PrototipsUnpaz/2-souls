@@ -25,3 +25,8 @@ func interpolate_position():
 		$AnimatedSprite.flip_h = true
 	$Tween.start()
 	
+
+
+func _on_Area2D_area_entered(area):
+	initialPosition = false
+	pass 

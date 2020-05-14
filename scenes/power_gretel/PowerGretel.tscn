@@ -28,8 +28,8 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-frame = 2
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
+[connection signal="area_entered" from="PowergArea" to="." method="_on_PowergArea_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -20,3 +20,7 @@ func _on_PowerArea_body_entered(body):
 	
 func  _process(delta): 
 	direction = Vector2(speed, 0)* delta;
+
+
+func _on_PowergArea_area_entered(area):
+	pass # Replace with function body.
