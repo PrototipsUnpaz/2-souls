@@ -9,22 +9,20 @@ var left = 0
 var top = 0
 var bot = 0
 var idle = 0
-onready var powerPos = $Pivot/PosPower
-var powerDirection = Vector2()
+onready var ondaPos = $Pivot/PosPower
+var ondaDirection = Vector2()
 var cdshoot = false
 var onda_generator = preload ("res://scenes/power_hansel/PowerHansel.tscn")
 
-func generate_power():
+func generate_onda(ondaIstanceDefault_l, direction_x = ondaDirection.x, direction_y = 0):
+	if direction_x and direction_y:
+		 direction_x = $Pivot.scale.x
 	var onda = onda_generator.instance()
-	add_child(onda)
-	onda.global_position = $PosPower.global_position
-#if right == 1:
-	#	onda.global_position = $PosPower.global_position
-	#if left == 1: 
-	#	onda.global_position = $PosPower.global_position - 10
-
-
+	self.get_parent().add_child(onda)
+	onda.global_position = self.ondaPos.global_position
+	onda.direction = Vector2(direction_x, direction_y)
 	pass
+
 	
 func _ready():
 	# Obtengo el nodo llamado StickDigital buscando en el padre (la escena WorldTest en este caso)
@@ -49,8 +47,7 @@ func attack():
 	right = 0
 	left = 0
 	bot = 0
-	$AnimatedSprite.play("AtkTop")
-	generate_power()
+	generate_onda(onda_generator,ondaDirection.x, ondaDirection.y)
 	pass
 	
 
