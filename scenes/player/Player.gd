@@ -162,5 +162,5 @@ func deletePlayer():
 func _on_Area_body_entered(body):
 	if Autoload.inmortal == false:
 		deletePlayer()
-		Autoload.muerte = true
+		Autoload.dead = true
 	pass # Replace with function body.
