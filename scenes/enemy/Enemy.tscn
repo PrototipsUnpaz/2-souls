@@ -30,6 +30,8 @@ animations = [ {
 extents = Vector2( 57.1052, 100.934 )
 
 [node name="Enemy" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -41,8 +43,8 @@ frames = SubResource( 2 )
 animation = "walkBot"
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 1024
-collision_mask = 1024
+collision_layer = 64
+collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 3 )
