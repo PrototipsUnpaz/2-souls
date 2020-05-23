@@ -20,14 +20,15 @@ animations = [ {
 script = ExtResource( 4 )
 
 [node name="PowergArea" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 64
+collision_mask = 64
 
 [node name="CollisionArea" type="CollisionShape2D" parent="PowergArea"]
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
