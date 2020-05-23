@@ -1,0 +1,26 @@
+[gd_scene format=2]
+
+[node name="GameOver" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+margin_top = -1.94803
+margin_right = 1280.0
+margin_bottom = 718.052
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Control/CenterContainer"]
+margin_left = 590.0
+margin_top = 335.0
+margin_right = 690.0
+margin_bottom = 385.0
+rect_min_size = Vector2( 100, 50 )
+text = "Reintentar"
