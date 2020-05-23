@@ -27,12 +27,6 @@ func _on_Timer_timeout():
 	pass 
 
 
-	
-func  _process(delta): 
-	direction = Vector2(speed, 0)* delta;
-
-
-
 func _on_PowerArea_area_entered(area):
 	queue_free()
 	pass # Replace with function body.

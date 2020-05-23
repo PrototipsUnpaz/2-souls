@@ -9,6 +9,9 @@ var left = 0
 var top = 0
 var bot = 0
 var idle = 0
+onready var powerPos = $Pivot/PosPower
+var powerDirection = Vector2()
+var cdshoot = false
 var onda_generator = preload ("res://scenes/power_hansel/PowerHansel.tscn")
 
 func generate_power():
@@ -146,3 +149,8 @@ func _on_Area2D_area_entered(area):
 	adrenalin();
 	$Area.set_deferred("disable", true)
 	pass 
+
+
+func _on_CdShoot_timeout():
+	cdshoot = true
+	pass # Replace with function body.

@@ -73,6 +73,13 @@ collision_mask = 34
 [node name="Collision" type="CollisionShape2D" parent="Area"]
 shape = SubResource( 3 )
 
-[node name="PosPower" type="Position2D" parent="."]
+[node name="Pivot" type="Position2D" parent="."]
+
+[node name="PosPower" type="Position2D" parent="Pivot"]
 position = Vector2( 40, 0 )
+
+[node name="CdShoot" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
 [connection signal="area_entered" from="Area" to="." method="_on_Area2D_area_entered"]
+[connection signal="timeout" from="CdShoot" to="." method="_on_CdShoot_timeout"]
