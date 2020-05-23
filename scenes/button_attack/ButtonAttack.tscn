@@ -35,6 +35,6 @@ collision_mask = 4
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 0.5
 [connection signal="input_event" from="AttackArea" to="." method="_on_AttackArea_input_event"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
