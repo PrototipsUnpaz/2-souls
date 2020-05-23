@@ -154,3 +154,13 @@ func _on_Area2D_area_entered(area):
 func _on_CdShoot_timeout():
 	cdshoot = true
 	pass # Replace with function body.
+
+func deletePlayer():
+	queue_free()
+	pass
+
+func _on_Area_body_entered(body):
+	if Autoload.inmortal == false:
+		deletePlayer()
+		Autoload.muerte = true
+	pass # Replace with function body.
