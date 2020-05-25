@@ -16,7 +16,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="PowerArea" type="Area2D"]
+[node name="PowerHansel" type="Area2D"]
 collision_layer = 64
 collision_mask = 64
 script = ExtResource( 4 )

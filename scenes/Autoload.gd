@@ -2,7 +2,8 @@ extends Node
 
 var dead = false
 var inmortal = false
-
+var dead2 = false
+var inmortal2 = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
