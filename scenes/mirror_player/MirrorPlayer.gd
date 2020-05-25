@@ -8,6 +8,8 @@ var	idle = 0
 var	top = 0
 var	right = 0
 var	left = 0
+onready var onda2Pos = $Pivot/PosPower
+var onda2Direction = Vector2()
 var	bot = 0
 var onda_generator2 = preload ("res://scenes/power_gretel/PowerGretel.tscn")
 
@@ -23,10 +25,15 @@ func _ready():
 	if stickDigital != null:
 		stickDigital.connect("stick_motion", self, "get_motion_vector")
 
-func generate_power():
+func generate_power(ondaIstanceDefault_l, direction_x = onda2Direction.x, direction_y = 0):
+	if direction_x and direction_y:
+		 direction_x = $Pivot.scale.x
 	var onda2 = onda_generator2.instance()
-	add_child(onda2)
-	onda2.global_position = $PosPower2.global_position
+	self.get_parent().add_child(onda2)
+	onda2.global_position = self.onda2Pos.global_position
+	onda2.direction = Vector2(direction_x, direction_y)
+	pass
+
 
 func attack():
 	idle = 0
@@ -35,7 +42,7 @@ func attack():
 	left = 0
 	bot = 0
 	$AnimationSprite.play("AtkRight")
-	generate_power()
+	generate_power(onda_generator2,onda2Direction.x, onda2Direction.y)
 	pass
 
 func get_motion_vector(motion):
