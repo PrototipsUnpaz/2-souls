@@ -41,7 +41,6 @@ func attack():
 	right = 0
 	left = 0
 	bot = 0
-	$AnimationSprite.play("AtkRight")
 	generate_power(onda_generator2,onda2Direction.x, onda2Direction.y)
 	pass
 
@@ -107,3 +106,13 @@ func _physics_process(delta):
 	#if Input.is_action_pressed("ui_down"):
 	#	velocity.y = SPEED
 	#	velocity.x = 0
+func deletePlayer():
+	queue_free()
+	pass
+
+func _on_Area_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_Area_body_entered(body):
+	pass # Replace with function body.
