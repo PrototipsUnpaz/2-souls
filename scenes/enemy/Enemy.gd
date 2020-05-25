@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var stun = false
 var initialPosition
-var spd = 10
+var spd = 20
 var move = Vector2(spd, 0)
 
 func _physics_process(delta):
