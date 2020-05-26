@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/escenario(beta).png-76765e7bf7d7578af92ee9c6ff72f12d.stex"
+path="res://.import/background.png-47dbb4e95115dc706bf8cc733a318cb2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/stage1/background/escenario(beta).png"
-dest_files=[ "res://.import/escenario(beta).png-76765e7bf7d7578af92ee9c6ff72f12d.stex" ]
+source_file="res://assets/stage1/background/background.png"
+dest_files=[ "res://.import/background.png-47dbb4e95115dc706bf8cc733a318cb2.stex" ]
 
 [params]
 
