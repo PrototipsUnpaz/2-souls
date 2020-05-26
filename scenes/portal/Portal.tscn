@@ -24,11 +24,11 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 74.385
+radius = 48.4834
 
 [node name="Portal" type="AnimatedSprite"]
 frames = SubResource( 1 )
-frame = 12
+frame = 4
 playing = true
 script = ExtResource( 1 )
 

@@ -19,7 +19,7 @@
 [ext_resource path="res://assets/Hansel/attack/top/el_ataque_arriba3.png" type="Texture" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 48 )
+extents = Vector2( 32, 46.7448 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -50,7 +50,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 24.9488, 47.9111 )
+extents = Vector2( 24.9488, 39.7466 )
 
 [node name="Player" type="KinematicBody2D"]
 z_index = 1
