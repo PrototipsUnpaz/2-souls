@@ -15,11 +15,13 @@ func _on_Area2D_area_entered(area):
 	if stun == true:
 		move = Vector2(0,0)
 		Autoload.inmortal = true
+		Autoload.inmortal2 = true
 	pass 
 
 
 func _on_Stun_timeout():
 	stun = false
 	Autoload.inmortal = false
+	Autoload.inmortal2 = false
 	move = Vector2(spd, 0)
 	pass # Replace with function body.
