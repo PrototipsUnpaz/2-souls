@@ -111,7 +111,7 @@ func deletePlayer():
 	pass
 
 func _on_Area_area_entered(area):
-	
+	Autoload.count += 1
 	pass # Replace with function body.
 
 
@@ -119,4 +119,9 @@ func _on_Area_body_entered(body):
 	if Autoload.inmortal2 == false:
 		deletePlayer()
 		Autoload.dead2 = true
+	pass # Replace with function body.
+
+
+func _on_Area_area_exited(area):
+	Autoload.count -= 1
 	pass # Replace with function body.

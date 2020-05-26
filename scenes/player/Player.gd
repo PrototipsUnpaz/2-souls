@@ -58,7 +58,6 @@ func get_motion_vector(motion):
 
 func _physics_process(delta):
 	pos_stick_angle = rad2deg(  new_motion_vector.angle_to(Vector2(1,0))  )
-	print(SPEED)
 	#Movimiento derecha
 	if pos_stick_angle < 45 and pos_stick_angle >-45:
 		velocity = Vector2(SPEED, 0)
@@ -142,7 +141,9 @@ func _physics_process(delta):
 		#velocity.x = 0
 
 func _on_Area2D_area_entered(area):
-	adrenalin();
+	if Autoload.powerup_vel == false:
+		 adrenalin()
+	Autoload.count += 1
 	$Area.set_deferred("disable", true)
 	pass 
 
@@ -155,4 +156,9 @@ func _on_Area_body_entered(body):
 	if Autoload.inmortal == false:
 		deletePlayer()
 		Autoload.dead = true
+	pass # Replace with function body.
+
+
+func _on_Area_area_exited(area):
+	Autoload.count -= 1
 	pass # Replace with function body.

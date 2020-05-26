@@ -7,6 +7,9 @@ func _ready():
 	pass
 	
 func _process(delta):
+	print(Autoload.count)
+	if Autoload.count == 2:
+		get_tree().change_scene("res://scenes/game_over/GameOver.tscn")
 	if Autoload.dead == true:
 		get_tree().change_scene("res://scenes/game_over/GameOver.tscn")
 		Autoload.dead = false
