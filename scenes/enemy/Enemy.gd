@@ -6,18 +6,14 @@ var spd = 200
 var move = Vector2(spd, 0)
 
 func pathfinding():
-	print(position)
+
 	if self.position.x <=  72 and self.position.y >= 431:
-		
 		move = Vector2(spd, 0)
 	if self.position.x >= 570 and self.position.y == 431:
-		
 		move = Vector2(0, -spd)
 	if self.position.y <= 315 and self.position.x >= 570:
-		
 		move = Vector2(-spd, 0)
 	if self.position.y <= 315 and self.position.x <= 72:
-		
 		move = Vector2(0, spd)
 	pass
 

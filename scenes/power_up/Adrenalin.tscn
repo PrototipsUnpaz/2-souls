@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/power_up/Adrenalin.gd" type="Script" id=1]
-[ext_resource path="res://assets/stage1/power_up/items.png" type="Texture" id=2]
+[ext_resource path="res://assets/stage1/power_up/star.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 189.309
+radius = 52.8548
 
 [node name="Adrenalin" type="Node2D"]
 script = ExtResource( 1 )
@@ -17,6 +17,6 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="Collision" type="CollisionShape2D" parent="Area"]
-position = Vector2( 9.52002, 6.34668 )
+position = Vector2( 4.52002, 6.34668 )
 shape = SubResource( 1 )
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
