@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const SPEED = 300
+var SPEED = 200
 var velocity = Vector2()
 var new_motion_vector = Vector2(0,0)
 var pos_stick_angle
@@ -24,6 +24,11 @@ func _ready():
 		buttonAttack.connect("hit", self, "attack")
 	if stickDigital != null:
 		stickDigital.connect("stick_motion", self, "get_motion_vector")
+	
+		
+func adrenalin():
+	SPEED = SPEED + 100
+	pass
 
 func generate_power(ondaIstanceDefault_l, direction_x = onda2Direction.x, direction_y = 0):
 	if direction_x and direction_y:
@@ -111,7 +116,8 @@ func deletePlayer():
 	pass
 
 func _on_Area_area_entered(area):
-	Autoload.count += 1
+	if Autoload.win == true:
+		Autoload.count += 1
 	pass # Replace with function body.
 
 
@@ -123,5 +129,6 @@ func _on_Area_body_entered(body):
 
 
 func _on_Area_area_exited(area):
-	Autoload.count -= 1
+	Autoload.win = false
+	Autoload.count = 0
 	pass # Replace with function body.

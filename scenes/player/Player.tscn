@@ -69,8 +69,8 @@ playing = true
 
 [node name="Area" type="Area2D" parent="."]
 scale = Vector2( 0.861019, 0.970397 )
-collision_layer = 514
-collision_mask = 514
+collision_layer = 530
+collision_mask = 530
 
 [node name="Collision" type="CollisionShape2D" parent="Area"]
 shape = SubResource( 3 )

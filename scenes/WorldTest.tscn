@@ -103,20 +103,27 @@ position = Vector2( 639.493, 724.681 )
 shape = SubResource( 1 )
 
 [node name="Side" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Side"]
 position = Vector2( 1281.24, 375.328 )
 shape = SubResource( 2 )
 
 [node name="Side2" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Side2"]
 position = Vector2( 7.5365, 364.776 )
 shape = SubResource( 2 )
 
 [node name="Adrenalin" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 329.631, 254.185 )
+position = Vector2( 329.631, 318.027 )
+scale = Vector2( 0.201384, 0.151603 )
+
+[node name="Adrenalin2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 942.271, 444.484 )
 scale = Vector2( 0.201384, 0.151603 )
 
 [node name="StickDigital" parent="." instance=ExtResource( 7 )]
@@ -138,7 +145,7 @@ texture = ExtResource( 10 )
 [node name="Portal" parent="." instance=ExtResource( 11 )]
 position = Vector2( 646.893, 96.3993 )
 scale = Vector2( 0.612109, 0.612109 )
-frame = 7
+frame = 11
 
 [node name="SmallWall" type="TileMap" parent="."]
 position = Vector2( 481.161, 239.606 )
