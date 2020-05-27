@@ -13,6 +13,7 @@ onready var ondaPos = $Pivot/PosPower
 var ondaDirection = Vector2()
 var onda_generator = preload ("res://scenes/power_hansel/PowerHansel.tscn")
 
+
 func generate_onda(ondaIstanceDefault_l, direction_x = ondaDirection.x, direction_y = 0):
 	if direction_x and direction_y:
 		 direction_x = $Pivot.scale.x
@@ -29,17 +30,19 @@ func _ready():
 	# en caso de que no lo encuentre, no hará la conección y no habrá movimiento
 	var stickDigital = get_parent().get_node_or_null("StickDigital")
 	var buttonAttack = get_parent().get_node_or_null("ButtonAttack")
+	var powerUpVel = get_parent().get_node_or_null("Adrenalin")
 	
 	if buttonAttack != null:
 		buttonAttack.connect("hit", self, "attack")
 	if stickDigital != null:
 		stickDigital.connect("stick_motion", self, "get_motion_vector")
-
+	if powerUpVel != null:
+		powerUpVel.connect("adrenalyn", self, "adrenalin")
 		
 func adrenalin():
-	SPEED = SPEED * 1.15
+	SPEED = SPEED + 150
 	pass
-	
+
 func attack():
 	idle = 0
 	top = 0
@@ -57,6 +60,7 @@ func get_motion_vector(motion):
 		
 
 func _physics_process(delta):
+	
 	pos_stick_angle = rad2deg(  new_motion_vector.angle_to(Vector2(1,0))  )
 	#Movimiento derecha
 	if pos_stick_angle < 45 and pos_stick_angle >-45:
@@ -141,8 +145,6 @@ func _physics_process(delta):
 		#velocity.x = 0
 
 func _on_Area2D_area_entered(area):
-	if Autoload.powerup_vel == false:
-		 adrenalin()
 	if Autoload.win == true:
 		Autoload.count += 1
 	

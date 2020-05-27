@@ -4,7 +4,6 @@ var dead = false
 var inmortal = false
 var dead2 = false
 var inmortal2 = false
-var powerup_vel = true
 var count = 0
 var win = false
 
