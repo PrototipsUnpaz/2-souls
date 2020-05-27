@@ -11,6 +11,7 @@
 [ext_resource path="res://scenes/enemy/Enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/Hansel/idle/AZUL_iddle1.png" type="Texture" id=10]
 [ext_resource path="res://scenes/portal/Portal.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/ui/text_win/TextWin.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 640.64, 15.279 )
@@ -70,8 +71,6 @@ points = PoolVector2Array( 800, 160, 0, 160, 0, 96, 800, 96 )
 } ]
 0/z_index = 0
 
-[sub_resource type="BitmapFont" id=7]
-
 [node name="WorldTest" type="Node2D"]
 script = ExtResource( 4 )
 
@@ -129,7 +128,7 @@ position = Vector2( 942.271, 444.484 )
 scale = Vector2( 0.201384, 0.151603 )
 
 [node name="StickDigital" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1195.32, 635.503 )
+position = Vector2( 1180, 635.503 )
 z_index = 2
 
 [node name="ButtonAttack" parent="." instance=ExtResource( 8 )]
@@ -141,13 +140,14 @@ position = Vector2( 72, 431 )
 scale = Vector2( 0.4, 0.3 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 418.091, 668.886 )
 texture = ExtResource( 10 )
 
 [node name="Portal" parent="." instance=ExtResource( 11 )]
 position = Vector2( 646.893, 96.3993 )
 scale = Vector2( 0.612109, 0.612109 )
-frame = 10
+frame = 9
 
 [node name="SmallWall" type="TileMap" parent="."]
 position = Vector2( 481.161, 239.606 )
@@ -163,11 +163,17 @@ tile_set = SubResource( 6 )
 format = 1
 tile_data = PoolIntArray( -2162718, -1073741824, 0, -2162712, -1073741824, 0, -2162706, -1073741824, 0, -2228223, -1073741824, 0, -2228212, -1073741824, 0, -2228205, -1073741824, 0 )
 
-[node name="Label" type="Label" parent="."]
-visible = false
-margin_right = 40.0
-margin_bottom = 14.0
-custom_fonts/font = SubResource( 7 )
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextWin" parent="CenterContainer" instance=ExtResource( 12 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 424.0
+margin_top = 215.0
+margin_right = 856.0
+margin_bottom = 504.0
