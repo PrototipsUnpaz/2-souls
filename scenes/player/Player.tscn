@@ -19,7 +19,7 @@
 [ext_resource path="res://assets/Hansel/attack/top/el_ataque_arriba3.png" type="Texture" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 48 )
+extents = Vector2( 32, 46.7448 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -50,7 +50,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 24.9488, 47.9111 )
+extents = Vector2( 24.9488, 39.7466 )
 
 [node name="Player" type="KinematicBody2D"]
 z_index = 1
@@ -58,6 +58,7 @@ collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+scale = Vector2( 0.882856, 0.853277 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -67,8 +68,9 @@ animation = "Idle"
 playing = true
 
 [node name="Area" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
+scale = Vector2( 0.861019, 0.970397 )
+collision_layer = 514
+collision_mask = 514
 
 [node name="Collision" type="CollisionShape2D" parent="Area"]
 shape = SubResource( 3 )
@@ -76,6 +78,7 @@ shape = SubResource( 3 )
 [node name="Pivot" type="Position2D" parent="."]
 
 [node name="PosPower" type="Position2D" parent="Pivot"]
-position = Vector2( -45, 0 )
+position = Vector2( 45, 0 )
 [connection signal="area_entered" from="Area" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area" to="." method="_on_Area_area_exited"]
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

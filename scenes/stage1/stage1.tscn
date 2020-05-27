@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://assets/stage1/background/escenario(beta).png" type="Texture" id=1]
+[ext_resource path="res://assets/stage1/background/background.png" type="Texture" id=1]
 
 [node name="Background" type="Sprite"]
 texture = ExtResource( 1 )

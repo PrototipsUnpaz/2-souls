@@ -1,14 +1,16 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/mirror_player/MirrorPlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/stage1/stage1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/WorldTest.gd" type="Script" id=4]
-[ext_resource path="res://scenes/stage1/objets/BricksV.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/stage1/objets/pared_de_luz.png" type="Texture" id=5]
 [ext_resource path="res://scenes/power_up/Adrenalin.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/stick_digital/StickDigital.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/button_attack/ButtonAttack.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/enemy/Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/Hansel/idle/AZUL_iddle1.png" type="Texture" id=10]
+[ext_resource path="res://scenes/portal/Portal.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 640.64, 15.279 )
@@ -16,15 +18,83 @@ extents = Vector2( 640.64, 15.279 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10.3129, 354.153 )
 
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 800, 64, 0, 64, 0, 0, 800, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 832, 192, 32, 192, 32, 128, 832, 128 )
+
+[sub_resource type="TileSet" id=5]
+0/name = "pared_de_luz.png 0"
+0/texture = ExtResource( 5 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 160, 800, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 3 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "pared_de_luz.png 1"
+1/texture = ExtResource( 5 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( -32, 32, 832, 320 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 4 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "pared_de_luz.png 2"
+2/texture = ExtResource( 5 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 544, 32, 256, 288 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+
 [node name="WorldTest" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
+[node name="Player" parent="." groups=[
+"players",
+] instance=ExtResource( 1 )]
 position = Vector2( 726.732, 666 )
 scale = Vector2( 0.8, 0.8 )
 z_index = 2
 
-[node name="MirrorPlayer" parent="." instance=ExtResource( 2 )]
+[node name="MirrorPlayer" parent="." groups=[
+"players",
+] instance=ExtResource( 2 )]
 position = Vector2( 522, 666 )
 scale = Vector2( 0.8, 0.8 )
 z_index = 1
@@ -57,107 +127,34 @@ position = Vector2( 7.5365, 364.776 )
 shape = SubResource( 2 )
 
 [node name="Adrenalin" parent="." instance=ExtResource( 6 )]
+visible = false
 position = Vector2( 329.631, 254.185 )
 scale = Vector2( 0.201384, 0.151603 )
 
 [node name="StickDigital" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1062.85, 647.191 )
+position = Vector2( 1195.32, 635.503 )
 z_index = 2
 
 [node name="ButtonAttack" parent="." instance=ExtResource( 8 )]
-position = Vector2( 272.828, 674.812 )
+position = Vector2( 81.9219, 654.98 )
 z_index = 2
 
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
 position = Vector2( 53.6087, 73.1915 )
 scale = Vector2( 0.4, 0.3 )
 
-[node name="BricksV" parent="." instance=ExtResource( 5 )]
-position = Vector2( 617, 669 )
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 173.457, 328.438 )
+scale = Vector2( 0.289579, 0.258523 )
+tile_set = SubResource( 5 )
+format = 1
+tile_data = PoolIntArray( -1114063, 2, 0, -1114059, 2, 0, -1114056, 2, 0, -917472, 536870914, 0, -917469, 536870914, 0, -786409, -2147483646, 0, -786402, -2147483646, 0, -786396, -1073741822, 0, -655324, -2147483646, 0, -589801, -2147483646, 0, -589794, -2147483646, 0, -524262, 536870914, 0, -524259, 536870914, 0, -524250, 536870914, 0, -458729, -1610612735, 0, -327672, 536870913, 0, 131103, 1610612737, 0, 131113, 1, 0, 393232, 536870914, 0, 393236, 536870914, 0, 393237, 536870914, 0, 393239, -1610612735, 0, 524279, 536870914, 0, 524281, 536870914, 0, 524283, 536870914, 0, 458756, 1073741826, 0, 458759, 1073741826, 0, 524319, 2, 0, 524320, 2, 0, 524329, 2, 0, 524331, 2, 0, 524340, 2, 0, 524343, 2, 0, 655383, -1610612735, 0, 983037, 1, 0, 917510, 1, 0, 917523, 1, 0, 917536, 1, 0, 917545, 1, 0 )
 
-[node name="BricksV2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 617, 570.483 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 418.091, 668.886 )
+texture = ExtResource( 10 )
 
-[node name="BricksV3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 617, 470.109 )
-
-[node name="BricksV4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 617, 370.439 )
-
-[node name="BricksV5" parent="." instance=ExtResource( 5 )]
-position = Vector2( 617, 270.769 )
-
-[node name="BricksV6" parent="." instance=ExtResource( 5 )]
-position = Vector2( 617, 174.395 )
-
-[node name="BricksV7" parent="." instance=ExtResource( 5 )]
-position = Vector2( 708.646, 568.187 )
-
-[node name="BricksV8" parent="." instance=ExtResource( 5 )]
-position = Vector2( 810.316, 566.755 )
-
-[node name="BricksV9" parent="." instance=ExtResource( 5 )]
-position = Vector2( 911.986, 566.755 )
-
-[node name="BricksV10" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1007.93, 568.187 )
-
-[node name="BricksV11" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1106.73, 565.323 )
-
-[node name="BricksV12" parent="." instance=ExtResource( 5 )]
-position = Vector2( 522.49, 568.187 )
-
-[node name="BricksV13" parent="." instance=ExtResource( 5 )]
-position = Vector2( 427.98, 568.187 )
-
-[node name="BricksV14" parent="." instance=ExtResource( 5 )]
-position = Vector2( 337.766, 569.619 )
-
-[node name="BricksV15" parent="." instance=ExtResource( 5 )]
-position = Vector2( 246.12, 569.619 )
-
-[node name="BricksV16" parent="." instance=ExtResource( 5 )]
-position = Vector2( 155.905, 571.051 )
-
-[node name="BricksV17" parent="." instance=ExtResource( 5 )]
-position = Vector2( 439.436, 370 )
-
-[node name="BricksV18" parent="." instance=ExtResource( 5 )]
-position = Vector2( 238.96, 370 )
-
-[node name="BricksV19" parent="." instance=ExtResource( 5 )]
-position = Vector2( 64.259, 370 )
-
-[node name="BricksV20" parent="." instance=ExtResource( 5 )]
-position = Vector2( 817.476, 370 )
-
-[node name="BricksV21" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1010.79, 370 )
-
-[node name="BricksV22" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1224.16, 370 )
-
-[node name="BricksV23" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1124.67, 165.803 )
-
-[node name="BricksV24" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1032.72, 167.31 )
-
-[node name="BricksV25" parent="." instance=ExtResource( 5 )]
-position = Vector2( 942.283, 167.31 )
-
-[node name="BricksV26" parent="." instance=ExtResource( 5 )]
-position = Vector2( 851.843, 167.31 )
-
-[node name="BricksV27" parent="." instance=ExtResource( 5 )]
-position = Vector2( 446.369, 165.803 )
-
-[node name="BricksV28" parent="." instance=ExtResource( 5 )]
-position = Vector2( 351.407, 165.803 )
-
-[node name="BricksV29" parent="." instance=ExtResource( 5 )]
-position = Vector2( 263.981, 165.803 )
-
-[node name="BricksV30" parent="." instance=ExtResource( 5 )]
-position = Vector2( 173.541, 164.296 )
+[node name="Portal" parent="." instance=ExtResource( 11 )]
+position = Vector2( 646.893, 96.3993 )
+scale = Vector2( 0.612109, 0.612109 )
+frame = 7
