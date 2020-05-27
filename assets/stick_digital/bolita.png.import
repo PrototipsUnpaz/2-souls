@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/der.png-ab77fac3e81aeaa867db307e9bc1252d.stex"
+path="res://.import/bolita.png-37b4b16d91285a43afebf87ea4255d6d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/stick_digital/der.png"
-dest_files=[ "res://.import/der.png-ab77fac3e81aeaa867db307e9bc1252d.stex" ]
+source_file="res://assets/stick_digital/bolita.png"
+dest_files=[ "res://.import/bolita.png-37b4b16d91285a43afebf87ea4255d6d.stex" ]
 
 [params]
 
