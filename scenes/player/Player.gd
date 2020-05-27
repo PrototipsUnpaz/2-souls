@@ -59,7 +59,7 @@ func get_motion_vector(motion):
 		
 
 func _physics_process(delta):
-
+	print(SPEED)
 	pos_stick_angle = rad2deg(  new_motion_vector.angle_to(Vector2(1,0))  )
 	#Movimiento derecha
 	if pos_stick_angle < 45 and pos_stick_angle >-45:

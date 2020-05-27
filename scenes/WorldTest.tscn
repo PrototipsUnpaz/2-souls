@@ -138,7 +138,6 @@ z_index = 2
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
 position = Vector2( 72, 431 )
 scale = Vector2( 0.4, 0.3 )
-collision_layer = 3
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
@@ -148,7 +147,7 @@ texture = ExtResource( 10 )
 [node name="Portal" parent="." instance=ExtResource( 11 )]
 position = Vector2( 646.893, 96.3993 )
 scale = Vector2( 0.612109, 0.612109 )
-frame = 3
+frame = 5
 
 [node name="SmallWall" type="TileMap" parent="."]
 position = Vector2( 481.161, 239.606 )

@@ -35,7 +35,7 @@ func pathfinding():
 	pass
 
 func _physics_process(delta):
-	print(posEnemy)
+	
 	pos_assign()
 	pathfinding()
 	move_and_slide(move)
