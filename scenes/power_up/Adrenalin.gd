@@ -9,7 +9,8 @@ func delete ():
 	pass
 
 func _on_Area_area_entered(area):
-	emit_signal("adrenalyn")
+	get_tree().call_group("players", "adrenalin")
+	
 	delete();
-	$Area.set_deferred("disable", true)
+	
 	pass 

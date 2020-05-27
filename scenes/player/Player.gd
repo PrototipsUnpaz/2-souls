@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var SPEED = 300
+var SPEED = 200
 var velocity = Vector2(0, 0)
 var new_motion_vector = Vector2(0,0)
 var pos_stick_angle 
@@ -30,17 +30,16 @@ func _ready():
 	# en caso de que no lo encuentre, no hará la conección y no habrá movimiento
 	var stickDigital = get_parent().get_node_or_null("StickDigital")
 	var buttonAttack = get_parent().get_node_or_null("ButtonAttack")
-	var powerUpVel = get_parent().get_node_or_null("Adrenalin")
+	
 	
 	if buttonAttack != null:
 		buttonAttack.connect("hit", self, "attack")
 	if stickDigital != null:
 		stickDigital.connect("stick_motion", self, "get_motion_vector")
-	if powerUpVel != null:
-		powerUpVel.connect("adrenalyn", self, "adrenalin")
+	
 		
 func adrenalin():
-	SPEED = SPEED + 150
+	SPEED = SPEED + 100
 	pass
 
 func attack():
@@ -60,7 +59,7 @@ func get_motion_vector(motion):
 		
 
 func _physics_process(delta):
-	
+	print(SPEED)
 	pos_stick_angle = rad2deg(  new_motion_vector.angle_to(Vector2(1,0))  )
 	#Movimiento derecha
 	if pos_stick_angle < 45 and pos_stick_angle >-45:
