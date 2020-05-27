@@ -4,6 +4,7 @@ var direction = Vector2()
 export var vel = 200
 func _ready():
 	$Timer.start()
+	$AnimatedSprite.flip_h = true
 	pass
 
 
