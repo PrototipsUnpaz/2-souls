@@ -8,6 +8,7 @@ func _process(_delta):
 	if touched == true:
 		if Input.is_action_just_released("touch"):
 			touched = false
+			$ButtonImage.modulate = Color(1,1,1, 0.6)
 		else:
 			# clamp devuelve el mismo vector pero reducido para que su
 			# distancia sea de max_button_ration_length o menos
@@ -24,4 +25,5 @@ func _process(_delta):
 func _on_TouchArea_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("touch") && touched == false:
 		touched = true
+		$ButtonImage.modulate = Color(1,1,1, 1.2)
 	pass
