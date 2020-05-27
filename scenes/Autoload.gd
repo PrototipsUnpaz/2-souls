@@ -6,6 +6,7 @@ var dead2 = false
 var inmortal2 = false
 var powerup_vel = true
 var count = 0
+var win = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -143,8 +143,9 @@ func _physics_process(delta):
 func _on_Area2D_area_entered(area):
 	if Autoload.powerup_vel == false:
 		 adrenalin()
-	Autoload.count += 1
-	$Area.set_deferred("disable", true)
+	if Autoload.win == true:
+		Autoload.count += 1
+	
 	pass 
 
 
@@ -160,5 +161,6 @@ func _on_Area_body_entered(body):
 
 
 func _on_Area_area_exited(area):
-	Autoload.count -= 1
+	Autoload.count = 0
+	Autoload.win = false
 	pass # Replace with function body.

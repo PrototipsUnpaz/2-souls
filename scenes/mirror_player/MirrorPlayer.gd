@@ -111,7 +111,8 @@ func deletePlayer():
 	pass
 
 func _on_Area_area_entered(area):
-	Autoload.count += 1
+	if Autoload.win == true:
+		Autoload.count += 1
 	pass # Replace with function body.
 
 
@@ -123,5 +124,6 @@ func _on_Area_body_entered(body):
 
 
 func _on_Area_area_exited(area):
-	Autoload.count -= 1
+	Autoload.win = false
+	Autoload.count = 0
 	pass # Replace with function body.

@@ -115,7 +115,6 @@ position = Vector2( 7.5365, 364.776 )
 shape = SubResource( 2 )
 
 [node name="Adrenalin" parent="." instance=ExtResource( 6 )]
-visible = false
 position = Vector2( 329.631, 254.185 )
 scale = Vector2( 0.201384, 0.151603 )
 
