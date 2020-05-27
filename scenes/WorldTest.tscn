@@ -138,6 +138,7 @@ z_index = 2
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
 position = Vector2( 72, 431 )
 scale = Vector2( 0.4, 0.3 )
+collision_layer = 3
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
@@ -147,7 +148,7 @@ texture = ExtResource( 10 )
 [node name="Portal" parent="." instance=ExtResource( 11 )]
 position = Vector2( 646.893, 96.3993 )
 scale = Vector2( 0.612109, 0.612109 )
-frame = 9
+frame = 3
 
 [node name="SmallWall" type="TileMap" parent="."]
 position = Vector2( 481.161, 239.606 )
@@ -164,6 +165,7 @@ format = 1
 tile_data = PoolIntArray( -2162718, -1073741824, 0, -2162712, -1073741824, 0, -2162706, -1073741824, 0, -2228223, -1073741824, 0, -2228212, -1073741824, 0, -2228205, -1073741824, 0 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+visible = false
 margin_right = 1280.0
 margin_bottom = 720.0
 __meta__ = {

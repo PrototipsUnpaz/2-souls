@@ -7,7 +7,7 @@ var cdSignal = true
 func _process(delta):
 
 	if touched == true:
-		if Input.is_action_just_released("touch2"):
+		if Input.is_action_just_released("touch"):
 			touched = false
 			$AnimatedSprite.play("idle")
 			modulate = Color (1,1,1,0.4)
@@ -18,7 +18,7 @@ func _process(delta):
 	pass
 
 func _on_AttackArea_input_event(viewport, event, shape_idx):
-	if event.is_action_pressed("touch2") && touched == false:
+	if event.is_action_pressed("touch") && touched == false:
 		touched = true
 		$AnimatedSprite.play("pressed")
 		modulate = Color (1,1,1,0.6)
