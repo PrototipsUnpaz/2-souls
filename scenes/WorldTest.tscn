@@ -138,7 +138,7 @@ texture = ExtResource( 10 )
 [node name="Portal" parent="." instance=ExtResource( 11 )]
 position = Vector2( 646.893, 96.3993 )
 scale = Vector2( 0.612109, 0.612109 )
-frame = 5
+frame = 7
 
 [node name="SmallWall" type="TileMap" parent="."]
 position = Vector2( 481.161, 239.606 )
