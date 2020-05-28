@@ -10,7 +10,7 @@ func pos_assign():
 	if self.position.x <=  72 and self.position.y >= 431:
 		
 		posEnemy = 1
-	if self.position.x >= 570 and self.position.y <= 431:
+	if self.position.x >= 570 and self.position.y == 431:
 		
 		posEnemy = 2
 	if self.position.y <= 315 and self.position.x >= 570:
@@ -19,6 +19,7 @@ func pos_assign():
 	if self.position.y <= 315 and self.position.x <= 72:
 		
 		posEnemy = 4	
+	
 	pass
 
 func pathfinding():
