@@ -128,7 +128,7 @@ position = Vector2( 942.271, 444.484 )
 scale = Vector2( 0.201384, 0.151603 )
 
 [node name="StickDigital" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1180, 635 )
+position = Vector2( 1131, 635 )
 z_index = 2
 
 [node name="ButtonAttack" parent="." instance=ExtResource( 8 )]
@@ -147,7 +147,7 @@ texture = ExtResource( 10 )
 [node name="Portal" parent="." instance=ExtResource( 11 )]
 position = Vector2( 646.893, 96.3993 )
 scale = Vector2( 0.612109, 0.612109 )
-frame = 11
+frame = 1
 
 [node name="SmallWall" type="TileMap" parent="."]
 position = Vector2( 481.161, 239.606 )
