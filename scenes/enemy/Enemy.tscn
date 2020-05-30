@@ -34,12 +34,11 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 1.7, 1.7 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 64
-collision_mask = 64
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 3 )
