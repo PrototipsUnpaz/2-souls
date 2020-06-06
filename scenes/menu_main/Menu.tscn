@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/font_win/londrina_shadow.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/menu_main/Menu.gd" type="Script" id=2]
 [ext_resource path="res://assets/font_win/Roman SD.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/audio/music/musica_menu.ogg" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=4]
 size = 20
@@ -115,6 +116,10 @@ text = "SALIR"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MusicaMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
 [connection signal="pressed" from="Control/CenterContainer/HBoxContainer/Jugar" to="." method="_on_Jugar_pressed"]
 [connection signal="pressed" from="Control/CenterContainer/HBoxContainer/Creditos" to="." method="_on_Creditos_pressed"]
 [connection signal="pressed" from="Control/CenterContainer/HBoxContainer/Salir" to="." method="_on_Salir_pressed"]
