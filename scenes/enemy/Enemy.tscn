@@ -26,7 +26,7 @@ script = ExtResource( 4 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 1.7, 1.7 )
 frames = SubResource( 1 )
-frame = 6
+frame = 2
 playing = true
 
 [node name="EnemyArea" type="Area2D" parent="."]

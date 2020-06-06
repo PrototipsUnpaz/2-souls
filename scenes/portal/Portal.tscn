@@ -29,7 +29,7 @@ height = 0.408752
 
 [node name="Portal" type="AnimatedSprite"]
 frames = SubResource( 1 )
-frame = 9
+frame = 12
 playing = true
 script = ExtResource( 1 )
 
