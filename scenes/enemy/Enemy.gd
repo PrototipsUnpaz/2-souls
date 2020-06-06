@@ -1,60 +1,57 @@
-extends KinematicBody2D
+extends Node2D
 
 var stun = false
-var posEnemy = 0
-var spd = 200
-var move = Vector2(spd, 0)
 
-func pos_assign():
+export (Vector2) var posicion1
+export (Vector2) var posicion2
+export (Vector2) var posicion3
+export (Vector2) var posicion4
 
-	if self.position.x <=  72 and self.position.y >= 431:
-		
-		posEnemy = 1
-	if self.position.x >= 570 and self.position.y == 431:
-		
-		posEnemy = 2
-	if self.position.y <= 315 and self.position.x >= 570:
-		
-		posEnemy = 3
-	if self.position.y <= 315 and self.position.x <= 72:
-		
-		posEnemy = 4	
-	
+export (int) var velocidad
+
+var posicionDestino
+
+func _ready():
+	posicionDestino = posicion1
+	mover()
+
+func mover():
+	var tiempo = position.distance_to(posicionDestino) / velocidad
+	$Tween.interpolate_property(self, "position", position, posicionDestino, tiempo, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Tween.start()
 	pass
 
-func pathfinding():
-	if posEnemy == 0:
-		move = Vector2(0,0)
-	if posEnemy == 1:
-		move = Vector2(spd, 0)
-	if posEnemy == 2:
-		move = Vector2(0, -spd)
-	if posEnemy == 3:
-		move = Vector2(-spd, 0)
-	if posEnemy == 4:
-		move = Vector2(0, spd)
+func _on_Tween_tween_completed(object, key):
+	# si es posicion 1
+	if posicionDestino.x == posicion1.x && posicionDestino.y == posicion1.y: 
+		posicionDestino = posicion2
+	# si es posicion 2
+	elif posicionDestino.x == posicion2.x && posicionDestino.y == posicion2.y:
+		posicionDestino = posicion3
+	elif posicionDestino.x == posicion3.x && posicionDestino.y == posicion3.y:
+		posicionDestino = posicion4
+	elif posicionDestino.x == posicion4.x && posicionDestino.y == posicion4.y:
+		posicionDestino = posicion1
+	mover()
 	pass
 
-func _physics_process(delta):
+func stun():
+	$Tween.stop_all()
+	$Area2D/CollisionShape2D.disabled = true
+	pass
 	
-	pos_assign()
-	pathfinding()
-	move_and_slide(move)
-
-
 func _on_Area2D_area_entered(area):
 	$Stun.start()
 	stun = true
 	if stun == true:
-		posEnemy = 0
-		Autoload.inmortal = true
-		Autoload.inmortal2 = true
-	pass 
+		if area.name == "PowerGretel" or area.name == "PowerHansel":
+			stun()
+		
+	pass # Replace with function body.
 
 
 func _on_Stun_timeout():
 	stun = false
-	Autoload.inmortal = false
-	Autoload.inmortal2 = false
-	posEnemy = 1
+	$Area2D/CollisionShape2D.disabled = false
+	mover()
 	pass # Replace with function body.

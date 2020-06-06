@@ -5,7 +5,6 @@ signal hit
 var cdSignal = true 
 
 func _process(delta):
-	print(touched)
 	if touched == true:
 		if InputEventScreenTouch:
 			touched = false

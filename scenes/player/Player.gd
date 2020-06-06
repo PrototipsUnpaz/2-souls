@@ -59,7 +59,7 @@ func get_motion_vector(motion):
 		
 
 func _physics_process(delta):
-	
+	print(idle)
 	pos_stick_angle = rad2deg(  new_motion_vector.angle_to(Vector2(1,0))  )
 	#Movimiento derecha
 	if pos_stick_angle < 45 and pos_stick_angle >-45:
@@ -104,10 +104,8 @@ func _physics_process(delta):
 		top = 0
 		left = 0
 		bot = 0
-		
 	move_and_slide(velocity)
 	pass
-
 	if right == 1: 
 		$AnimatedSprite.play("RunRight")
 		$AnimatedSprite.flip_h = false
@@ -120,7 +118,6 @@ func _physics_process(delta):
 		$AnimatedSprite.play("RunTop")
 	if idle == 1: 
 		$AnimatedSprite.play("Idle")
-		
 		
 	
 	
