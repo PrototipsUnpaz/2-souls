@@ -1,9 +1,6 @@
 extends Node
 
 var dead = false
-var inmortal = false
-var dead2 = false
-var inmortal2 = false
 var count = 0
 var win = false
 

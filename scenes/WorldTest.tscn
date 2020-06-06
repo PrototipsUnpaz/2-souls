@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/mirror_player/MirrorPlayer.tscn" type="PackedScene" id=2]
@@ -12,12 +12,13 @@
 [ext_resource path="res://assets/Hansel/idle/AZUL_iddle1.png" type="Texture" id=10]
 [ext_resource path="res://scenes/portal/Portal.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/ui/text_win/TextWin.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/audio/music/musica_lvl1.ogg" type="AudioStream" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 640.64, 15.279 )
+extents = Vector2( 675.348, 15.279 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 10.3129, 354.153 )
+extents = Vector2( 10.3129, 372.603 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 800, 192, 0, 192, 0, 128, 800, 128 )
@@ -77,30 +78,31 @@ script = ExtResource( 4 )
 [node name="Player" parent="." groups=[
 "players",
 ] instance=ExtResource( 1 )]
-position = Vector2( 726.732, 666 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 1074.57, 694.168 )
+scale = Vector2( 0.9, 0.9 )
 z_index = 2
 
 [node name="MirrorPlayer" parent="." groups=[
 "players",
 ] instance=ExtResource( 2 )]
-position = Vector2( 522, 666 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 243.666, 694.168 )
+scale = Vector2( 0.9, 0.9 )
 z_index = 1
 
 [node name="Background" parent="." instance=ExtResource( 3 )]
-position = Vector2( 639.922, 363.802 )
+position = Vector2( 679.854, 382.149 )
+scale = Vector2( 1.06239, 0.901428 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
 [node name="Collision" type="CollisionShape2D" parent="Floor"]
-position = Vector2( 638.463, 22.2075 )
+position = Vector2( 683.791, 11.4152 )
 shape = SubResource( 1 )
 
 [node name="Floor2" type="StaticBody2D" parent="."]
 
 [node name="Collision" type="CollisionShape2D" parent="Floor2"]
-position = Vector2( 639.493, 724.681 )
+position = Vector2( 678.346, 754.9 )
 shape = SubResource( 1 )
 
 [node name="Side" type="StaticBody2D" parent="."]
@@ -108,7 +110,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Side"]
-position = Vector2( 1278.24, 375.328 )
+position = Vector2( 1351.63, 375.328 )
 shape = SubResource( 2 )
 
 [node name="Side2" type="StaticBody2D" parent="."]
@@ -116,7 +118,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Side2"]
-position = Vector2( 4.5365, 364.776 )
+position = Vector2( 4.5365, 386.361 )
 shape = SubResource( 2 )
 
 [node name="Adrenalin" parent="." instance=ExtResource( 6 )]
@@ -128,7 +130,7 @@ position = Vector2( 942.271, 444.484 )
 scale = Vector2( 0.201384, 0.151603 )
 
 [node name="StickDigital" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1131, 635 )
+position = Vector2( 1225.97, 628.525 )
 z_index = 2
 
 [node name="ButtonAttack" parent="." instance=ExtResource( 8 )]
@@ -138,6 +140,11 @@ z_index = 2
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
 position = Vector2( 72, 431 )
 scale = Vector2( 0.4, 0.3 )
+posicion1 = Vector2( 72, 431 )
+posicion2 = Vector2( 570, 431 )
+posicion3 = Vector2( 570, 315 )
+posicion4 = Vector2( 72, 315 )
+velocidad = 200
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
@@ -145,19 +152,19 @@ position = Vector2( 418.091, 668.886 )
 texture = ExtResource( 10 )
 
 [node name="Portal" parent="." instance=ExtResource( 11 )]
-position = Vector2( 646.893, 96.3993 )
+position = Vector2( 677.112, 83.4485 )
 scale = Vector2( 0.612109, 0.612109 )
-frame = 5
+frame = 9
 
 [node name="SmallWall" type="TileMap" parent="."]
-position = Vector2( 481.161, 239.606 )
+position = Vector2( 517.855, 239.606 )
 scale = Vector2( 0.160617, 0.278065 )
 tile_set = SubResource( 4 )
 format = 1
-tile_data = PoolIntArray( -458786, 536870912, 0, -458761, 536870912, 0, -524285, 536870912, 0, -524260, 536870912, 0, -524249, 536870912, 0, -524223, 536870912, 0, -327667, -1610612736, 0, -131059, -1610612736, 0, -46, 1610612736, 0, -65520, 0, 0, 393182, 536870912, 0, 393194, 0, 0, 393206, 536870912, 0, 327693, -1610612736, 0, 327708, 536870912, 0, 327720, 536870912, 0, 327732, 536870912, 0, 851921, 536870912, 0, 851946, 536870912, 0, 786435, 536870912, 0, 786447, 536870912, 0, 786472, 536870912, 0, 786497, 536870912, 0, 983053, -1610612736, 0, 1310687, 0, 0, 1310698, 0, 0, 1310710, 0, 0, 1245186, 0, 0, 1245200, 0, 0, 1245212, 536870912, 0, 1245224, 536870912, 0, 1245236, 536870912, 0 )
+tile_data = PoolIntArray( -458786, 536870912, 0, -458761, 536870912, 0, -524285, 536870912, 0, -524260, 536870912, 0, -524249, 536870912, 0, -524223, 536870912, 0, -524218, 0, 0, -327667, -1610612736, 0, -131059, -1610612736, 0, -51, 0, 0, -46, 1610612736, 0, -65520, 0, 0, 393182, 536870912, 0, 393194, 0, 0, 393206, 536870912, 0, 327693, -1610612736, 0, 327708, 536870912, 0, 327720, 536870912, 0, 327732, 536870912, 0, 851917, 0, 0, 851921, 536870912, 0, 851946, 536870912, 0, 786435, 536870912, 0, 786447, 536870912, 0, 786472, 536870912, 0, 786497, 536870912, 0, 786501, 0, 0, 983053, -1610612736, 0, 1310670, 0, 0, 1310677, 0, 0, 1310687, 0, 0, 1310698, 0, 0, 1310710, 0, 0, 1245212, 536870912, 0, 1245224, 536870912, 0, 1245236, 536870912, 0, 1245248, 0, 0, 1245253, 0, 0 )
 
 [node name="LargeWall" type="TileMap" parent="."]
-position = Vector2( 714.631, 485.544 )
+position = Vector2( 751.325, 496.336 )
 scale = Vector2( 0.32, 0.16 )
 tile_set = SubResource( 6 )
 format = 1
@@ -165,8 +172,8 @@ tile_data = PoolIntArray( -2162718, -1073741824, 0, -2162712, -1073741824, 0, -2
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 visible = false
-margin_right = 1280.0
-margin_bottom = 720.0
+margin_right = 1366.0
+margin_bottom = 768.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -174,7 +181,11 @@ __meta__ = {
 [node name="TextWin" parent="CenterContainer" instance=ExtResource( 12 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 424.0
-margin_top = 215.0
-margin_right = 856.0
-margin_bottom = 504.0
+margin_left = 467.0
+margin_top = 239.0
+margin_right = 899.0
+margin_bottom = 528.0
+
+[node name="Musiclvl1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+autoplay = true
