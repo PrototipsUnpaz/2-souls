@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/Hansel/run_right/el adelante1.png" type="Texture" id=1]
 [ext_resource path="res://scenes/player/Player.gd" type="Script" id=2]
@@ -13,17 +13,21 @@
 [ext_resource path="res://assets/Hansel/walk_top/el correr arriba2.png" type="Texture" id=11]
 [ext_resource path="res://assets/Hansel/walk_bot/el correr abajo2.png" type="Texture" id=12]
 [ext_resource path="res://assets/Hansel/walk_bot/el correr abajo.png" type="Texture" id=13]
-[ext_resource path="res://assets/Hansel/idle/el frontal.png" type="Texture" id=14]
+[ext_resource path="res://assets/Hansel/idle/AZUL_iddle1.png" type="Texture" id=14]
 [ext_resource path="res://assets/Hansel/attack/top/el_ataque_arriba1.png" type="Texture" id=15]
 [ext_resource path="res://assets/Hansel/attack/top/el_ataque_arriba2.png" type="Texture" id=16]
 [ext_resource path="res://assets/Hansel/attack/top/el_ataque_arriba3.png" type="Texture" id=17]
+[ext_resource path="res://assets/Hansel/idle/AZUL_iddle2.png" type="Texture" id=18]
+[ext_resource path="res://assets/Hansel/idle/AZUL_iddle1a.png" type="Texture" id=19]
+[ext_resource path="res://assets/Hansel/idle/AZUL_iddle3.png" type="Texture" id=20]
+[ext_resource path="res://assets/Hansel/idle/AZUL_iddle4.png" type="Texture" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 46.7448 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 21 ) ],
 "loop": false,
 "name": "Idle",
 "speed": 5.0
@@ -62,9 +66,10 @@ scale = Vector2( 0.882856, 0.853277 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.158695, 0.132467 )
+scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "Idle"
+frame = 4
 playing = true
 
 [node name="Area" type="Area2D" parent="."]
