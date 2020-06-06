@@ -78,14 +78,14 @@ script = ExtResource( 4 )
 [node name="Player" parent="." groups=[
 "players",
 ] instance=ExtResource( 1 )]
-position = Vector2( 726.732, 666 )
+position = Vector2( 752.634, 696.219 )
 scale = Vector2( 0.8, 0.8 )
 z_index = 2
 
 [node name="MirrorPlayer" parent="." groups=[
 "players",
 ] instance=ExtResource( 2 )]
-position = Vector2( 522, 666 )
+position = Vector2( 573.803, 691.902 )
 scale = Vector2( 0.8, 0.8 )
 z_index = 1
 
@@ -149,10 +149,10 @@ texture = ExtResource( 10 )
 [node name="Portal" parent="." instance=ExtResource( 11 )]
 position = Vector2( 677.112, 83.4485 )
 scale = Vector2( 0.612109, 0.612109 )
-frame = 10
+frame = 1
 
 [node name="SmallWall" type="TileMap" parent="."]
-position = Vector2( 517.855, 248.24 )
+position = Vector2( 517.855, 239.606 )
 scale = Vector2( 0.160617, 0.278065 )
 tile_set = SubResource( 4 )
 format = 1
