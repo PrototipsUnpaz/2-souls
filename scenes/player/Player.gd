@@ -59,7 +59,6 @@ func get_motion_vector(motion):
 		
 
 func _physics_process(delta):
-	print(idle)
 	pos_stick_angle = rad2deg(  new_motion_vector.angle_to(Vector2(1,0))  )
 	#Movimiento derecha
 	if pos_stick_angle < 45 and pos_stick_angle >-45:
@@ -143,22 +142,17 @@ func _physics_process(delta):
 		#velocity.x = 0
 
 func _on_Area2D_area_entered(area):
-	if Autoload.win == true:
+	if area.name == "AreaPortal":		
 		Autoload.count += 1
-	
+	if area.name == "EnemyArea":
+		deletePlayer()
+		Autoload.dead = true
 	pass 
 
 
 func deletePlayer():
 	queue_free()
 	pass
-
-func _on_Area_body_entered(body):
-	if Autoload.inmortal == false:
-		deletePlayer()
-		Autoload.dead = true
-	pass # Replace with function body.
-
 
 func _on_Area_area_exited(area):
 	Autoload.count = 0

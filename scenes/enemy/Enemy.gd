@@ -51,7 +51,9 @@ func _on_Area2D_area_entered(area):
 		
 	pass # Replace with function body.
 
-
+func _process(delta):
+	print($EnemyArea/CollisionShape2D.disabled)
+	pass
 func _on_Stun_timeout():
 	stun = false
 	$EnemyArea/CollisionShape2D.disabled = false
