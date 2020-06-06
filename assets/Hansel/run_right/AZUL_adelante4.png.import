@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/el adelante5.png-fd45568f79c7d472e9693cf5a02ec180.stex"
+path="res://.import/AZUL_adelante4.png-c44e348201a1b52232808ecfaf5e8e2d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Hansel/run_right/el adelante5.png"
-dest_files=[ "res://.import/el adelante5.png-fd45568f79c7d472e9693cf5a02ec180.stex" ]
+source_file="res://assets/Hansel/run_right/AZUL_adelante4.png"
+dest_files=[ "res://.import/AZUL_adelante4.png-c44e348201a1b52232808ecfaf5e8e2d.stex" ]
 
 [params]
 
