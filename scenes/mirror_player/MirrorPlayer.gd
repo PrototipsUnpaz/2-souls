@@ -61,23 +61,24 @@ func _physics_process(delta):
 		velocity = Vector2(-SPEED,0)
 		$AnimationSprite.play("RunRight")
 		$AnimationSprite.flip_h = true
+		onda2Direction = Vector2(-1, 0)
 	#Movimiento izquierda
 	if pos_stick_angle < -128 and pos_stick_angle > -179 or pos_stick_angle < 179 and pos_stick_angle > 134:
 		velocity = Vector2(SPEED, 0)
 		$AnimationSprite.play("RunRight")
 		$AnimationSprite.flip_h = false
-		
+		onda2Direction = Vector2(1, 0)
 	#Movimiento abajo	
 	if pos_stick_angle > -128 and pos_stick_angle < -45:
 		velocity = Vector2(0, SPEED)
 		$AnimationSprite.play("RunBot")
-		
+		onda2Direction = Vector2(0, 1)
 	
 	#Movimiento arriba
 	if pos_stick_angle > 45 and pos_stick_angle < 133:
 		velocity = Vector2(0, -SPEED)
 		$AnimationSprite.play("RunTop")
-		
+		onda2Direction = Vector2(0, -1)
 	#Cuando se suelte el stick, se detiene el movimiento
 	if pos_stick_angle == 0:
 		velocity = Vector2(0, 0)

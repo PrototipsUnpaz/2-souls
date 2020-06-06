@@ -11,9 +11,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	if direction == Vector2(0,0):
-		direction = Vector2(-1,0)
-		move_local_x(direction.x * vel *delta)
+
 	move_local_x(direction.x * vel * delta)
 	if direction.y == 1:
 		move_local_y(direction.y * vel * delta);

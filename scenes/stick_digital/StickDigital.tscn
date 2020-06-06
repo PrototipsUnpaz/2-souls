@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/stick_digital/fondo.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 69.2299
+radius = 95.5507
 
 [node name="StickDigital" type="Node2D"]
 script = ExtResource( 2 )
@@ -13,7 +13,7 @@ script = ExtResource( 2 )
 [node name="CenterPosition" type="Position2D" parent="."]
 
 [node name="ButtonImage" type="Sprite" parent="."]
-scale = Vector2( 0.44, 0.44 )
+scale = Vector2( 0.6, 0.6 )
 z_index = 1
 texture = ExtResource( 1 )
 
@@ -23,5 +23,6 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
 [connection signal="input_event" from="TouchArea" to="." method="_on_TouchArea_input_event"]

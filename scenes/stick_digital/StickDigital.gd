@@ -1,7 +1,7 @@
 extends Node2D
 
 var touched = false
-const max_button_ration_length = 40
+const max_button_ration_length = 70
 signal stick_motion
 
 func _process(_delta):

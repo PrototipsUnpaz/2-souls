@@ -59,12 +59,12 @@ func get_motion_vector(motion):
 		
 
 func _physics_process(delta):
-	print(SPEED)
+	
 	pos_stick_angle = rad2deg(  new_motion_vector.angle_to(Vector2(1,0))  )
 	#Movimiento derecha
 	if pos_stick_angle < 45 and pos_stick_angle >-45:
 		velocity = Vector2(SPEED, 0)
-		
+		ondaDirection = Vector2(1, 0)
 		right = 1
 		top = 0
 		left = 0
@@ -73,7 +73,7 @@ func _physics_process(delta):
 	#Movimiento izquierda
 	if pos_stick_angle < -128 and pos_stick_angle > -179 or pos_stick_angle < 179 and pos_stick_angle > 134:
 		velocity = Vector2(-SPEED, 0)
-		
+		ondaDirection = Vector2(-1, 0)
 		left = 1
 		right = 0
 		top = 0
@@ -82,6 +82,7 @@ func _physics_process(delta):
 	#Movimiento abajo	
 	if pos_stick_angle > -128 and pos_stick_angle < -45:
 		velocity = Vector2(0, SPEED)
+		ondaDirection = Vector2(0, 1)
 		bot = 1
 		top = 0
 		left = 0
@@ -90,6 +91,7 @@ func _physics_process(delta):
 	#Movimiento arriba
 	if pos_stick_angle > 45 and pos_stick_angle < 133:
 		velocity = Vector2(0, -SPEED)
+		ondaDirection = Vector2(0, -1)
 		top = 1
 		left = 0
 		right = 0
