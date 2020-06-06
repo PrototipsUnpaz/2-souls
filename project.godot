@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Proyecto Two Souls"
-run/main_scene="res://scenes/WorldTest.tscn"
+run/main_scene="res://scenes/menu_main/Menu.tscn"
 config/icon="res://assets/icon.png"
 
 [autoload]
