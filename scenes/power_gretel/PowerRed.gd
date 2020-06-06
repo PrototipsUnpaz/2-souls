@@ -27,5 +27,6 @@ func _on_Timer_timeout():
 
 
 func _on_PowerRed_area_entered(area):
-	queue_free()
+	if area.name == "EnemyArea":
+		$CollisionArea.disabled = true
 	pass # Replace with function body.

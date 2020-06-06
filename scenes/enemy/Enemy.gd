@@ -12,6 +12,8 @@ export (int) var velocidad
 var posicionDestino
 
 func _ready():
+	velocidad = 200
+	$AnimatedSprite.play()
 	posicionDestino = posicion1
 	mover()
 
@@ -37,14 +39,14 @@ func _on_Tween_tween_completed(object, key):
 
 func stun():
 	$Tween.stop_all()
-	$Area2D/CollisionShape2D.disabled = true
+	$EnemyArea/CollisionShape2D.disabled = true
 	pass
 	
 func _on_Area2D_area_entered(area):
 	$Stun.start()
 	stun = true
 	if stun == true:
-		if area.name == "PowerGretel" or area.name == "PowerHansel":
+		if area.name == "PowerRed" or area.name == "PowerHansel":
 			stun()
 		
 	pass # Replace with function body.
@@ -52,6 +54,6 @@ func _on_Area2D_area_entered(area):
 
 func _on_Stun_timeout():
 	stun = false
-	$Area2D/CollisionShape2D.disabled = false
+	$EnemyArea/CollisionShape2D.disabled = false
 	mover()
 	pass # Replace with function body.

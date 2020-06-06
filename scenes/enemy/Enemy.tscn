@@ -28,17 +28,17 @@ scale = Vector2( 1.7, 1.7 )
 frames = SubResource( 1 )
 playing = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="EnemyArea" type="Area2D" parent="."]
 collision_layer = 64
-collision_mask = 0
+collision_mask = 64
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyArea"]
 shape = SubResource( 2 )
 
 [node name="Stun" type="Timer" parent="."]
 wait_time = 4.0
 
 [node name="Tween" type="Tween" parent="."]
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="EnemyArea" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="Stun" to="." method="_on_Stun_timeout"]
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
