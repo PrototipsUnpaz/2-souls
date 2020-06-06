@@ -33,13 +33,13 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
-margin_left = 633.0
+margin_left = 608.0
 margin_top = 305.0
-margin_right = 733.0
+margin_right = 758.0
 margin_bottom = 463.0
 
 [node name="Jugar" type="TextureButton" parent="Control/CenterContainer/HBoxContainer"]
-margin_right = 100.0
+margin_right = 150.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 100, 50 )
 
@@ -60,9 +60,9 @@ __meta__ = {
 
 [node name="Creditos" type="TextureButton" parent="Control/CenterContainer/HBoxContainer"]
 margin_top = 54.0
-margin_right = 100.0
+margin_right = 150.0
 margin_bottom = 104.0
-rect_min_size = Vector2( 100, 50 )
+rect_min_size = Vector2( 150, 50 )
 
 [node name="Label" type="Label" parent="Control/CenterContainer/HBoxContainer/Creditos"]
 margin_right = 40.0
@@ -75,13 +75,19 @@ __meta__ = {
 
 [node name="Salir" type="TextureButton" parent="Control/CenterContainer/HBoxContainer"]
 margin_top = 108.0
-margin_right = 100.0
+margin_right = 150.0
 margin_bottom = 158.0
 rect_min_size = Vector2( 100, 50 )
 
 [node name="Label" type="Label" parent="Control/CenterContainer/HBoxContainer/Salir"]
-margin_right = 40.0
-margin_bottom = 14.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -42.5
+margin_top = -24.0
+margin_right = 42.5
+margin_bottom = 24.0
 custom_fonts/font = SubResource( 3 )
 text = "SALIR"
 __meta__ = {

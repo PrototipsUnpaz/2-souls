@@ -8,6 +8,7 @@ func _on_Jugar_pressed():
 
 
 func _on_Creditos_pressed():
+	get_tree().change_scene("res://scenes/menu_main/creditos/Creditos.tscn")
 	pass # Replace with function body.
 
 
