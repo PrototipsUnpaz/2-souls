@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ella adelante6.png-0d372883842d1ed3fc7611e503592153.stex"
+path="res://.import/ROJO_adelante1a.png-61e49736da17f0e1eae9b2e092925afb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gretel/run_right/ella adelante6.png"
-dest_files=[ "res://.import/ella adelante6.png-0d372883842d1ed3fc7611e503592153.stex" ]
+source_file="res://assets/gretel/run_right/ROJO_adelante1a.png"
+dest_files=[ "res://.import/ROJO_adelante1a.png-61e49736da17f0e1eae9b2e092925afb.stex" ]
 
 [params]
 
