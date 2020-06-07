@@ -38,21 +38,20 @@ func _on_Tween_tween_completed(object, key):
 	pass
 
 func stun():
+	stun = true
 	$Tween.stop_all()
-	$EnemyArea/CollisionShape2D.disabled = true
+	$EnemyArea/CollisionShape2D.set_deferred("disabled", true)
 	pass
 	
 func _on_Area2D_area_entered(area):
 	$Stun.start()
-	stun = true
-	if stun == true:
-		if area.name == "PowerRed" or area.name == "PowerHansel":
-			stun()
+	if (area.name == "PowerRed" or area.name == "PowerHansel") and stun == false:
+		stun()
 		
 	pass # Replace with function body.
 
 func _on_Stun_timeout():
 	stun = false
-	$EnemyArea/CollisionShape2D.disabled = false
+	$EnemyArea/CollisionShape2D.set_deferred("disabled", false)
 	mover()
 	pass # Replace with function body.

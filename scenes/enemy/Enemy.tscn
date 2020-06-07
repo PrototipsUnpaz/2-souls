@@ -26,7 +26,7 @@ script = ExtResource( 4 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 1.7, 1.7 )
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="EnemyArea" type="Area2D" parent="."]
@@ -38,6 +38,7 @@ shape = SubResource( 2 )
 
 [node name="Stun" type="Timer" parent="."]
 wait_time = 4.0
+one_shot = true
 
 [node name="Tween" type="Tween" parent="."]
 [connection signal="area_entered" from="EnemyArea" to="." method="_on_Area2D_area_entered"]

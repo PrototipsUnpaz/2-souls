@@ -9,8 +9,7 @@ func delete ():
 	pass
 
 func _on_Area_area_entered(area):
-	get_tree().call_group("players", "adrenalin")
-	
-	delete();
-	
+	if area.name == "AreaBlue" or area.name == "AreaRed":
+		get_tree().call_group("players", "adrenalin")
+		delete();
 	pass 
