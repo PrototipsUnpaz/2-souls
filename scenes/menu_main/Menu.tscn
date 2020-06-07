@@ -57,9 +57,10 @@ __meta__ = {
 
 [node name="HBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
 margin_left = 608.0
-margin_top = 305.0
+margin_top = 259.0
 margin_right = 758.0
-margin_bottom = 463.0
+margin_bottom = 509.0
+rect_min_size = Vector2( 150, 250 )
 
 [node name="Jugar" type="TextureButton" parent="Control/CenterContainer/HBoxContainer"]
 margin_right = 150.0
@@ -86,6 +87,9 @@ margin_top = 54.0
 margin_right = 150.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 150, 50 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="Control/CenterContainer/HBoxContainer/Creditos"]
 margin_right = 40.0
