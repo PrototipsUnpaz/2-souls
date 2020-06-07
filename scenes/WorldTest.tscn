@@ -141,8 +141,8 @@ z_index = 2
 position = Vector2( 72, 431 )
 scale = Vector2( 0.4, 0.3 )
 posicion1 = Vector2( 72, 431 )
-posicion2 = Vector2( 570, 431 )
-posicion3 = Vector2( 570, 315 )
+posicion2 = Vector2( 590, 431 )
+posicion3 = Vector2( 590, 315 )
 posicion4 = Vector2( 72, 315 )
 velocidad = 200
 
@@ -154,7 +154,7 @@ texture = ExtResource( 10 )
 [node name="Portal" parent="." instance=ExtResource( 11 )]
 position = Vector2( 677.112, 83.4485 )
 scale = Vector2( 0.612109, 0.612109 )
-frame = 11
+frame = 0
 
 [node name="SmallWall" type="TileMap" parent="."]
 position = Vector2( 517.855, 239.606 )
