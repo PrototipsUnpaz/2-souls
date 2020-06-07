@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/stick_digital/StickDigital.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/stage1/stage1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/button_attack/ButtonAttack.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/mirror_player/MirrorPlayer.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 687.067, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8.9552, 380.161 )
 
 [node name="Nivel2" type="Node2D"]
 
@@ -23,3 +29,29 @@ position = Vector2( 891.448, 703.661 )
 
 [node name="StickDigital" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1232.49, 643.224 )
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Floor"]
+position = Vector2( 689.009, 768.51 )
+shape = SubResource( 1 )
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Floor2"]
+position = Vector2( 681.059, 5.30011 )
+shape = SubResource( 1 )
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2( 131.107, 373.794 )
+
+[node name="Collision" type="CollisionShape2D" parent="Wall"]
+position = Vector2( -128.317, 16.7371 )
+shape = SubResource( 2 )
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2( 131.107, 373.794 )
+
+[node name="Collision" type="CollisionShape2D" parent="Wall2"]
+position = Vector2( 1238.54, 11.1581 )
+shape = SubResource( 2 )
