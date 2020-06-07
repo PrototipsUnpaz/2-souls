@@ -26,12 +26,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 30 ) ],
 "loop": true,
-"name": "AtkRight",
+"name": "RunBot",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 30 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": true,
-"name": "RunBot",
+"name": "RunRight",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 30 ) ],
@@ -39,9 +39,9 @@ animations = [ {
 "name": "RunTop",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 30 ) ],
 "loop": true,
-"name": "RunRight",
+"name": "AtkRight",
 "speed": 5.0
 } ]
 
@@ -65,11 +65,11 @@ animation = "AtkRight"
 [node name="PosPower" type="Position2D" parent="Pivot"]
 position = Vector2( -45, 0 )
 
-[node name="Area" type="Area2D" parent="."]
+[node name="AreaRed" type="Area2D" parent="."]
 collision_layer = 594
 collision_mask = 594
 
-[node name="Collision" type="CollisionShape2D" parent="Area"]
+[node name="Collision" type="CollisionShape2D" parent="AreaRed"]
 shape = SubResource( 3 )
-[connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
-[connection signal="area_exited" from="Area" to="." method="_on_Area_area_exited"]
+[connection signal="area_entered" from="AreaRed" to="." method="_on_Area_area_entered"]
+[connection signal="area_exited" from="AreaRed" to="." method="_on_Area_area_exited"]
