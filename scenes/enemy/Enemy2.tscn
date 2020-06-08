@@ -18,13 +18,15 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 42.6934
+radius = 43.0439
 
 [node name="Enemy2" type="Node2D"]
+scale = Vector2( 1.7, 1.7 )
 script = ExtResource( 8 )
 
 [node name="AnimEnemy2" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+playing = true
 
 [node name="AreaEnemy2" type="Area2D" parent="."]
 

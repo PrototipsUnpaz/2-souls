@@ -1,6 +1,8 @@
 extends Node2D
 
 var stun = false
+var ida = false
+var ida2 = false
 
 export (Vector2) var posicion1
 export (Vector2) var posicion2
@@ -46,15 +48,21 @@ func _on_Stun2_timeout():
 
 
 func _on_Tween2_tween_completed(object, key):
-		# si es posicion 1
 	if posicionDestino.x == posicion1.x && posicionDestino.y == posicion1.y: 
 		posicionDestino = posicion2
-	# si es posicion 2
-	elif posicionDestino.x == posicion2.x && posicionDestino.y == posicion2.y:
+		ida2 = true
+	elif (posicionDestino.x == posicion2.x && posicionDestino.y == posicion2.y) && ida2 == true:
+		posicionDestino = posicion3
+		ida = true
+		ida2 = false
+	elif (posicionDestino.x == posicion3.x && posicionDestino.y == posicion3.y) && ida == true:
+		posicionDestino = posicion4
+		ida = false
+	elif posicionDestino.x == posicion4.x && posicionDestino.y == posicion4.y:
 		posicionDestino = posicion3
 	elif posicionDestino.x == posicion3.x && posicionDestino.y == posicion3.y:
-		posicionDestino = posicion4
-	elif posicionDestino.x == posicion4.x && posicionDestino.y == posicion4.y:
+		posicionDestino = posicion2
+	elif posicionDestino.x == posicion2.x && posicionDestino.y == posicion2.y:
 		posicionDestino = posicion1
 	mover()
 	pass # Replace with function body.
