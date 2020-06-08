@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/stick_digital/StickDigital.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/stage1/stage1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/button_attack/ButtonAttack.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/mirror_player/MirrorPlayer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/tilemap/LargeWall1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/tilemap/SmallWall1.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 687.067, 10 )
@@ -55,3 +57,9 @@ position = Vector2( 131.107, 373.794 )
 [node name="Collision" type="CollisionShape2D" parent="Wall2"]
 position = Vector2( 1238.54, 11.1581 )
 shape = SubResource( 2 )
+
+[node name="LargeWall1" parent="." instance=ExtResource( 6 )]
+scale = Vector2( 0.48, 0.360001 )
+tile_data = PoolIntArray( 262150, 0, 0, 1703936, 0, 0, 1703968, 0, 0 )
+
+[node name="SmallWall1" parent="." instance=ExtResource( 7 )]
