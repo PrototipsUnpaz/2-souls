@@ -10,9 +10,14 @@ func _ready():
 func _process(delta):
 	if Autoload.count == 2:
 		$CenterContainer.visible = true
-		
+		$NextScene.start()
 	if Autoload.dead == true:
 		get_tree().change_scene("res://scenes/game_over/GameOver.tscn")
 		Autoload.dead = false
 		Autoload.lvl2Dead = true
 	pass 
+
+
+func _on_Timer_timeout():
+	get_tree().change_scene("res://scenes/stage3/Nivel3.tscn")
+	pass # Replace with function body.
