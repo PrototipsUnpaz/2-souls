@@ -88,7 +88,7 @@ z_index = 2
 
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
 position = Vector2( 72, 431 )
-scale = Vector2( 0.4, 0.3 )
+scale = Vector2( 0.4, 0.4 )
 posicion1 = Vector2( 72, 431 )
 posicion2 = Vector2( 590, 431 )
 posicion3 = Vector2( 590, 315 )
@@ -103,7 +103,7 @@ texture = ExtResource( 10 )
 [node name="Portal" parent="." instance=ExtResource( 11 )]
 position = Vector2( 677.112, 83.4485 )
 scale = Vector2( 0.612109, 0.612109 )
-frame = 1
+frame = 11
 
 [node name="SmallWall" parent="." instance=ExtResource( 14 )]
 
