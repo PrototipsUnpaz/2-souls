@@ -19,3 +19,8 @@ func _on_Reintentar_button_down():
 		Autoload.lvl2Dead = false
 		get_tree().change_scene("res://scenes/stage2/Nivel2.tscn")
 	pass # Replace with function body.
+
+
+func _on_Salir_button_down():
+	get_tree().quit()
+	pass # Replace with function body.
