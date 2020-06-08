@@ -103,7 +103,7 @@ texture = ExtResource( 10 )
 [node name="Portal" parent="." instance=ExtResource( 11 )]
 position = Vector2( 677.112, 83.4485 )
 scale = Vector2( 0.612109, 0.612109 )
-frame = 7
+frame = 9
 
 [node name="SmallWall" parent="." instance=ExtResource( 14 )]
 
@@ -128,3 +128,8 @@ margin_bottom = 528.0
 [node name="MusicLvl1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 autoplay = true
+
+[node name="NextScene" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+[connection signal="timeout" from="NextScene" to="." method="_on_NextScene_timeout"]
