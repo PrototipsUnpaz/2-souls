@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/stick_digital/StickDigital.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/tilemap/SmallWallH.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/enemy/Enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/enemy/Enemy2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/power_up/Adrenalin.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 687.067, 10 )
@@ -92,3 +93,7 @@ posicion1 = Vector2( 251, 590 )
 posicion2 = Vector2( 251, 396 )
 posicion3 = Vector2( 507, 396 )
 posicion4 = Vector2( 507, 156 )
+
+[node name="Adrenalin" parent="." instance=ExtResource( 11 )]
+position = Vector2( 40.436, 295.359 )
+scale = Vector2( 0.201, 0.152 )
