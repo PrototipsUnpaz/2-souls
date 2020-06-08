@@ -1,10 +1,17 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/font_win/londrina_shadow.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/menu_main/Menu.gd" type="Script" id=2]
 [ext_resource path="res://assets/font_win/Roman SD.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/audio/music/musica_menu.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/menu_main/titulo_fondo.png" type="Texture" id=5]
+[ext_resource path="res://assets/menu_main/jugar.png" type="Texture" id=6]
+[ext_resource path="res://assets/menu_main/creditos.png" type="Texture" id=7]
+[ext_resource path="res://assets/menu_main/salir.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 40
@@ -15,10 +22,6 @@ size = 40
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 40
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=1]
 size = 20
 font_data = ExtResource( 3 )
 
@@ -30,89 +33,114 @@ position = Vector2( 686.028, 387.7 )
 scale = Vector2( 0.86381, 0.855393 )
 texture = ExtResource( 5 )
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="BackgroundMenu"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+margin_left = -1594.0
+margin_top = -904.5
+margin_right = -12.0
+margin_bottom = -8.5
 rect_min_size = Vector2( 1366, 768 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="VBoxContainer" parent="Control"]
+[node name="HBoxContainer" type="VBoxContainer" parent="BackgroundMenu/Control"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -75.0
-margin_top = -250.0
-margin_right = 75.0
-rect_min_size = Vector2( 150, 250 )
+margin_left = -140.355
+margin_top = -372.724
+margin_right = 59.6447
+margin_bottom = -64.7242
+rect_min_size = Vector2( 150, 300 )
+rect_pivot_offset = Vector2( 200, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Jugar" type="TextureButton" parent="Control/HBoxContainer"]
-margin_right = 150.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 100, 50 )
+[node name="Jugar" type="TextureButton" parent="BackgroundMenu/Control/HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 100 )
+texture_pressed = ExtResource( 6 )
+expand = true
+stretch_mode = 3
 
-[node name="Label" type="Label" parent="Control/HBoxContainer/Jugar"]
+[node name="Label" type="Label" parent="BackgroundMenu/Control/HBoxContainer/Jugar"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -48.0
-margin_top = -24.0
-margin_right = 48.0
-margin_bottom = 24.0
-custom_fonts/font = SubResource( 2 )
+margin_left = 4.22448
+margin_top = 2.3692
+margin_right = 100.224
+margin_bottom = 50.3692
+custom_fonts/font = SubResource( 1 )
 text = "JUGAR"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Creditos" type="TextureButton" parent="Control/HBoxContainer"]
-margin_top = 54.0
-margin_right = 150.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 150, 50 )
+[node name="Creditos" type="TextureButton" parent="BackgroundMenu/Control/HBoxContainer"]
+margin_top = 104.0
+margin_right = 200.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 200, 100 )
+texture_pressed = ExtResource( 7 )
+expand = true
+stretch_mode = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Control/HBoxContainer/Creditos"]
-margin_right = 40.0
-margin_bottom = 14.0
-custom_fonts/font = SubResource( 3 )
-text = "CREDITOS"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Salir" type="TextureButton" parent="Control/HBoxContainer"]
-margin_top = 108.0
-margin_right = 150.0
-margin_bottom = 158.0
-rect_min_size = Vector2( 100, 50 )
-
-[node name="Label" type="Label" parent="Control/HBoxContainer/Salir"]
+[node name="Label" type="Label" parent="BackgroundMenu/Control/HBoxContainer/Creditos"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -42.5
-margin_top = -24.0
-margin_right = 42.5
-margin_bottom = 24.0
-custom_fonts/font = SubResource( 4 )
+margin_left = -15.5279
+margin_top = 9.56073
+margin_right = 129.472
+margin_bottom = 57.5607
+custom_fonts/font = SubResource( 2 )
+text = "CREDITOS"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Salir" type="TextureButton" parent="BackgroundMenu/Control/HBoxContainer"]
+margin_top = 208.0
+margin_right = 200.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 200, 100 )
+texture_pressed = ExtResource( 8 )
+expand = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="BackgroundMenu/Control/HBoxContainer/Salir"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 16.846
+margin_top = 11.958
+margin_right = 101.846
+margin_bottom = 59.958
+custom_fonts/font = SubResource( 3 )
 text = "SALIR"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Version" type="Label" parent="Control"]
+[node name="Version" type="Label" parent="BackgroundMenu/Control"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 26.3713
@@ -120,7 +148,7 @@ margin_top = -38.6779
 margin_right = 77.3713
 margin_bottom = -18.6779
 rect_min_size = Vector2( 50, 10 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "V2.2.0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -129,6 +157,6 @@ __meta__ = {
 [node name="MusicaMenu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
-[connection signal="pressed" from="Control/HBoxContainer/Jugar" to="." method="_on_Jugar_pressed"]
-[connection signal="pressed" from="Control/HBoxContainer/Creditos" to="." method="_on_Creditos_pressed"]
-[connection signal="pressed" from="Control/HBoxContainer/Salir" to="." method="_on_Salir_pressed"]
+[connection signal="pressed" from="BackgroundMenu/Control/HBoxContainer/Jugar" to="." method="_on_Jugar_pressed"]
+[connection signal="pressed" from="BackgroundMenu/Control/HBoxContainer/Creditos" to="." method="_on_Creditos_pressed"]
+[connection signal="pressed" from="BackgroundMenu/Control/HBoxContainer/Salir" to="." method="_on_Salir_pressed"]
