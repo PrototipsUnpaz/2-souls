@@ -29,7 +29,7 @@ position = Vector2( 685.174, 385.694 )
 scale = Vector2( 1.0704, 0.905401 )
 
 [node name="ButtonAttack" parent="." instance=ExtResource( 4 )]
-position = Vector2( 112.24, 654.016 )
+position = Vector2( 81.292, 635 )
 
 [node name="MirrorPlayer" parent="." groups=[
 "players",
@@ -44,7 +44,7 @@ position = Vector2( 891.448, 703.661 )
 scale = Vector2( 1, 1 )
 
 [node name="StickDigital" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1232.49, 643.224 )
+position = Vector2( 1225.97, 628.525 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -109,7 +109,6 @@ scale = Vector2( 0.201, 0.152 )
 [node name="Portal" parent="." instance=ExtResource( 14 )]
 position = Vector2( 690.928, 70.3235 )
 scale = Vector2( 0.612, 0.612 )
-frame = 7
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 visible = false
