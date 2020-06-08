@@ -12,5 +12,10 @@ func _ready():
 
 func _on_Reintentar_button_down():
 	Autoload.count = 0
-	get_tree().change_scene("res://scenes/WorldTest.tscn")
+	if Autoload.lvl1Dead == true:
+		Autoload.lvl1Dead = false
+		get_tree().change_scene("res://scenes/WorldTest.tscn")
+	if Autoload.lvl2Dead == true:
+		Autoload.lvl2Dead = false
+		get_tree().change_scene("res://scenes/stage2/Nivel2.tscn")
 	pass # Replace with function body.

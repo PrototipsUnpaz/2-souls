@@ -14,4 +14,5 @@ func _process(delta):
 	if Autoload.dead == true:
 		get_tree().change_scene("res://scenes/game_over/GameOver.tscn")
 		Autoload.dead = false
+		Autoload.lvl2Dead = true
 	pass 
