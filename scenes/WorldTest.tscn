@@ -103,7 +103,7 @@ texture = ExtResource( 10 )
 [node name="Portal" parent="." instance=ExtResource( 11 )]
 position = Vector2( 677.112, 83.4485 )
 scale = Vector2( 0.612109, 0.612109 )
-frame = 7
+frame = 5
 
 [node name="SmallWall" parent="." instance=ExtResource( 14 )]
 
@@ -125,6 +125,6 @@ margin_top = 239.0
 margin_right = 899.0
 margin_bottom = 528.0
 
-[node name="Musiclvl1" type="AudioStreamPlayer" parent="."]
+[node name="MusicLvl1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 autoplay = true
