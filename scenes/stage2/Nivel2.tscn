@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/stick_digital/StickDigital.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/mirror_player/MirrorPlayer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/tilemap/LargeWall1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/tilemap/SmallWall1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/tilemap/SmallWallH.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 687.067, 10 )
@@ -25,9 +26,11 @@ position = Vector2( 112.24, 654.016 )
 
 [node name="MirrorPlayer" parent="." instance=ExtResource( 5 )]
 position = Vector2( 522.35, 697.186 )
+scale = Vector2( 1, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 891.448, 703.661 )
+scale = Vector2( 1, 1 )
 
 [node name="StickDigital" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1232.49, 643.224 )
@@ -59,7 +62,15 @@ position = Vector2( 1238.54, 11.1581 )
 shape = SubResource( 2 )
 
 [node name="LargeWall1" parent="." instance=ExtResource( 6 )]
-scale = Vector2( 0.48, 0.360001 )
-tile_data = PoolIntArray( 262150, 0, 0, 1703936, 0, 0, 1703968, 0, 0 )
+scale = Vector2( 0.28, 0.360001 )
+tile_data = PoolIntArray( 458797, 536870912, 0, 458809, 1073741824, 0, 589860, -1073741824, 0, 1114158, 1073741824, 0, 1114168, 1073741824, 0, 1376292, -1073741824, 0, 1441830, 1073741824, 0, 1441849, 1073741824, 0, 1769517, 1073741824, 0, 1769536, 1073741824, 0 )
 
 [node name="SmallWall1" parent="." instance=ExtResource( 7 )]
+position = Vector2( 75.5464, 164.044 )
+scale = Vector2( 0.28, 0.359999 )
+tile_data = PoolIntArray( -262117, 536870912, 0, -262110, 0, 0, -131061, -1610612736, 0, -131040, -2147483648, 0, 393215, 0, 0, 327707, 536870912, 0, 327714, 1073741824, 0, 327745, 536870912, 0, 720892, 536870912, 0, 655380, 536870912, 0, 786443, -1610612736, 0, 786450, -536870912, 0, 1245190, 1073741824, 0 )
+
+[node name="SmallWallH" parent="." instance=ExtResource( 8 )]
+position = Vector2( 720.247, 90.8829 )
+scale = Vector2( 0.24, 0.24 )
+tile_data = PoolIntArray( 65489, 0, 0, 65495, 0, 0, 65509, 0, 0, 65512, 0, 0, 196588, -1610612736, 0, 196596, -2147483648, 0, 131076, -2147483648, 0, 131090, -2147483648, 0, 131104, -2147483648, 0, 524255, 0, 0, 589777, 0, 0, 589842, -536870912, 0, 720853, -1610612736, 0, 720868, -1610612736, 0, 1966039, 0, 0, 2031596, -536870912, 0, 2097116, -1610612736, 0, 2097124, -1073741824, 0, 2097140, -536870912, 0, 2490356, -536870912, 0 )
