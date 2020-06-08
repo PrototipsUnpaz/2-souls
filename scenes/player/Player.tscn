@@ -30,7 +30,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
-"name": "RunBot",
+"name": "RunTop",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
@@ -40,7 +40,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
-"name": "RunTop",
+"name": "RunBot",
 "speed": 5.0
 } ]
 

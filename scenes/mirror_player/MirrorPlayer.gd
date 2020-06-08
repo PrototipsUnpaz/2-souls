@@ -119,7 +119,7 @@ func deletePlayer():
 func _on_Area_area_entered(area):
 	if area.name == "AreaPortal":		
 		Autoload.count += 1
-	if area.name == "EnemyArea":
+	if area.name == "EnemyArea" or area.name == "AreaEnemy2":
 		deletePlayer()
 		Autoload.dead = true
 	pass # Replace with function body.

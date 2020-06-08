@@ -26,7 +26,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 30 ) ],
 "loop": true,
-"name": "RunBot",
+"name": "AtkRight",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "RunTop",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
@@ -36,12 +41,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 30 ) ],
 "loop": true,
-"name": "RunTop",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 30 ) ],
-"loop": true,
-"name": "AtkRight",
+"name": "RunBot",
 "speed": 5.0
 } ]
 
