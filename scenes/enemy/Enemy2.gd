@@ -32,20 +32,11 @@ func stun():
 	$AreaEnemy2/CollisionEnemy2.set_deferred("disabled", true)
 	pass
 	
-func _on_Area2D_area_entered(area):
-	$Stun2.start()
-	if (area.name == "PowerRed" or area.name == "PowerHansel") and stun == false:
-		stun()
-		
-	pass # Replace with function body.
-
-
 func _on_Stun2_timeout():
 	stun = false
 	$AreaEnemy2/CollisionEnemy2.set_deferred("disabled", false)
 	mover()
 	pass # Replace with function body.
-
 
 func _on_Tween2_tween_completed(object, key):
 	if posicionDestino.x == posicion1.x && posicionDestino.y == posicion1.y: 
@@ -65,4 +56,11 @@ func _on_Tween2_tween_completed(object, key):
 	elif posicionDestino.x == posicion2.x && posicionDestino.y == posicion2.y:
 		posicionDestino = posicion1
 	mover()
+	pass # Replace with function body.
+
+
+func _on_AreaEnemy2_area_entered(area):
+	if (area.name == "PowerRed" or area.name == "PowerHansel") and stun == false:
+		stun()
+		$Stun2.start()
 	pass # Replace with function body.

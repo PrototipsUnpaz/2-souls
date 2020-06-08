@@ -44,10 +44,10 @@ func stun():
 	pass
 	
 func _on_Area2D_area_entered(area):
-	$Stun.start()
+	
 	if (area.name == "PowerRed" or area.name == "PowerHansel") and stun == false:
 		stun()
-		
+		$Stun.start()
 	pass # Replace with function body.
 
 func _on_Stun_timeout():

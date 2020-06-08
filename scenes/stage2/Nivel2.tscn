@@ -27,11 +27,15 @@ scale = Vector2( 1.0704, 0.905401 )
 [node name="ButtonAttack" parent="." instance=ExtResource( 4 )]
 position = Vector2( 112.24, 654.016 )
 
-[node name="MirrorPlayer" parent="." instance=ExtResource( 5 )]
+[node name="MirrorPlayer" parent="." groups=[
+"players",
+] instance=ExtResource( 5 )]
 position = Vector2( 522.35, 697.186 )
 scale = Vector2( 1, 1 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
+[node name="Player" parent="." groups=[
+"players",
+] instance=ExtResource( 2 )]
 position = Vector2( 891.448, 703.661 )
 scale = Vector2( 1, 1 )
 
