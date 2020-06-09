@@ -8,7 +8,9 @@ func _ready():
 	pass
 	
 func _process(delta):
+	print(Autoload.count)
 	if Autoload.count == 2:
+		Autoload.count = 0
 		$CenterContainer.visible = true
 		$NextScene.start()
 	if Autoload.dead == true:
@@ -16,7 +18,6 @@ func _process(delta):
 		Autoload.dead = false
 		Autoload.lvl1Dead = true
 	pass 
-
 
 
 func _on_NextScene_timeout():

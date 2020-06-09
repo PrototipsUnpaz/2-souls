@@ -5,6 +5,7 @@ signal hit
 var cdSignal = true 
 
 func _process(delta):
+	
 	if touched == true:
 		if cdSignal == true:
 			$Timer.start()

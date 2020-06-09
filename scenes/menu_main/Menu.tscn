@@ -45,58 +45,62 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 0.162903
 margin_top = 0.207001
-margin_right = 1582.16
-margin_bottom = 896.207
+margin_right = 1366.16
+margin_bottom = 768.207
 rect_min_size = Vector2( 1366, 768 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="VBoxContainer" parent="Control"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -253.135
-margin_top = -462.948
-margin_right = -53.1354
-margin_bottom = -154.948
-rect_min_size = Vector2( 150, 300 )
-rect_pivot_offset = Vector2( 200, 0 )
-size_flags_horizontal = 3
-size_flags_vertical = 2
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+margin_top = 420.0
+margin_right = 1366.0
+margin_bottom = 770.0
+rect_min_size = Vector2( 1366, 350 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Jugar" type="TextureButton" parent="Control/HBoxContainer"]
-margin_right = 200.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 200, 100 )
+[node name="HBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
+margin_left = 593.0
+margin_top = 50.0
+margin_right = 773.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 150, 250 )
+rect_pivot_offset = Vector2( 200, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_constants/separation = 9
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Jugar" type="TextureButton" parent="Control/CenterContainer/HBoxContainer"]
+margin_right = 180.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 180, 65 )
 texture_pressed = ExtResource( 6 )
 expand = true
-stretch_mode = 3
+stretch_mode = 6
 
-[node name="Label" type="Label" parent="Control/HBoxContainer/Jugar"]
+[node name="Label" type="Label" parent="Control/CenterContainer/HBoxContainer/Jugar"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 4.22448
-margin_top = 2.3692
-margin_right = 100.224
-margin_bottom = 50.3692
+grow_horizontal = 2
+grow_vertical = 2
 custom_fonts/font = SubResource( 1 )
 text = "JUGAR"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Creditos" type="TextureButton" parent="Control/HBoxContainer"]
-margin_top = 104.0
-margin_right = 200.0
-margin_bottom = 204.0
-rect_min_size = Vector2( 200, 100 )
+[node name="Creditos" type="TextureButton" parent="Control/CenterContainer/HBoxContainer"]
+margin_top = 74.0
+margin_right = 180.0
+margin_bottom = 139.0
+rect_min_size = Vector2( 180, 65 )
 texture_pressed = ExtResource( 7 )
 expand = true
 stretch_mode = 3
@@ -104,15 +108,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Control/HBoxContainer/Creditos"]
+[node name="Label" type="Label" parent="Control/CenterContainer/HBoxContainer/Creditos"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -15.5279
-margin_top = 9.56073
-margin_right = 129.472
-margin_bottom = 57.5607
+margin_left = -73.314
+margin_top = -21.0493
+margin_right = 71.686
+margin_bottom = 26.9507
 custom_fonts/font = SubResource( 2 )
 text = "CREDITOS"
 align = 1
@@ -121,26 +125,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Salir" type="TextureButton" parent="Control/HBoxContainer"]
-margin_top = 208.0
-margin_right = 200.0
-margin_bottom = 308.0
-rect_min_size = Vector2( 200, 100 )
+[node name="Salir" type="TextureButton" parent="Control/CenterContainer/HBoxContainer"]
+margin_top = 148.0
+margin_right = 180.0
+margin_bottom = 213.0
+rect_min_size = Vector2( 180, 65 )
 texture_pressed = ExtResource( 8 )
 expand = true
 stretch_mode = 3
 
-[node name="Label" type="Label" parent="Control/HBoxContainer/Salir"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 16.846
-margin_top = 11.958
-margin_right = 101.846
-margin_bottom = 59.958
+[node name="Label" type="Label" parent="Control/CenterContainer/HBoxContainer/Salir"]
+margin_left = 59.0516
+margin_top = 17.9874
+margin_right = 144.052
+margin_bottom = 65.9874
+grow_horizontal = 2
+grow_vertical = 2
 custom_fonts/font = SubResource( 3 )
-text = "SALIR"
+text = "Salir"
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -162,6 +165,6 @@ __meta__ = {
 [node name="MusicaMenu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
-[connection signal="pressed" from="Control/HBoxContainer/Jugar" to="." method="_on_Jugar_pressed"]
-[connection signal="pressed" from="Control/HBoxContainer/Creditos" to="." method="_on_Creditos_pressed"]
-[connection signal="pressed" from="Control/HBoxContainer/Salir" to="." method="_on_Salir_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/HBoxContainer/Jugar" to="." method="_on_Jugar_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/HBoxContainer/Creditos" to="." method="_on_Creditos_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/HBoxContainer/Salir" to="." method="_on_Salir_pressed"]

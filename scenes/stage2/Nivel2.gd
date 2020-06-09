@@ -9,6 +9,7 @@ func _ready():
 	
 func _process(delta):
 	if Autoload.count == 2:
+		Autoload.count = 0
 		$CenterContainer.visible = true
 		$NextScene.start()
 	if Autoload.dead == true:

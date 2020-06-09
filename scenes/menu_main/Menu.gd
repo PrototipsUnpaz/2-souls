@@ -3,6 +3,7 @@ extends Node2D
 
 
 func _on_Jugar_pressed():
+	$Control/CenterContainer/HBoxContainer/Jugar/Label.visible = false
 	get_tree().change_scene("res://scenes/WorldTest.tscn")
 	pass # Replace with function body.
 
