@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/game_over/GameOver.gd" type="Script" id=1]
 [ext_resource path="res://assets/gameover/game_over2.ogv" type="VideoStream" id=2]
 [ext_resource path="res://assets/gameover/reintentar.png" type="Texture" id=3]
 [ext_resource path="res://assets/menu_main/button_exit/salir.png" type="Texture" id=4]
-
+[ext_resource path="res://assets/audio/music/Musica_GameOver.ogg" type="AudioStream" id=5]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource( 1 )
@@ -54,5 +54,9 @@ stretch_mode = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MusicGameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
 [connection signal="button_down" from="Control/Reintentar" to="." method="_on_Reintentar_button_down"]
 [connection signal="button_down" from="Control/Salir" to="." method="_on_Salir_button_down"]
