@@ -9,11 +9,11 @@
 [ext_resource path="res://scenes/stick_digital/StickDigital.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/button_attack/ButtonAttack.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/enemy/Enemy.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/Hansel/idle/AZUL_iddle1.png" type="Texture" id=10]
 [ext_resource path="res://scenes/portal/Portal.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/ui/text_win/TextWin.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/audio/music/musica_lvl1.ogg" type="AudioStream" id=13]
 [ext_resource path="res://scenes/tilemap/SmallWall.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/audio/sfx/sfx_muerte.wav" type="AudioStream" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 675.348, 15.279 )
@@ -39,8 +39,8 @@ scale = Vector2( 0.9, 0.9 )
 z_index = 1
 
 [node name="Background" parent="." instance=ExtResource( 3 )]
-position = Vector2( 679.854, 382.149 )
-scale = Vector2( 1.06239, 0.901428 )
+position = Vector2( 685.25, 382.149 )
+scale = Vector2( 1.07082, 0.901428 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -95,17 +95,13 @@ posicion3 = Vector2( 590, 315 )
 posicion4 = Vector2( 72, 315 )
 velocidad = 200
 
-[node name="Sprite" type="Sprite" parent="."]
-visible = false
-position = Vector2( 418.091, 668.886 )
-texture = ExtResource( 10 )
-
 [node name="Portal" parent="." instance=ExtResource( 11 )]
 position = Vector2( 677.112, 83.4485 )
 scale = Vector2( 0.612109, 0.612109 )
 frame = 2
 
 [node name="SmallWall" parent="." instance=ExtResource( 14 )]
+tile_data = PoolIntArray( -458786, 536870912, 0, -458761, 536870912, 0, -524285, 536870912, 0, -524260, 536870912, 0, -524249, 536870912, 0, -524223, 536870912, 0, -524218, 0, 0, -327667, -1610612736, 0, -131059, -1610612736, 0, -51, 0, 0, -46, 1610612736, 0, -65520, 0, 0, 393182, 536870912, 0, 393194, 0, 0, 393206, 536870912, 0, 327693, -1610612736, 0, 327708, 536870912, 0, 327720, 536870912, 0, 327732, 536870912, 0, 851917, 0, 0, 851921, 536870912, 0, 851946, 536870912, 0, 786435, 536870912, 0, 786447, 536870912, 0, 786472, 536870912, 0, 786497, 536870912, 0, 786501, 0, 0, 983053, -1610612736, 0, 1310670, 0, 0, 1310677, 0, 0, 1310687, 0, 0, 1310698, 0, 0, 1310710, 0, 0, 1245212, 536870912, 0, 1245224, 536870912, 0, 1245236, 536870912, 0, 1245248, 0, 0, 1245253, 0, 0, 1441805, -1610612736, 0 )
 
 [node name="LargeWall" parent="." instance=ExtResource( 5 )]
 
@@ -132,4 +128,12 @@ autoplay = true
 [node name="NextScene" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="SfxDead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+
+[node name="SfxTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 [connection signal="timeout" from="NextScene" to="." method="_on_NextScene_timeout"]
+[connection signal="timeout" from="SfxTimer" to="." method="_on_SfxTimer_timeout"]

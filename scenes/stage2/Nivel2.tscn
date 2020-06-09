@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/stick_digital/StickDigital.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://scenes/ui/text_win/TextWin.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/portal/Portal.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/audio/music/muscia_lvl2.ogg" type="AudioStream" id=15]
+[ext_resource path="res://assets/audio/sfx/sfx_muerte.wav" type="AudioStream" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 687.067, 10 )
@@ -37,12 +38,14 @@ position = Vector2( 81.292, 635 )
 ] instance=ExtResource( 5 )]
 position = Vector2( 242.814, 719.438 )
 scale = Vector2( 1, 1 )
+z_index = 1
 
 [node name="Player" parent="." groups=[
 "players",
 ] instance=ExtResource( 2 )]
 position = Vector2( 1032.09, 719.484 )
 scale = Vector2( 1, 1 )
+z_index = 2
 
 [node name="StickDigital" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1225.97, 628.525 )
@@ -110,7 +113,7 @@ scale = Vector2( 0.201, 0.152 )
 [node name="Portal" parent="." instance=ExtResource( 14 )]
 position = Vector2( 690.928, 70.3235 )
 scale = Vector2( 0.612, 0.612 )
-frame = 10
+frame = 4
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 visible = false
@@ -135,4 +138,12 @@ autoplay = true
 [node name="NextScene" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="TimerDeath" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="SfxDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
 [connection signal="timeout" from="NextScene" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="TimerDeath" to="." method="_on_TimerDeath_timeout"]

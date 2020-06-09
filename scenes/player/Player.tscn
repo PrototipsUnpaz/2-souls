@@ -25,7 +25,7 @@
 [ext_resource path="res://assets/Hansel/walk_top/azul_arriba4.png" type="Texture" id=23]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 19.7202, 30.1428 )
+extents = Vector2( 24.164, 25.7829 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -39,6 +39,11 @@ animations = [ {
 "name": "RunBot",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 14 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "AtkTop",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "RunRight",
@@ -48,15 +53,10 @@ animations = [ {
 "loop": true,
 "name": "RunTop",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "AtkTop",
-"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 25.6388, 33.7164 )
+extents = Vector2( 25.6388, 27.4802 )
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 1.5, 1.5 )
@@ -65,6 +65,7 @@ collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -8.66667 )
 scale = Vector2( 0.882856, 0.853277 )
 shape = SubResource( 1 )
 
@@ -80,11 +81,12 @@ collision_layer = 594
 collision_mask = 594
 
 [node name="Collision" type="CollisionShape2D" parent="AreaBlue"]
+position = Vector2( 0, -7.55704 )
 shape = SubResource( 3 )
 
 [node name="Pivot" type="Position2D" parent="."]
 
 [node name="PosPower" type="Position2D" parent="Pivot"]
-position = Vector2( 45, 0 )
+position = Vector2( 42.6667, 0 )
 [connection signal="area_entered" from="AreaBlue" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="AreaBlue" to="." method="_on_Area_area_exited"]

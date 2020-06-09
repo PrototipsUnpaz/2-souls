@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/game_over/GameOver.gd" type="Script" id=1]
 [ext_resource path="res://assets/gameover/game_over2.ogv" type="VideoStream" id=2]
-[ext_resource path="res://assets/gameover/reintentar.png" type="Texture" id=3]
-[ext_resource path="res://assets/menu_main/salir.png" type="Texture" id=4]
+[ext_resource path="res://assets/menu_main/button_reintentar/reintentar_blanco.png" type="Texture" id=3]
+[ext_resource path="res://assets/menu_main/button_exit/salir_blanco.png" type="Texture" id=4]
+[ext_resource path="res://assets/audio/music/Musica_GameOver.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/menu_main/button_exit/salirf.png" type="Texture" id=6]
+[ext_resource path="res://assets/menu_main/button_reintentar/reintentar.png" type="Texture" id=7]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource( 1 )
@@ -26,32 +29,37 @@ __meta__ = {
 }
 
 [node name="Reintentar" type="TextureButton" parent="Control"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 62.8175
-margin_top = -208.272
-margin_right = 476.818
-margin_bottom = -75.2717
+margin_left = 104.0
+margin_top = 608.0
+margin_right = 454.0
+margin_bottom = 708.0
+rect_min_size = Vector2( 350, 100 )
 texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 3 )
+texture_pressed = ExtResource( 7 )
 expand = true
-stretch_mode = 3
+stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Salir" type="TextureButton" parent="Control"]
-margin_left = 844.0
-margin_top = 578.0
-margin_right = 1184.0
-margin_bottom = 701.0
+margin_left = 1010.0
+margin_top = 621.0
+margin_right = 1230.0
+margin_bottom = 693.0
+rect_min_size = Vector2( 220, 70 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 6 )
 expand = true
-stretch_mode = 3
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="button_down" from="Control/Reintentar" to="." method="_on_Reintentar_button_down"]
-[connection signal="button_down" from="Control/Salir" to="." method="_on_Salir_button_down"]
+
+[node name="MusicGameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+[connection signal="pressed" from="Control/Reintentar" to="." method="_on_Reintentar_pressed"]
+[connection signal="pressed" from="Control/Salir" to="." method="_on_Salir_pressed"]
