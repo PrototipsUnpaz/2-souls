@@ -6,15 +6,12 @@
 [ext_resource path="res://assets/audio/music/musica_menu.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/menu_main/menufinal2.ogv" type="VideoStream" id=5]
 [ext_resource path="res://assets/menu_main/jugar.png" type="Texture" id=6]
-[ext_resource path="res://assets/menu_main/creditos.png" type="Texture" id=7]
+[ext_resource path="res://assets/menu_main/button_creds/creditos_ama.png" type="Texture" id=7]
 [ext_resource path="res://assets/menu_main/button_exit/salir.png" type="Texture" id=8]
 [ext_resource path="res://assets/menu_main/button_exit/salir_blanco.png" type="Texture" id=9]
+[ext_resource path="res://assets/menu_main/button_creds/creditos_blanco.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
-size = 40
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=2]
 size = 40
 font_data = ExtResource( 1 )
 
@@ -98,26 +95,10 @@ margin_top = 74.0
 margin_right = 180.0
 margin_bottom = 139.0
 rect_min_size = Vector2( 180, 65 )
+texture_normal = ExtResource( 10 )
 texture_pressed = ExtResource( 7 )
 expand = true
-stretch_mode = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Control/CenterContainer/HBoxContainer/Creditos"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -73.314
-margin_top = -21.0493
-margin_right = 71.686
-margin_bottom = 26.9507
-custom_fonts/font = SubResource( 2 )
-text = "CREDITOS"
-align = 1
-valign = 1
+stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
