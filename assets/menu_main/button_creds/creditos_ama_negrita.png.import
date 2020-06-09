@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/salir.png-e50317c39da4dbbab02bc0d9265679d1.stex"
+path="res://.import/creditos_ama_negrita.png-e0cef8265582012e48a28458dd014646.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu_main/button_exit/salir.png"
-dest_files=[ "res://.import/salir.png-e50317c39da4dbbab02bc0d9265679d1.stex" ]
+source_file="res://assets/menu_main/button_creds/creditos_ama_negrita.png"
+dest_files=[ "res://.import/creditos_ama_negrita.png-e0cef8265582012e48a28458dd014646.stex" ]
 
 [params]
 
