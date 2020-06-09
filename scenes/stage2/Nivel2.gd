@@ -13,12 +13,19 @@ func _process(delta):
 		$CenterContainer.visible = true
 		$NextScene.start()
 	if Autoload.dead == true:
-		get_tree().change_scene("res://scenes/game_over/GameOver.tscn")
 		Autoload.dead = false
-		Autoload.lvl2Dead = true
+		$TimerDeath.start()
+		$SfxDeath.play()
+		
 	pass 
 
 
 func _on_Timer_timeout():
 	get_tree().change_scene("res://scenes/stage3/Nivel3.tscn")
-	pass # Replace with function body.
+	pass
+
+
+func _on_TimerDeath_timeout():
+	get_tree().change_scene("res://scenes/game_over/GameOver.tscn")
+	Autoload.lvl2Dead = true
+	pass 
