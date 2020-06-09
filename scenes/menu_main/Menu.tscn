@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/menu_main/button_play/jugar.png" type="Texture" id=1]
 [ext_resource path="res://scenes/menu_main/Menu.gd" type="Script" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://assets/menu_main/menufinal2.ogv" type="VideoStream" id=5]
 [ext_resource path="res://assets/menu_main/button_play/jugar_blanco.png" type="Texture" id=6]
 [ext_resource path="res://assets/menu_main/button_creds/creditos_ama_negrita.png" type="Texture" id=7]
-[ext_resource path="res://assets/menu_main/button_creds/resplandor_amarillo.png" type="Texture" id=8]
 [ext_resource path="res://assets/menu_main/button_exit/salir_blanco.png" type="Texture" id=9]
 [ext_resource path="res://assets/menu_main/button_creds/creditos_blanco.png" type="Texture" id=10]
 [ext_resource path="res://assets/menu_main/button_exit/salirf.png" type="Texture" id=11]
@@ -115,12 +114,6 @@ __meta__ = {
 [node name="MusicaMenu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
-
-[node name="LightYellow" type="Sprite" parent="."]
-visible = false
-position = Vector2( 656.992, 687.819 )
-scale = Vector2( 0.932424, 0.986961 )
-texture = ExtResource( 8 )
 [connection signal="pressed" from="Control/CenterContainer/HBoxContainer/Jugar" to="." method="_on_Jugar_pressed"]
 [connection signal="pressed" from="Control/CenterContainer/HBoxContainer/Creditos" to="." method="_on_Creditos_pressed"]
 [connection signal="pressed" from="Control/CenterContainer/HBoxContainer/Salir" to="." method="_on_Salir_pressed"]

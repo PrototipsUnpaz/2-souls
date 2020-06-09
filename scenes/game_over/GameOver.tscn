@@ -61,5 +61,5 @@ __meta__ = {
 [node name="MusicGameOver" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 autoplay = true
-[connection signal="button_down" from="Control/Reintentar" to="." method="_on_Reintentar_button_down"]
-[connection signal="button_down" from="Control/Salir" to="." method="_on_Salir_button_down"]
+[connection signal="pressed" from="Control/Reintentar" to="." method="_on_Reintentar_pressed"]
+[connection signal="pressed" from="Control/Salir" to="." method="_on_Salir_pressed"]
