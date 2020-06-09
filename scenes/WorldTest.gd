@@ -8,7 +8,6 @@ func _ready():
 	pass
 	
 func _process(delta):
-	print(Autoload.count)
 	if Autoload.count == 2:
 		Autoload.count = 0
 		$CenterContainer.visible = true

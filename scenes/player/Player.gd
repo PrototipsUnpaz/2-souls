@@ -12,7 +12,7 @@ var idle = 0
 onready var ondaPos = $Pivot/PosPower
 var ondaDirection = Vector2()
 var onda_generator = preload ("res://scenes/power_hansel/PowerHansel.tscn")
-
+var sfx_power = preload ("res://scenes/audio/sfx/SfxPowerUp.tscn")
 
 func generate_onda(ondaIstanceDefault_l, direction_x = ondaDirection.x, direction_y = 0):
 	if direction_x and direction_y:
@@ -40,6 +40,8 @@ func _ready():
 		
 func adrenalin():
 	SPEED = SPEED + 100
+	var sfx_powerup = sfx_power.instance()
+	self.get_parent().add_child(sfx_powerup)
 	pass
 
 func attack():
@@ -148,6 +150,7 @@ func _on_Area2D_area_entered(area):
 	if area.name == "EnemyArea" or area.name == "AreaEnemy2":
 		deletePlayer()
 		Autoload.dead = true
+		
 	pass 
 
 

@@ -7,17 +7,14 @@
 [ext_resource path="res://assets/menu_main/menufinal2.ogv" type="VideoStream" id=5]
 [ext_resource path="res://assets/menu_main/jugar.png" type="Texture" id=6]
 [ext_resource path="res://assets/menu_main/creditos.png" type="Texture" id=7]
-[ext_resource path="res://assets/menu_main/salir.png" type="Texture" id=8]
+[ext_resource path="res://assets/menu_main/button_exit/salir.png" type="Texture" id=8]
+[ext_resource path="res://assets/menu_main/button_exit/salir_blanco.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 40
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=3]
 size = 40
 font_data = ExtResource( 1 )
 
@@ -28,7 +25,7 @@ font_data = ExtResource( 3 )
 [node name="Menu" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Control2" type="VideoPlayer" parent="."]
+[node name="BackAnimation" type="VideoPlayer" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 1366, 768 )
@@ -130,23 +127,10 @@ margin_top = 148.0
 margin_right = 180.0
 margin_bottom = 213.0
 rect_min_size = Vector2( 180, 65 )
+texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 8 )
 expand = true
-stretch_mode = 3
-
-[node name="Label" type="Label" parent="Control/CenterContainer/HBoxContainer/Salir"]
-margin_left = 59.0516
-margin_top = 17.9874
-margin_right = 144.052
-margin_bottom = 65.9874
-grow_horizontal = 2
-grow_vertical = 2
-custom_fonts/font = SubResource( 3 )
-text = "Salir"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+stretch_mode = 5
 
 [node name="Version" type="Label" parent="Control"]
 anchor_top = 1.0
