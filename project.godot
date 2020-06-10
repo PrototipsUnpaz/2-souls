@@ -18,6 +18,8 @@ _global_script_class_icons={
 config/name="Proyecto Two Souls"
 run/main_scene="res://scenes/menu_main/Menu.tscn"
 config/icon="res://assets/logo.png"
+config/auto_accept_quit=false
+config/quit_on_go_back=false
 
 [autoload]
 

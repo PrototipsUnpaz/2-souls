@@ -1,5 +1,9 @@
 extends Node2D
 
+func _ready():
+	get_tree().set_auto_accept_quit(false);
+	pass
+
 func _on_Jugar_pressed():
 	get_tree().change_scene("res://scenes/WorldTest.tscn")
 	pass 
