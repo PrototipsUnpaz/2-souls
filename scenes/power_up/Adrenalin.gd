@@ -2,7 +2,7 @@ extends Node2D
 
 signal adrenalyn
 func _ready():
-	pass # Replace with function body.
+	pass
 
 func delete ():
 	queue_free()
