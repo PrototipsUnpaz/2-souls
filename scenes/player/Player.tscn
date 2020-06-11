@@ -86,7 +86,18 @@ shape = SubResource( 3 )
 
 [node name="Pivot" type="Position2D" parent="."]
 
-[node name="PosPower" type="Position2D" parent="Pivot"]
-position = Vector2( 42.6667, 0 )
+[node name="Default" type="Position2D" parent="Pivot"]
+
+[node name="PosRight" type="Position2D" parent="Pivot"]
+position = Vector2( 35, 0 )
+
+[node name="PosLeft" type="Position2D" parent="Pivot"]
+position = Vector2( -35, 0 )
+
+[node name="PosUp" type="Position2D" parent="Pivot"]
+position = Vector2( 0, -40 )
+
+[node name="PosDown" type="Position2D" parent="Pivot"]
+position = Vector2( 0, 30 )
 [connection signal="area_entered" from="AreaBlue" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="AreaBlue" to="." method="_on_Area_area_exited"]

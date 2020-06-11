@@ -1,7 +1,7 @@
 extends Area2D
 
 var direction = Vector2()
-export var vel = 200
+export var vel = 225
 func _ready():
 	$Timer.start()
 	$AnimatedSprite.flip_h = true

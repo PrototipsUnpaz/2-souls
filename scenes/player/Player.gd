@@ -9,7 +9,12 @@ var left = 0
 var top = 0
 var bot = 0
 var idle = 0
-onready var ondaPos = $Pivot/PosPower
+onready var ondaPos = $Pivot/Default
+onready var ondaUp = $Pivot/PosUp
+onready var ondaDown = $Pivot/PosDown
+onready var ondaRight = $Pivot/PosRight
+onready var ondaLeft = $Pivot/PosLeft
+
 var ondaDirection = Vector2()
 var onda_generator = preload ("res://scenes/power_hansel/PowerHansel.tscn")
 var sfx_power = preload ("res://scenes/audio/sfx/SfxPowerUp.tscn")
@@ -64,6 +69,7 @@ func _physics_process(delta):
 	pos_stick_angle = rad2deg(  new_motion_vector.angle_to(Vector2(1,0))  )
 	#Movimiento derecha
 	if pos_stick_angle < 45 and pos_stick_angle >-45:
+		ondaPos.global_position = ondaRight.global_position
 		velocity = Vector2(SPEED, 0)
 		ondaDirection = Vector2(1, 0)
 		right = 1
@@ -73,6 +79,7 @@ func _physics_process(delta):
 		idle = 0
 	#Movimiento izquierda
 	if pos_stick_angle < -128 and pos_stick_angle > -179 or pos_stick_angle < 179 and pos_stick_angle > 134:
+		ondaPos.global_position = ondaLeft.global_position
 		velocity = Vector2(-SPEED, 0)
 		ondaDirection = Vector2(-1, 0)
 		left = 1
@@ -82,6 +89,7 @@ func _physics_process(delta):
 		idle = 0
 	#Movimiento abajo	
 	if pos_stick_angle > -128 and pos_stick_angle < -45:
+		ondaPos.global_position = ondaDown.global_position
 		velocity = Vector2(0, SPEED)
 		ondaDirection = Vector2(0, 1)
 		bot = 1
@@ -91,6 +99,7 @@ func _physics_process(delta):
 		idle = 0
 	#Movimiento arriba
 	if pos_stick_angle > 45 and pos_stick_angle < 133:
+		ondaPos.global_position = ondaUp.global_position
 		velocity = Vector2(0, -SPEED)
 		ondaDirection = Vector2(0, -1)
 		top = 1
@@ -100,6 +109,7 @@ func _physics_process(delta):
 		idle = 0
 	#Cuando se suelte el stick, se detiene el movimiento
 	if new_motion_vector == Vector2(0, 0):
+		ondaPos.global_position = ondaRight.global_position
 		velocity = Vector2(0, 0)
 		idle = 1
 		top = 0
