@@ -25,7 +25,7 @@
 [ext_resource path="res://assets/Hansel/walk_top/azul_arriba4.png" type="Texture" id=23]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24.164, 25.7829 )
+extents = Vector2( 24.164, 24.2203 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -33,11 +33,6 @@ animations = [ {
 "loop": false,
 "name": "Idle",
 "speed": 4.0
-}, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "RunBot",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
@@ -53,6 +48,11 @@ animations = [ {
 "loop": true,
 "name": "RunTop",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "RunBot",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -65,7 +65,7 @@ collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -8.66667 )
+position = Vector2( 0, -6 )
 scale = Vector2( 0.882856, 0.853277 )
 shape = SubResource( 1 )
 

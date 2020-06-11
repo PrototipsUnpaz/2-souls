@@ -18,3 +18,8 @@ func _on_Creditos_pressed():
 func _on_Salir_pressed():
 	get_tree().quit()
 	pass 
+
+
+func _on_BackAnimation_finished():
+	$BackAnimation.play()
+	pass 
