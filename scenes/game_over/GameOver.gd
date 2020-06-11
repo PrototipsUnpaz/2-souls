@@ -12,5 +12,5 @@ func _on_Reintentar_pressed():
 
 
 func _on_Salir_pressed():
-	get_tree().quit()
+	get_tree().change_scene("res://scenes/menu_main/Menu.tscn")
 	pass 
