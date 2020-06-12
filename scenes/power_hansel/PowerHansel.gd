@@ -9,7 +9,7 @@ func _ready():
 
 func _physics_process(delta):
 	if Autoload.velAdd == 1:
-		vel = 325
+		vel = 300
 	
 	if  direction.x >= 1 && direction.y == 0:
 		$AnimatedPower.play("LateralPow")

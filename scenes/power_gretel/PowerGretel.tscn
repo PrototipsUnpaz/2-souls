@@ -32,7 +32,7 @@ script = ExtResource( 4 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "LateralPow"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
