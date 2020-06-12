@@ -92,12 +92,12 @@ shape = SubResource( 3 )
 position = Vector2( 35, 0 )
 
 [node name="PosLeft" type="Position2D" parent="Pivot"]
-position = Vector2( -35, 0 )
+position = Vector2( -33, 0 )
 
 [node name="PosUp" type="Position2D" parent="Pivot"]
-position = Vector2( 0, -40 )
+position = Vector2( 0, -44 )
 
 [node name="PosDown" type="Position2D" parent="Pivot"]
-position = Vector2( 0, 30 )
+position = Vector2( 0, 36 )
 [connection signal="area_entered" from="AreaBlue" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="AreaBlue" to="." method="_on_Area_area_exited"]

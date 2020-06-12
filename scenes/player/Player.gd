@@ -47,6 +47,7 @@ func adrenalin():
 	SPEED = SPEED + 100
 	var sfx_powerup = sfx_power.instance()
 	self.get_parent().add_child(sfx_powerup)
+	Autoload.velAdd += 1
 	pass
 
 func attack():
