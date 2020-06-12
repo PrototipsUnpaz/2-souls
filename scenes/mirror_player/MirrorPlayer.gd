@@ -14,12 +14,13 @@ onready var ondaDown = $Pivot/PosDown
 onready var ondaRight = $Pivot/PosRight
 onready var ondaLeft = $Pivot/PosLeft
 
-
+var lastPosPower = 0
 var onda2Direction = Vector2()
 var	bot = 0
 var onda_generator2 = preload ("res://scenes/power_gretel/PowerGretel.tscn")
 
 func _ready():
+	lastPosPower = 2
 	# Obtengo el nodo llamado StickDigital buscando en el padre (la escena WorldTest en este caso)
 	# Si lo encuentra, lo conecto con el mismo (self) para recibir señales
 	# en caso de que no lo encuentre, no hará la conección y no habrá movimiento
@@ -62,13 +63,20 @@ func _physics_process(delta):
 	
 	pos_stick_angle = rad2deg(  new_motion_vector.angle_to(Vector2(1,0))  )
 	
+	#Guia de ultima posicion de poder "lastPosPower"
+	#1 = derecha
+	#2 = izq
+	#3 = abajo
+	#4 = top
+	
 	#Movimiento izquierda
-	if pos_stick_angle < 45 and pos_stick_angle >-45:
+	if (pos_stick_angle < 45 and pos_stick_angle > 0 or pos_stick_angle < 0 and pos_stick_angle < -45):
 		onda2Pos.global_position = ondaLeft.global_position
 		velocity = Vector2(-SPEED,0)
 		$AnimationSprite.play("RunRight")
 		$AnimationSprite.flip_h = true
 		onda2Direction = Vector2(-1, 0)
+		lastPosPower = 2
 	#Movimiento derecha
 	if pos_stick_angle < -128 and pos_stick_angle > -179 or pos_stick_angle < 179 and pos_stick_angle > 134:
 		onda2Pos.global_position = ondaRight.global_position
@@ -76,25 +84,39 @@ func _physics_process(delta):
 		$AnimationSprite.play("RunRight")
 		$AnimationSprite.flip_h = false
 		onda2Direction = Vector2(1, 0)
+		lastPosPower = 1
 	#Movimiento abajo	
 	if pos_stick_angle > -128 and pos_stick_angle < -45:
 		onda2Pos.global_position = ondaDown.global_position
 		velocity = Vector2(0, SPEED)
 		$AnimationSprite.play("RunBot")
 		onda2Direction = Vector2(0, 1)
-	
+		lastPosPower = 3
 	#Movimiento arriba
 	if pos_stick_angle > 45 and pos_stick_angle < 133:
 		onda2Pos.global_position = ondaUp.global_position
 		velocity = Vector2(0, -SPEED)
 		$AnimationSprite.play("RunTop")
 		onda2Direction = Vector2(0, -1)
+		lastPosPower = 4
 	#Cuando se suelte el stick, se detiene el movimiento
 	if pos_stick_angle == 0:
 		onda2Pos.global_position = ondaLeft.global_position
 		velocity = Vector2(0, 0)
 		$AnimationSprite.play("Idle")
-	
+		
+		if lastPosPower == 3:
+			onda2Direction = Vector2(0, 1)
+			onda2Pos.global_position = ondaDown.global_position
+		elif lastPosPower == 2:
+			onda2Direction = Vector2(-1, 0)
+			onda2Pos.global_position = ondaLeft.global_position
+		elif lastPosPower == 1:
+			onda2Pos.global_position = ondaRight.global_position
+			onda2Direction = Vector2(1, 0)
+		elif lastPosPower == 4:
+			onda2Direction = Vector2(0, -1)
+			onda2Pos.global_position = ondaUp.global_position
 		
 	move_and_slide(velocity)
 	pass

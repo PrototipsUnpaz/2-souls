@@ -4,11 +4,6 @@ var SPEED = 200
 var velocity = Vector2(0, 0)
 var new_motion_vector = Vector2(0,0)
 var pos_stick_angle 
-var right = 0
-var left = 0
-var top = 0
-var bot = 0
-var idle = 0
 onready var ondaPos = $Pivot/Default
 onready var ondaUp = $Pivot/PosUp
 onready var ondaDown = $Pivot/PosDown
@@ -54,11 +49,6 @@ func adrenalin():
 	pass
 
 func attack():
-	idle = 0
-	top = 0
-	right = 0
-	left = 0
-	bot = 0
 	generate_onda(onda_generator,ondaDirection.x, ondaDirection.y)
 	pass
 	
@@ -83,22 +73,16 @@ func _physics_process(delta):
 		ondaPos.global_position = ondaRight.global_position
 		velocity = Vector2(SPEED, 0)
 		ondaDirection = Vector2(1, 0)
-		right = 1
-		top = 0
-		left = 0
-		bot = 0
-		idle = 0
 		lastPosPower = 1
+		$AnimatedSprite.play("RunRight")
+		$AnimatedSprite.flip_h = false
 	#Movimiento izquierda
 	if (pos_stick_angle < -128 and pos_stick_angle > -179 or pos_stick_angle < 179 and pos_stick_angle > 134):
 		ondaPos.global_position = ondaLeft.global_position
 		velocity = Vector2(-SPEED, 0)
 		ondaDirection = Vector2(-1, 0)
-		left = 1
-		right = 0
-		top = 0
-		bot = 0
-		idle = 0
+		$AnimatedSprite.play("RunRight")
+		$AnimatedSprite.flip_h = true
 		lastPosPower = 2
 	
 	#Movimiento abajo	
@@ -106,22 +90,14 @@ func _physics_process(delta):
 		ondaPos.global_position = ondaDown.global_position
 		velocity = Vector2(0, SPEED)
 		ondaDirection = Vector2(0, 1)
-		bot = 1
-		top = 0
-		left = 0
-		right = 0
-		idle = 0
+		$AnimatedSprite.play("RunBot")
 		lastPosPower = 3
 	#Movimiento arriba
 	if (pos_stick_angle > 45 and pos_stick_angle < 133):
 		ondaPos.global_position = ondaUp.global_position
 		velocity = Vector2(0, -SPEED)
 		ondaDirection = Vector2(0, -1)
-		top = 1
-		left = 0
-		right = 0
-		bot = 0
-		idle = 0
+		$AnimatedSprite.play("RunTop")
 		lastPosPower = 4
 		
 
@@ -130,10 +106,7 @@ func _physics_process(delta):
 	if new_motion_vector == Vector2(0, 0):
 		
 		velocity = Vector2(0, 0)
-		idle = 1
-		top = 0
-		left = 0
-		bot = 0
+		$AnimatedSprite.play("Idle")
 		if lastPosPower == 3:
 			ondaDirection = Vector2(0, 1)
 			ondaPos.global_position = ondaDown.global_position
@@ -149,20 +122,6 @@ func _physics_process(delta):
 	move_and_slide(velocity)
 	print(lastPosPower)
 	pass
-	if right == 1: 
-		$AnimatedSprite.play("RunRight")
-		$AnimatedSprite.flip_h = false
-	if left == 1:
-		$AnimatedSprite.play("RunRight")
-		$AnimatedSprite.flip_h = true
-	if bot == 1:
-		$AnimatedSprite.play("RunBot")
-	if top == 1:
-		$AnimatedSprite.play("RunTop")
-	if idle == 1: 
-		$AnimatedSprite.play("Idle")
-		
-	
 	
 	
 	#if Input.is_action_just_released("ui_down") or Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
