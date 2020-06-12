@@ -8,7 +8,6 @@ func _ready():
 
 
 func _physics_process(delta):
-	print(vel)
 	if Autoload.velAdd == 1:
 		vel = 300
 	if  direction.x >= 1 && direction.y == 0:
