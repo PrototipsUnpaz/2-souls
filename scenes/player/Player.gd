@@ -4,12 +4,14 @@ var SPEED = 200
 var velocity = Vector2(0, 0)
 var new_motion_vector = Vector2(0,0)
 var pos_stick_angle 
-var right = 0
-var left = 0
-var top = 0
-var bot = 0
-var idle = 0
-onready var ondaPos = $Pivot/PosPower
+onready var ondaPos = $Pivot/Default
+onready var ondaUp = $Pivot/PosUp
+onready var ondaDown = $Pivot/PosDown
+onready var ondaRight = $Pivot/PosRight
+onready var ondaLeft = $Pivot/PosLeft
+
+var lastPosPower = 0
+
 var ondaDirection = Vector2()
 var onda_generator = preload ("res://scenes/power_hansel/PowerHansel.tscn")
 var sfx_power = preload ("res://scenes/audio/sfx/SfxPowerUp.tscn")
@@ -25,6 +27,7 @@ func generate_onda(ondaIstanceDefault_l, direction_x = ondaDirection.x, directio
 
 	
 func _ready():
+	lastPosPower = 1
 	# Obtengo el nodo llamado StickDigital buscando en el padre (la escena WorldTest en este caso)
 	# Si lo encuentra, lo conecto con el mismo (self) para recibir señales
 	# en caso de que no lo encuentre, no hará la conección y no habrá movimiento
@@ -42,14 +45,10 @@ func adrenalin():
 	SPEED = SPEED + 100
 	var sfx_powerup = sfx_power.instance()
 	self.get_parent().add_child(sfx_powerup)
+	Autoload.velAdd += 1
 	pass
 
 func attack():
-	idle = 0
-	top = 0
-	right = 0
-	left = 0
-	bot = 0
 	generate_onda(onda_generator,ondaDirection.x, ondaDirection.y)
 	pass
 	
@@ -62,65 +61,67 @@ func get_motion_vector(motion):
 
 func _physics_process(delta):
 	pos_stick_angle = rad2deg(  new_motion_vector.angle_to(Vector2(1,0))  )
+	
+	#Guia de ultima posicion de poder "lastPosPower"
+	#1 = derecha
+	#2 = izq
+	#3 = abajo
+	#4 = top
+	
 	#Movimiento derecha
-	if pos_stick_angle < 45 and pos_stick_angle >-45:
+	if  (pos_stick_angle < 45 and pos_stick_angle > 0 or pos_stick_angle < 0 and pos_stick_angle < -45):
+		ondaPos.global_position = ondaRight.global_position
 		velocity = Vector2(SPEED, 0)
 		ondaDirection = Vector2(1, 0)
-		right = 1
-		top = 0
-		left = 0
-		bot = 0
-		idle = 0
-	#Movimiento izquierda
-	if pos_stick_angle < -128 and pos_stick_angle > -179 or pos_stick_angle < 179 and pos_stick_angle > 134:
-		velocity = Vector2(-SPEED, 0)
-		ondaDirection = Vector2(-1, 0)
-		left = 1
-		right = 0
-		top = 0
-		bot = 0
-		idle = 0
-	#Movimiento abajo	
-	if pos_stick_angle > -128 and pos_stick_angle < -45:
-		velocity = Vector2(0, SPEED)
-		ondaDirection = Vector2(0, 1)
-		bot = 1
-		top = 0
-		left = 0
-		right = 0
-		idle = 0
-	#Movimiento arriba
-	if pos_stick_angle > 45 and pos_stick_angle < 133:
-		velocity = Vector2(0, -SPEED)
-		ondaDirection = Vector2(0, -1)
-		top = 1
-		left = 0
-		right = 0
-		bot = 0
-		idle = 0
-	#Cuando se suelte el stick, se detiene el movimiento
-	if new_motion_vector == Vector2(0, 0):
-		velocity = Vector2(0, 0)
-		idle = 1
-		top = 0
-		left = 0
-		bot = 0
-	move_and_slide(velocity)
-	pass
-	if right == 1: 
+		lastPosPower = 1
 		$AnimatedSprite.play("RunRight")
 		$AnimatedSprite.flip_h = false
-	if left == 1:
+	#Movimiento izquierda
+	if (pos_stick_angle < -128 and pos_stick_angle > -179 or pos_stick_angle < 179 and pos_stick_angle > 134):
+		ondaPos.global_position = ondaLeft.global_position
+		velocity = Vector2(-SPEED, 0)
+		ondaDirection = Vector2(-1, 0)
 		$AnimatedSprite.play("RunRight")
 		$AnimatedSprite.flip_h = true
-	if bot == 1:
-		$AnimatedSprite.play("RunBot")
-	if top == 1:
-		$AnimatedSprite.play("RunTop")
-	if idle == 1: 
-		$AnimatedSprite.play("Idle")
-		
+		lastPosPower = 2
 	
+	#Movimiento abajo	
+	if (pos_stick_angle > -128 and pos_stick_angle < -45):
+		ondaPos.global_position = ondaDown.global_position
+		velocity = Vector2(0, SPEED)
+		ondaDirection = Vector2(0, 1)
+		$AnimatedSprite.play("RunBot")
+		lastPosPower = 3
+	#Movimiento arriba
+	if (pos_stick_angle > 45 and pos_stick_angle < 133):
+		ondaPos.global_position = ondaUp.global_position
+		velocity = Vector2(0, -SPEED)
+		ondaDirection = Vector2(0, -1)
+		$AnimatedSprite.play("RunTop")
+		lastPosPower = 4
+		
+
+	
+	#Cuando se suelte el stick, se detiene el movimiento
+	if new_motion_vector == Vector2(0, 0):
+		
+		velocity = Vector2(0, 0)
+		$AnimatedSprite.play("Idle")
+		if lastPosPower == 3:
+			ondaDirection = Vector2(0, 1)
+			ondaPos.global_position = ondaDown.global_position
+		elif lastPosPower == 2:
+			ondaDirection = Vector2(-1, 0)
+			ondaPos.global_position = ondaLeft.global_position
+		elif lastPosPower == 1:
+			ondaPos.global_position = ondaRight.global_position
+			ondaDirection = Vector2(1, 0)
+		elif lastPosPower == 4:
+			ondaDirection = Vector2(0, -1)
+			ondaPos.global_position = ondaUp.global_position
+	move_and_slide(velocity)
+	print(lastPosPower)
+	pass
 	
 	
 	#if Input.is_action_just_released("ui_down") or Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):

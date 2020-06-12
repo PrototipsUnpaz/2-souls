@@ -1,15 +1,23 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/gretel/attaack/powerg/ella_onda2.png" type="Texture" id=1]
 [ext_resource path="res://assets/gretel/attaack/powerg/ella_onda1.png" type="Texture" id=2]
 [ext_resource path="res://assets/gretel/attaack/powerg/ella_onda3.png" type="Texture" id=3]
 [ext_resource path="res://scenes/power_gretel/PowerRed.gd" type="Script" id=4]
+[ext_resource path="res://assets/gretel/attaack/powerg/down_onda2/ella_onda2.png" type="Texture" id=5]
+[ext_resource path="res://assets/gretel/attaack/powerg/down_onda2/ella_onda1.png" type="Texture" id=6]
+[ext_resource path="res://assets/gretel/attaack/powerg/down_onda2/ella_onda3.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "VerticalPow",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "default",
+"name": "LateralPow",
 "speed": 5.0
 } ]
 
@@ -23,6 +31,8 @@ script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+animation = "LateralPow"
+frame = 2
 playing = true
 
 [node name="Timer" type="Timer" parent="."]

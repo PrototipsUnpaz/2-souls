@@ -30,7 +30,7 @@ extents = Vector2( 24.164, 24.2203 )
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 14 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 21 ) ],
-"loop": false,
+"loop": true,
 "name": "Idle",
 "speed": 4.0
 }, {
@@ -72,7 +72,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "Idle"
-frame = 4
 playing = true
 
 [node name="AreaBlue" type="Area2D" parent="."]
@@ -86,7 +85,18 @@ shape = SubResource( 3 )
 
 [node name="Pivot" type="Position2D" parent="."]
 
-[node name="PosPower" type="Position2D" parent="Pivot"]
-position = Vector2( 42.6667, 0 )
+[node name="Default" type="Position2D" parent="Pivot"]
+
+[node name="PosRight" type="Position2D" parent="Pivot"]
+position = Vector2( 35, 0 )
+
+[node name="PosLeft" type="Position2D" parent="Pivot"]
+position = Vector2( -35, 0 )
+
+[node name="PosUp" type="Position2D" parent="Pivot"]
+position = Vector2( 0, -44 )
+
+[node name="PosDown" type="Position2D" parent="Pivot"]
+position = Vector2( 0, 36 )
 [connection signal="area_entered" from="AreaBlue" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="AreaBlue" to="." method="_on_Area_area_exited"]
