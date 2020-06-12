@@ -92,7 +92,7 @@ shape = SubResource( 3 )
 position = Vector2( 35, 0 )
 
 [node name="PosLeft" type="Position2D" parent="Pivot"]
-position = Vector2( -33, 0 )
+position = Vector2( -35, 0 )
 
 [node name="PosUp" type="Position2D" parent="Pivot"]
 position = Vector2( 0, -44 )

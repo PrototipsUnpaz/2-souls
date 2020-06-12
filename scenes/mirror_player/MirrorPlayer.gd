@@ -9,6 +9,12 @@ var	top = 0
 var	right = 0
 var	left = 0
 onready var onda2Pos = $Pivot/PosPower
+onready var ondaUp = $Pivot/PosUp
+onready var ondaDown = $Pivot/PosDown
+onready var ondaRight = $Pivot/PosRight
+onready var ondaLeft = $Pivot/PosLeft
+
+
 var onda2Direction = Vector2()
 var	bot = 0
 var onda_generator2 = preload ("res://scenes/power_gretel/PowerGretel.tscn")
@@ -56,31 +62,36 @@ func _physics_process(delta):
 	
 	pos_stick_angle = rad2deg(  new_motion_vector.angle_to(Vector2(1,0))  )
 	
-	#Movimiento derecha
+	#Movimiento izquierda
 	if pos_stick_angle < 45 and pos_stick_angle >-45:
+		onda2Pos.global_position = ondaLeft.global_position
 		velocity = Vector2(-SPEED,0)
 		$AnimationSprite.play("RunRight")
 		$AnimationSprite.flip_h = true
 		onda2Direction = Vector2(-1, 0)
-	#Movimiento izquierda
+	#Movimiento derecha
 	if pos_stick_angle < -128 and pos_stick_angle > -179 or pos_stick_angle < 179 and pos_stick_angle > 134:
+		onda2Pos.global_position = ondaRight.global_position
 		velocity = Vector2(SPEED, 0)
 		$AnimationSprite.play("RunRight")
 		$AnimationSprite.flip_h = false
 		onda2Direction = Vector2(1, 0)
 	#Movimiento abajo	
 	if pos_stick_angle > -128 and pos_stick_angle < -45:
+		onda2Pos.global_position = ondaDown.global_position
 		velocity = Vector2(0, SPEED)
 		$AnimationSprite.play("RunBot")
 		onda2Direction = Vector2(0, 1)
 	
 	#Movimiento arriba
 	if pos_stick_angle > 45 and pos_stick_angle < 133:
+		onda2Pos.global_position = ondaUp.global_position
 		velocity = Vector2(0, -SPEED)
 		$AnimationSprite.play("RunTop")
 		onda2Direction = Vector2(0, -1)
 	#Cuando se suelte el stick, se detiene el movimiento
 	if pos_stick_angle == 0:
+		onda2Pos.global_position = ondaLeft.global_position
 		velocity = Vector2(0, 0)
 		$AnimationSprite.play("Idle")
 	

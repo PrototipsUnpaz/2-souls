@@ -7,10 +7,7 @@ func _ready():
 	pass
 
 
-
-
 func _physics_process(delta):
-	print(vel)
 	if Autoload.velAdd == 1:
 		vel = 325
 	
