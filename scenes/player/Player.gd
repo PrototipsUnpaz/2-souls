@@ -69,13 +69,14 @@ func _physics_process(delta):
 	#4 = top
 	
 	#Movimiento derecha
-	if  (pos_stick_angle < 45 and pos_stick_angle > 0 or pos_stick_angle < 0 and pos_stick_angle < -45):
+	if  (pos_stick_angle < 45 and pos_stick_angle > 0 or pos_stick_angle < 0 and pos_stick_angle > -45):
 		ondaPos.global_position = ondaRight.global_position
 		velocity = Vector2(SPEED, 0)
 		ondaDirection = Vector2(1, 0)
 		lastPosPower = 1
 		$AnimatedSprite.play("RunRight")
 		$AnimatedSprite.flip_h = false
+	
 	#Movimiento izquierda
 	if (pos_stick_angle < -128 and pos_stick_angle > -179 or pos_stick_angle < 179 and pos_stick_angle > 134):
 		ondaPos.global_position = ondaLeft.global_position
@@ -84,8 +85,8 @@ func _physics_process(delta):
 		$AnimatedSprite.play("RunRight")
 		$AnimatedSprite.flip_h = true
 		lastPosPower = 2
-	
-	#Movimiento abajo	
+		
+		#Movimiento abajo	
 	if (pos_stick_angle > -128 and pos_stick_angle < -45):
 		ondaPos.global_position = ondaDown.global_position
 		velocity = Vector2(0, SPEED)
@@ -100,8 +101,6 @@ func _physics_process(delta):
 		$AnimatedSprite.play("RunTop")
 		lastPosPower = 4
 		
-
-	
 	#Cuando se suelte el stick, se detiene el movimiento
 	if new_motion_vector == Vector2(0, 0):
 		
@@ -120,7 +119,7 @@ func _physics_process(delta):
 			ondaDirection = Vector2(0, -1)
 			ondaPos.global_position = ondaUp.global_position
 	move_and_slide(velocity)
-	print(lastPosPower)
+	
 	pass
 	
 	

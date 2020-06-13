@@ -70,7 +70,7 @@ func _physics_process(delta):
 	#4 = top
 	
 	#Movimiento izquierda
-	if (pos_stick_angle < 45 and pos_stick_angle > 0 or pos_stick_angle < 0 and pos_stick_angle < -45):
+	if (pos_stick_angle < 45 and pos_stick_angle > 0 or pos_stick_angle < 0 and pos_stick_angle > -45):
 		onda2Pos.global_position = ondaLeft.global_position
 		velocity = Vector2(-SPEED,0)
 		$AnimationSprite.play("RunRight")

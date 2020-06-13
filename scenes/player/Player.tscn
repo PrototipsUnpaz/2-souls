@@ -71,7 +71,8 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-animation = "Idle"
+animation = "RunBot"
+frame = 2
 playing = true
 
 [node name="AreaBlue" type="Area2D" parent="."]

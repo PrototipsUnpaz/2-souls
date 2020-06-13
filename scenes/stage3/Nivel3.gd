@@ -10,6 +10,8 @@ func _ready():
 
 func _on_Button_pressed():
 	Autoload.velAdd = 0
+	Autoload.lv2 = false
+	Autoload.lv3 = false
 	get_tree().change_scene("res://scenes/menu_main/Menu.tscn")
 	
 	pass 
