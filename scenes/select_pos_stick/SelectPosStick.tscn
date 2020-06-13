@@ -17,11 +17,11 @@ __meta__ = {
 }
 
 [node name="StickDigital" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1225.97, 628.525 )
+position = Vector2( 1220.97, 628.525 )
 z_index = 1
 
 [node name="StickDigital2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 140, 628.525 )
+position = Vector2( 149, 628.525 )
 z_index = 1
 
 [node name="Control" type="Control" parent="."]
