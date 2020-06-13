@@ -9,6 +9,10 @@ var win = false
 var velAdd = 0
 var stickLeft = false
 var stickRight = false
+var lv1 = false
+var lv2 = false
+var lv3 = false
+
 
 func _ready():
 	pass 

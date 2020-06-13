@@ -30,7 +30,7 @@ margin_left = -230.5
 margin_top = -144.5
 margin_right = 230.5
 margin_bottom = 144.5
-text = "Stage 1
+text = "
 "
 
 [node name="NextScen" type="Timer" parent="."]
