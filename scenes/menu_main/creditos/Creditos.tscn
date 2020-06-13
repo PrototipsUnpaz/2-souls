@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/menu_main/creditos/Creditos.gd" type="Script" id=1]
-[ext_resource path="res://assets/creditos/creditos.ogv" type="VideoStream" id=2]
+[ext_resource path="res://assets/creditos/creditos6seg.ogv" type="VideoStream" id=2]
 [ext_resource path="res://assets/creditos/button_cred/volver_luz.png" type="Texture" id=3]
 [ext_resource path="res://assets/creditos/button_cred/volver__negrita.png" type="Texture" id=4]
 
@@ -29,4 +29,5 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="finished" from="BackgroundCreds" to="." method="_on_BackgroundCreds_finished"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

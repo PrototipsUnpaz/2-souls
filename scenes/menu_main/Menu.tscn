@@ -1,19 +1,15 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/menu_main/button_play/jugar.png" type="Texture" id=1]
 [ext_resource path="res://scenes/menu_main/Menu.gd" type="Script" id=2]
-[ext_resource path="res://assets/font_win/Roman SD.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/ui/text_win/Version.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/audio/music/musica_menu.ogg" type="AudioStream" id=4]
-[ext_resource path="res://assets/menu_main/menufinal2.ogv" type="VideoStream" id=5]
+[ext_resource path="res://assets/menu_main/menu8seg.ogv" type="VideoStream" id=5]
 [ext_resource path="res://assets/menu_main/button_play/jugar_blanco.png" type="Texture" id=6]
 [ext_resource path="res://assets/menu_main/button_creds/creditos_ama_negrita.png" type="Texture" id=7]
 [ext_resource path="res://assets/menu_main/button_exit/salir_blanco.png" type="Texture" id=9]
 [ext_resource path="res://assets/menu_main/button_creds/creditos_blanco.png" type="Texture" id=10]
 [ext_resource path="res://assets/menu_main/button_exit/salirf.png" type="Texture" id=11]
-
-[sub_resource type="DynamicFont" id=1]
-size = 20
-font_data = ExtResource( 3 )
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 2 )
@@ -97,19 +93,7 @@ texture_pressed = ExtResource( 11 )
 expand = true
 stretch_mode = 5
 
-[node name="Version" type="Label" parent="Control"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 26.3713
-margin_top = -38.6779
-margin_right = 77.3713
-margin_bottom = -18.6779
-rect_min_size = Vector2( 50, 10 )
-custom_fonts/font = SubResource( 1 )
-text = "V0.2.0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Version" parent="Control" instance=ExtResource( 3 )]
 
 [node name="MusicaMenu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )

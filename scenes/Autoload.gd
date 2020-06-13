@@ -7,11 +7,9 @@ var dead = false
 var count = 0
 var win = false
 var velAdd = 0
-# Called when the node enters the scene tree for the first time.
+var stickLeft = false
+var stickRight = false
+
 func _ready():
-	pass # Replace with function body.
+	pass 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

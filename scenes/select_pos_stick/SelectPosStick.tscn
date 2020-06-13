@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/ui/text_win/Version.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/stick_digital/StickDigital.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/select_pos_stick/SelectPosStick.gd" type="Script" id=3]
+
+[node name="SelectPosStick" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1366.0
+margin_bottom = 768.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StickDigital" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1225.97, 628.525 )
+z_index = 1
+
+[node name="StickDigital2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 140, 628.525 )
+z_index = 1
+
+[node name="Control" type="Control" parent="."]
+margin_right = 1366.0
+margin_bottom = 768.0
+rect_min_size = Vector2( 1366, 768 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Version" parent="Control" instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -288.0
+margin_top = 88.0
+margin_right = 547.0
+margin_bottom = 117.0
+text = "Selecciona posición del analogico digital"
+
+[node name="ButtonRight" type="Button" parent="Control"]
+margin_left = 1150.0
+margin_top = 464.0
+margin_right = 1304.0
+margin_bottom = 520.0
+text = "Derecha"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonLeft" type="Button" parent="Control"]
+margin_left = 62.0
+margin_top = 464.0
+margin_right = 216.0
+margin_bottom = 520.0
+text = "Izquierda"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Control/ButtonRight" to="." method="_on_ButtonRight_pressed"]
+[connection signal="pressed" from="Control/ButtonLeft" to="." method="_on_ButtonLeft_pressed"]
