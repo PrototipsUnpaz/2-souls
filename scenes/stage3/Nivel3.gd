@@ -17,5 +17,8 @@ func _on_Button_pressed():
 
 func _on_Button2_pressed():
 	Autoload.velAdd = 0
-	get_tree().change_scene("res://scenes/WorldTest.tscn")
+	Autoload.lv1 = true
+	Autoload.lv2 = false
+	Autoload.lv3 = false
+	get_tree().change_scene("res://scenes/name_stage/NameStage.tscn")
 	pass 

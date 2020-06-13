@@ -27,8 +27,10 @@ func _process(delta):
 
 
 func _on_NextScene_timeout():
-	get_tree().change_scene("res://scenes/stage2/Nivel2.tscn")
-	pass # Replace with function body.
+	Autoload.lv1 = false
+	Autoload.lv2 = true
+	get_tree().change_scene("res://scenes/name_stage/NameStage.tscn")
+	pass 
 
 
 func _on_SfxTimer_timeout():

@@ -27,7 +27,10 @@ func _process(delta):
 
 
 func _on_Timer_timeout():
-	get_tree().change_scene("res://scenes/stage3/Nivel3.tscn")
+	Autoload.lv1 = false
+	Autoload.lv2 = false
+	Autoload.lv3 = true
+	get_tree().change_scene("res://scenes/name_stage/NameStage.tscn")
 	pass
 
 
