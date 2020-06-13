@@ -2,6 +2,12 @@ extends Node2D
 
 
 func _ready():
+	if Autoload.stickLeft == true:
+		$StickDigital.position.x = 149
+		$ButtonAttack.position.x = 1220.97
+	elif Autoload.stickRight == true:
+		$StickDigital.position.x = 1220.97
+		$ButtonAttack.position.x = 149
 	$StickDigital.modulate = Color(1,1,1,0.4)
 	$ButtonAttack.modulate = Color(1,1,1,0.4)
 	$CenterContainer.visible = false
@@ -21,7 +27,10 @@ func _process(delta):
 
 
 func _on_Timer_timeout():
-	get_tree().change_scene("res://scenes/stage3/Nivel3.tscn")
+	Autoload.lv1 = false
+	Autoload.lv2 = false
+	Autoload.lv3 = true
+	get_tree().change_scene("res://scenes/name_stage/NameStage.tscn")
 	pass
 
 

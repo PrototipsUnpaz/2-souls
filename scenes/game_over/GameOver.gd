@@ -20,3 +20,8 @@ func _on_Salir_pressed():
 	get_parent().add_child(sfxBbut)
 	get_tree().change_scene("res://scenes/menu_main/Menu.tscn")
 	pass 
+
+
+func _on_Background_finished():
+	$Background.play()
+	pass 

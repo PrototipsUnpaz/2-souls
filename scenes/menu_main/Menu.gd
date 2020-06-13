@@ -10,7 +10,7 @@ func _ready():
 func _on_Jugar_pressed():
 	var sfxBbut = sfxButtons.instance()
 	get_parent().add_child(sfxBbut)
-	get_tree().change_scene("res://scenes/WorldTest.tscn")
+	get_tree().change_scene("res://scenes/select_pos_stick/SelectPosStick.tscn")
 	pass 
 
 
