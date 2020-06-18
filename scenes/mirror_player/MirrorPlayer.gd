@@ -4,20 +4,16 @@ var SPEED = 200
 var velocity = Vector2()
 var new_motion_vector = Vector2(0,0)
 var pos_stick_angle
-var	idle = 0
-var	top = 0
-var	right = 0
-var	left = 0
 onready var onda2Pos = $Pivot/PosPower
 onready var ondaUp = $Pivot/PosUp
 onready var ondaDown = $Pivot/PosDown
 onready var ondaRight = $Pivot/PosRight
 onready var ondaLeft = $Pivot/PosLeft
-
 var lastPosPower = 0
 var onda2Direction = Vector2()
 var	bot = 0
 var onda_generator2 = preload ("res://scenes/power_gretel/PowerGretel.tscn")
+var sfxPowerAtqDefault = preload ("res://scenes/audio/sfx/SfxPowerAtq.tscn")
 
 func _ready():
 	lastPosPower = 2
@@ -48,11 +44,6 @@ func generate_power(ondaIstanceDefault_l, direction_x = onda2Direction.x, direct
 
 
 func attack():
-	idle = 0
-	top = 0
-	right = 0
-	left = 0
-	bot = 0
 	generate_power(onda_generator2,onda2Direction.x, onda2Direction.y)
 	pass
 
@@ -117,34 +108,9 @@ func _physics_process(delta):
 		elif lastPosPower == 4:
 			onda2Direction = Vector2(0, -1)
 			onda2Pos.global_position = ondaUp.global_position
-		
 	move_and_slide(velocity)
 	pass
 	
-	
-	
-	
-	
-	
-#	if Input.is_action_just_released("ui_down") or Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
-#		velocity.x = 0
-#		velocity.y = 0
-		
-#	if Input.is_action_pressed("ui_left"):
-#		velocity.x = SPEED
-#		velocity.y = 0
-		
-#	if Input.is_action_pressed("ui_right"):
-#		velocity.x = -SPEED
-#		velocity.y = 0
-		
-	#if Input.is_action_pressed("ui_up"):
-	#	velocity.y = -SPEED
-	#	velocity.x = 0
-		
-	#if Input.is_action_pressed("ui_down"):
-	#	velocity.y = SPEED
-	#	velocity.x = 0
 func deletePlayer():
 	queue_free()
 	pass
@@ -156,11 +122,23 @@ func _on_Area_area_entered(area):
 	if area.name == "EnemyArea" or area.name == "AreaEnemy2":
 		deletePlayer()
 		Autoload.dead = true
-	pass # Replace with function body.
-
+	if area.name == "AtqArea":
+		
+		var sfxPowerAtq = sfxPowerAtqDefault.instance()
+		self.get_parent().add_child(sfxPowerAtq)
+	pass 
 
 func _on_Area_area_exited(area):
 	if area.name == "AreaPortal":
 		Autoload.win = false
 		Autoload.count = 0
-	pass # Replace with function body.
+	pass 
+
+func _on_DurationPowerAtq_timeout():
+	Autoload.powerUpActive = false
+	pass 
+
+func power_atq():
+	Autoload.powerUpActive = true
+	$DurationPowerAtq.start()
+	pass

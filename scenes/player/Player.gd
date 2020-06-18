@@ -9,12 +9,12 @@ onready var ondaUp = $Pivot/PosUp
 onready var ondaDown = $Pivot/PosDown
 onready var ondaRight = $Pivot/PosRight
 onready var ondaLeft = $Pivot/PosLeft
-
 var lastPosPower = 0
-
 var ondaDirection = Vector2()
 var onda_generator = preload ("res://scenes/power_hansel/PowerHansel.tscn")
 var sfx_power = preload ("res://scenes/audio/sfx/SfxPowerUp.tscn")
+var sfxPowerAtqDefault = preload ("res://scenes/audio/sfx/SfxPowerAtq.tscn")
+signal power_up_atq
 
 func generate_onda(ondaIstanceDefault_l, direction_x = ondaDirection.x, direction_y = 0):
 	if direction_x and direction_y:
@@ -24,7 +24,6 @@ func generate_onda(ondaIstanceDefault_l, direction_x = ondaDirection.x, directio
 	onda.global_position = self.ondaPos.global_position
 	onda.direction = Vector2(direction_x, direction_y)
 	pass
-
 	
 func _ready():
 	lastPosPower = 1
@@ -39,20 +38,16 @@ func _ready():
 		buttonAttack.connect("hit", self, "attack")
 	if stickDigital != null:
 		stickDigital.connect("stick_motion", self, "get_motion_vector")
-	
 		
 func adrenalin():
 	SPEED = SPEED + 100
 	var sfx_powerup = sfx_power.instance()
 	self.get_parent().add_child(sfx_powerup)
-	Autoload.velAdd += 1
 	pass
 
 func attack():
 	generate_onda(onda_generator,ondaDirection.x, ondaDirection.y)
 	pass
-	
-
 # Funcion que se ejecuta al recibir la señal "get_motion"
 # este obtiene el vector "dirección" (hacia donde apunta)
 func get_motion_vector(motion):
@@ -122,27 +117,6 @@ func _physics_process(delta):
 	
 	pass
 	
-	
-	#if Input.is_action_just_released("ui_down") or Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
-		#velocity.x = 0
-		#velocity.y = 0
-		
-	#if Input.is_action_pressed("ui_left"):
-		#velocity.x = -SPEED
-		#velocity.y = 0
-		
-	#if Input.is_action_pressed("ui_right"):
-		#velocity.x = SPEED
-		#velocity.y = 0
-		
-	#if Input.is_action_pressed("ui_up"):
-		#velocity.y = -SPEED
-		#velocity.x = 0
-		
-	#if Input.is_action_pressed("ui_down"):
-		#velocity.y = SPEED
-		#velocity.x = 0
-
 func _on_Area2D_area_entered(area):
 	if area.name == "AreaPortal":
 		if Autoload.count < 2:
@@ -150,7 +124,10 @@ func _on_Area2D_area_entered(area):
 	if area.name == "EnemyArea" or area.name == "AreaEnemy2":
 		deletePlayer()
 		Autoload.dead = true
+	if area.name == "AtqArea":
 		
+		var sfxPowerAtq = sfxPowerAtqDefault.instance()
+		self.get_parent().add_child(sfxPowerAtq)
 	pass 
 
 
@@ -162,4 +139,6 @@ func _on_Area_area_exited(area):
 	if area.name == "AreaPortal":
 		Autoload.count = 0
 		Autoload.win = false
-	pass # Replace with function body.
+	pass 
+	
+

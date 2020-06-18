@@ -3,7 +3,9 @@
 [ext_resource path="res://assets/font_win/Roman SD.ttf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=1]
-size = 20
+size = 25
+outline_size = 2
+outline_color = Color( 0.00784314, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [node name="Version" type="Label"]

@@ -13,11 +13,11 @@ var posicionDestino
 
 func _ready():
 	velocidad = 200
-	$AnimatedSprite.play()
 	posicionDestino = posicion1
 	mover()
 
 func mover():
+	$AnimatedSprite.play("idle")
 	var tiempo = position.distance_to(posicionDestino) / velocidad
 	$Tween.interpolate_property(self, "position", position, posicionDestino, tiempo, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
@@ -41,6 +41,7 @@ func stun():
 	stun = true
 	$Tween.stop_all()
 	$EnemyArea/CollisionShape2D.set_deferred("disabled", true)
+	$AnimatedSprite.play("stun_enemy")
 	pass
 	
 func _on_Area2D_area_entered(area):

@@ -25,7 +25,7 @@
 [ext_resource path="res://assets/Hansel/walk_top/azul_arriba4.png" type="Texture" id=23]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24.164, 24.2203 )
+extents = Vector2( 17.7984, 28.9753 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -39,9 +39,9 @@ animations = [ {
 "name": "AtkTop",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 15 ) ],
 "loop": true,
-"name": "RunRight",
+"name": "RunBot",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 23 ) ],
@@ -49,14 +49,14 @@ animations = [ {
 "name": "RunTop",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "RunBot",
+"name": "RunRight",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 25.6388, 27.4802 )
+extents = Vector2( 30.9711, 27.4802 )
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 1.5, 1.5 )
@@ -65,14 +65,15 @@ collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -6 )
+position = Vector2( -2.98023e-08, -0.667003 )
 scale = Vector2( 0.882856, 0.853277 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.39917, 0 )
 frames = SubResource( 2 )
 animation = "RunBot"
-frame = 2
+frame = 3
 playing = true
 
 [node name="AreaBlue" type="Area2D" parent="."]
@@ -81,7 +82,7 @@ collision_layer = 594
 collision_mask = 594
 
 [node name="Collision" type="CollisionShape2D" parent="AreaBlue"]
-position = Vector2( 0, -7.55704 )
+position = Vector2( 0, 2.74802 )
 shape = SubResource( 3 )
 
 [node name="Pivot" type="Position2D" parent="."]
