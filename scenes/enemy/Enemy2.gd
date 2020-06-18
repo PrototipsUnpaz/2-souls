@@ -3,7 +3,7 @@ extends Node2D
 var stun = false
 var ida = false
 var ida2 = false
-
+var ida3 = false
 export (Vector2) var posicion1
 export (Vector2) var posicion2
 export (Vector2) var posicion3
@@ -49,18 +49,20 @@ func _on_Tween2_tween_completed(object, key):
 	elif (posicionDestino.x == posicion3.x && posicionDestino.y == posicion3.y) && ida == true:
 		posicionDestino = posicion4
 		ida = false
-	elif posicionDestino.x == posicion4.x && posicionDestino.y == posicion4.y:
+		ida3 = true
+	elif (posicionDestino.x == posicion4.x && posicionDestino.y == posicion4.y) && ida3 == true:
 		posicionDestino = posicion3
+		ida3 = false
 	elif posicionDestino.x == posicion3.x && posicionDestino.y == posicion3.y:
 		posicionDestino = posicion2
 	elif posicionDestino.x == posicion2.x && posicionDestino.y == posicion2.y:
 		posicionDestino = posicion1
 	mover()
-	pass # Replace with function body.
+	pass 
 
 
 func _on_AreaEnemy2_area_entered(area):
 	if (area.name == "PowerRed" or area.name == "PowerHansel") and stun == false:
 		stun()
 		$Stun2.start()
-	pass # Replace with function body.
+	pass 

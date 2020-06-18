@@ -12,6 +12,12 @@ func _on_Reintentar_pressed():
 	if Autoload.lvl2Dead == true:
 		Autoload.lvl2Dead = false
 		get_tree().change_scene("res://scenes/stage2/Nivel2.tscn")
+	if Autoload.lvl3Dead == true:
+		Autoload.lvl3Dead = false
+		get_tree().change_scene("res://scenes/stage3/Nivel3.tscn")
+	if Autoload.lvl4Dead == true:
+		Autoload.lvl4Dead = false
+		get_tree().change_scene("res://scenes/stage4/Nivel4.tscn")
 	pass 
 
 
