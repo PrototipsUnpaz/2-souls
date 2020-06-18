@@ -39,7 +39,7 @@ script = ExtResource( 4 )
 scale = Vector2( 1.7, 1.7 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 6
+frame = 5
 playing = true
 
 [node name="EnemyArea" type="Area2D" parent="."]

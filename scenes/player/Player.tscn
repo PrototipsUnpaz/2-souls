@@ -34,6 +34,11 @@ animations = [ {
 "name": "Idle",
 "speed": 4.0
 }, {
+"frames": [ ExtResource( 14 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "AtkTop",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "RunBot",
@@ -42,11 +47,6 @@ animations = [ {
 "frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 23 ) ],
 "loop": true,
 "name": "RunTop",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "AtkTop",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
@@ -73,10 +73,10 @@ shape = SubResource( 1 )
 position = Vector2( -0.39917, 0 )
 frames = SubResource( 2 )
 animation = "RunBot"
+frame = 3
 playing = true
 
 [node name="AreaBlue" type="Area2D" parent="."]
-visible = false
 scale = Vector2( 0.861019, 0.970397 )
 collision_layer = 594
 collision_mask = 594

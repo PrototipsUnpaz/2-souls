@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/stage3/Nivel3.gd" type="Script" id=1]
 [ext_resource path="res://scenes/stage1/stage1.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/audio/sfx/sfx_muerte.wav" type="AudioStream" id=14]
 [ext_resource path="res://scenes/ui/BackHud.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/font_win/Roman SD.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://scenes/power_up/atqq/PowerUpAtq.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 400 )
@@ -23,7 +24,7 @@ extents = Vector2( 16, 400 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 696, 24 )
 
-[sub_resource type="ConvexPolygonShape2D" id=5]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 800, 128, 0, 128, 0, 64, 800, 64 )
 
 [sub_resource type="TileSet" id=4]
@@ -37,22 +38,22 @@ points = PoolVector2Array( 800, 128, 0, 128, 0, 64, 800, 64 )
 2/navigation_offset = Vector2( 0, 0 )
 2/shape_offset = Vector2( 0, 0 )
 2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape = SubResource( 5 )
+2/shape = SubResource( 3 )
 2/shape_one_way = false
 2/shape_one_way_margin = 1.0
 2/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 5 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=6]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 416, 128, 0, 128, 0, 64, 416, 64 )
 
-[sub_resource type="TileSet" id=7]
+[sub_resource type="TileSet" id=6]
 0/name = "pared_de_luz.png 0"
 0/texture = ExtResource( 5 )
 0/tex_offset = Vector2( 0, 0 )
@@ -63,19 +64,19 @@ points = PoolVector2Array( 416, 128, 0, 128, 0, 64, 416, 64 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 6 )
+0/shape = SubResource( 5 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 6 ),
+"shape": SubResource( 5 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=7]
 size = 50
 outline_size = 1
 outline_color = Color( 0.2, 0.235294, 0.137255, 1 )
@@ -138,14 +139,14 @@ tile_data = PoolIntArray( 262144, 2, 0, 262162, 2, 0, 262186, 1610612738, 0, 327
 
 [node name="TileMap2" type="TileMap" parent="."]
 scale = Vector2( 0.3, 0.3 )
-tile_set = SubResource( 7 )
+tile_set = SubResource( 6 )
 format = 1
 tile_data = PoolIntArray( 327691, -1610612736, 0, 327697, -1610612736, 0, 327736, -1073741824, 0, 393239, -1073741824, 0, 524344, -1073741824, 0, 589841, -1610612736, 0, 1245196, 0, 0, 1245228, 1610612736, 0 )
 
 [node name="Portal" parent="." instance=ExtResource( 6 )]
 position = Vector2( 677.112, 80 )
 scale = Vector2( 0.612, 0.612 )
-frame = 8
+frame = 10
 
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
 position = Vector2( 200, 540 )
@@ -227,10 +228,14 @@ margin_left = -114.0
 margin_top = -4.0
 margin_right = 114.0
 margin_bottom = 56.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 text = "Stage 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PowerUpAtq" parent="." instance=ExtResource( 17 )]
+position = Vector2( 848, 464 )
+scale = Vector2( 0.1, 0.1 )
 [connection signal="timeout" from="NextScene" to="." method="_on_NextScene_timeout"]
 [connection signal="timeout" from="TimerDeath" to="." method="_on_TimerDeath_timeout"]

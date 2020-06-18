@@ -9,11 +9,11 @@ onready var ondaUp = $Pivot/PosUp
 onready var ondaDown = $Pivot/PosDown
 onready var ondaRight = $Pivot/PosRight
 onready var ondaLeft = $Pivot/PosLeft
-
 var lastPosPower = 0
 var onda2Direction = Vector2()
 var	bot = 0
 var onda_generator2 = preload ("res://scenes/power_gretel/PowerGretel.tscn")
+var sfxPowerAtqDefault = preload ("res://scenes/audio/sfx/SfxPowerAtq.tscn")
 
 func _ready():
 	lastPosPower = 2
@@ -108,7 +108,6 @@ func _physics_process(delta):
 		elif lastPosPower == 4:
 			onda2Direction = Vector2(0, -1)
 			onda2Pos.global_position = ondaUp.global_position
-		
 	move_and_slide(velocity)
 	pass
 	
@@ -123,6 +122,10 @@ func _on_Area_area_entered(area):
 	if area.name == "EnemyArea" or area.name == "AreaEnemy2":
 		deletePlayer()
 		Autoload.dead = true
+	if area.name == "AtqArea":
+		
+		var sfxPowerAtq = sfxPowerAtqDefault.instance()
+		self.get_parent().add_child(sfxPowerAtq)
 	pass 
 
 func _on_Area_area_exited(area):
@@ -130,3 +133,12 @@ func _on_Area_area_exited(area):
 		Autoload.win = false
 		Autoload.count = 0
 	pass 
+
+func _on_DurationPowerAtq_timeout():
+	Autoload.powerUpActive = false
+	pass 
+
+func power_atq():
+	Autoload.powerUpActive = true
+	$DurationPowerAtq.start()
+	pass

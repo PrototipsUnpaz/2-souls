@@ -24,7 +24,9 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=2]
 radius = 48.0
 
-[node name="PowerRed" type="Area2D"]
+[node name="PowerRed" type="Area2D" groups=[
+"powers",
+]]
 collision_layer = 64
 collision_mask = 64
 script = ExtResource( 4 )

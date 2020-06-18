@@ -71,7 +71,7 @@ shape = SubResource( 1 )
 [node name="AnimationSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "Idle"
-frame = 4
+frame = 1
 playing = true
 
 [node name="Pivot" type="Position2D" parent="."]
@@ -97,5 +97,10 @@ collision_mask = 594
 [node name="Collision" type="CollisionShape2D" parent="AreaRed"]
 position = Vector2( 0.617737, -5.25064 )
 shape = SubResource( 3 )
+
+[node name="DurationPowerAtq" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
 [connection signal="area_entered" from="AreaRed" to="." method="_on_Area_area_entered"]
 [connection signal="area_exited" from="AreaRed" to="." method="_on_Area_area_exited"]
+[connection signal="timeout" from="DurationPowerAtq" to="." method="_on_DurationPowerAtq_timeout"]
