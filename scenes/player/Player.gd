@@ -45,7 +45,6 @@ func adrenalin():
 	SPEED = SPEED + 100
 	var sfx_powerup = sfx_power.instance()
 	self.get_parent().add_child(sfx_powerup)
-	Autoload.velAdd += 1
 	pass
 
 func attack():
@@ -122,27 +121,6 @@ func _physics_process(delta):
 	
 	pass
 	
-	
-	#if Input.is_action_just_released("ui_down") or Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
-		#velocity.x = 0
-		#velocity.y = 0
-		
-	#if Input.is_action_pressed("ui_left"):
-		#velocity.x = -SPEED
-		#velocity.y = 0
-		
-	#if Input.is_action_pressed("ui_right"):
-		#velocity.x = SPEED
-		#velocity.y = 0
-		
-	#if Input.is_action_pressed("ui_up"):
-		#velocity.y = -SPEED
-		#velocity.x = 0
-		
-	#if Input.is_action_pressed("ui_down"):
-		#velocity.y = SPEED
-		#velocity.x = 0
-
 func _on_Area2D_area_entered(area):
 	if area.name == "AreaPortal":
 		if Autoload.count < 2:

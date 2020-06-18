@@ -126,10 +126,10 @@ __meta__ = {
 [node name="TextWin" parent="CenterContainer" instance=ExtResource( 13 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 467.0
-margin_top = 239.0
-margin_right = 899.0
-margin_bottom = 528.0
+margin_left = 664.0
+margin_top = 369.0
+margin_right = 701.0
+margin_bottom = 398.0
 
 [node name="MusicLvl2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
