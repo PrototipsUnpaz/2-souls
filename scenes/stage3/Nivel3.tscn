@@ -94,12 +94,14 @@ scale = Vector2( 1.07188, 0.90281 )
 ] instance=ExtResource( 3 )]
 position = Vector2( 352, 720 )
 scale = Vector2( 0.9, 0.9 )
+z_index = 1
 
 [node name="Player" parent="." groups=[
 "players",
 ] instance=ExtResource( 4 )]
 position = Vector2( 960, 720 )
 scale = Vector2( 0.9, 0.9 )
+z_index = 2
 
 [node name="Wall" type="StaticBody2D" parent="."]
 
