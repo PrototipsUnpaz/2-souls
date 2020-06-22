@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/stage1/background/background.png" type="Texture" id=1]
 [ext_resource path="res://scenes/portal/Portal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/button_attack/ButtonAttack.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/stick_digital/StickDigital.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/stage1/objets/pared_de_luz.png" type="Texture" id=5]
+[ext_resource path="res://scenes/power_up/Adrenalin.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13.4087, 387.41 )
@@ -105,7 +106,7 @@ shape = SubResource( 4 )
 [node name="Portal" parent="." instance=ExtResource( 2 )]
 position = Vector2( 678.409, 87.4511 )
 scale = Vector2( 0.612, 0.612 )
-frame = 7
+frame = 9
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 0.3, 0.3 )
@@ -124,3 +125,9 @@ position = Vector2( 81.292, 635 )
 
 [node name="StickDigital" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1225.97, 635 )
+
+[node name="Adrenalin" parent="." instance=ExtResource( 6 )]
+position = Vector2( 290.696, 255.46 )
+
+[node name="Adrenalin2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 927.879, 255.46 )
