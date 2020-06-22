@@ -37,7 +37,6 @@ shape = SubResource( 1 )
 [node name="AnimatedPower" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "LateralPow"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
