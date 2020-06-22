@@ -148,7 +148,7 @@ tile_data = PoolIntArray( 327691, -1610612736, 0, 327697, -1610612736, 0, 327736
 [node name="Portal" parent="." instance=ExtResource( 6 )]
 position = Vector2( 677.112, 80 )
 scale = Vector2( 0.612, 0.612 )
-frame = 8
+frame = 5
 
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
 position = Vector2( 200, 540 )
