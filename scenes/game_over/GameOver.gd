@@ -22,17 +22,17 @@ func _on_Reintentar_pressed():
 
 
 func _on_Salir_pressed():
-	var lvl1Dead = false
-	var lvl2Dead = false
-	var lvl3Dead = false
-	var lvl4Dead = false
-	var stickLeft = false
-	var stickRight = false
-	var lv1 = false
-	var lv2 = false
-	var lv3 = false
-	var lv4 = false
-	var winGame = false
+	Autoload.lvl1Dead = false
+	Autoload.lvl2Dead = false
+	Autoload.lvl3Dead = false
+	Autoload.lvl4Dead = false
+	Autoload.stickLeft = false
+	Autoload.stickRight = false
+	Autoload.lv1 = false
+	Autoload.lv2 = false
+	Autoload.lv3 = false
+	Autoload.lv4 = false
+	Autoload.winGame = false
 	var sfxBbut = sfxButtons.instance()
 	get_parent().add_child(sfxBbut)
 	get_tree().change_scene("res://scenes/menu_main/Menu.tscn")
