@@ -115,7 +115,7 @@ shape = SubResource( 4 )
 [node name="Portal" parent="." instance=ExtResource( 2 )]
 position = Vector2( 683, 115.451 )
 scale = Vector2( 0.612, 0.612 )
-frame = 8
+frame = 3
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 0.3, 0.3 )
