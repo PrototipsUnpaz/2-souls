@@ -24,6 +24,8 @@ func select_stage():
 		get_tree().change_scene("res://scenes/stage3/Nivel3.tscn")
 	elif Autoload.lv4 == true:
 		get_tree().change_scene("res://scenes/stage4/Nivel4.tscn")
+	elif Autoload.winGame == true:
+		get_tree().change_scene("res://scenes/stage4/Nivel4.tscn")
 	pass
 
 func _on_NextScen_timeout():

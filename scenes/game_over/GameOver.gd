@@ -17,11 +17,22 @@ func _on_Reintentar_pressed():
 		get_tree().change_scene("res://scenes/stage3/Nivel3.tscn")
 	if Autoload.lvl4Dead == true:
 		Autoload.lvl4Dead = false
-		get_tree().change_scene("res://scenes/stage4/Nivel4.tscn")
+		get_tree().change_scene("res://scenes/stage4/Lv4.tscn")
 	pass 
 
 
 func _on_Salir_pressed():
+	var lvl1Dead = false
+	var lvl2Dead = false
+	var lvl3Dead = false
+	var lvl4Dead = false
+	var stickLeft = false
+	var stickRight = false
+	var lv1 = false
+	var lv2 = false
+	var lv3 = false
+	var lv4 = false
+	var winGame = false
 	var sfxBbut = sfxButtons.instance()
 	get_parent().add_child(sfxBbut)
 	get_tree().change_scene("res://scenes/menu_main/Menu.tscn")
