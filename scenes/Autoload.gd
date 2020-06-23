@@ -14,3 +14,4 @@ var lv1 = false
 var lv2 = false
 var lv3 = false
 var lv4 = false
+var winGame = false

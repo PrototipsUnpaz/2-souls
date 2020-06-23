@@ -111,9 +111,9 @@ position = Vector2( 40.436, 295.359 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Portal" parent="." instance=ExtResource( 14 )]
-position = Vector2( 690.928, 70.3235 )
+position = Vector2( 683, 70.323 )
 scale = Vector2( 0.612, 0.612 )
-frame = 10
+frame = 8
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 visible = false

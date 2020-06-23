@@ -26,12 +26,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -230.5
+margin_left = -400.5
 margin_top = -144.5
-margin_right = 230.5
+margin_right = 400.5
 margin_bottom = 144.5
-text = "
-"
+text = ""
 
 [node name="NextScen" type="Timer" parent="."]
 wait_time = 3.0
