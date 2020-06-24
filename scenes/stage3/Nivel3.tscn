@@ -77,7 +77,7 @@ points = PoolVector2Array( 416, 128, 0, 128, 0, 64, 416, 64 )
 0/z_index = 0
 
 [sub_resource type="DynamicFont" id=7]
-size = 50
+size = 40
 outline_size = 1
 outline_color = Color( 0.2, 0.235294, 0.137255, 1 )
 font_data = ExtResource( 16 )
@@ -148,7 +148,7 @@ tile_data = PoolIntArray( 327691, -1610612736, 0, 327697, -1610612736, 0, 327736
 [node name="Portal" parent="." instance=ExtResource( 6 )]
 position = Vector2( 683, 80 )
 scale = Vector2( 0.612, 0.612 )
-frame = 10
+frame = 1
 
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
 position = Vector2( 200, 540 )
@@ -211,12 +211,13 @@ one_shot = true
 stream = ExtResource( 14 )
 
 [node name="BackHud" parent="." instance=ExtResource( 15 )]
-position = Vector2( 672, 23 )
+position = Vector2( 672, 15 )
 scale = Vector2( 1, 0.5 )
 
 [node name="Control" type="Control" parent="."]
+margin_top = 1.0
 margin_right = 1366.0
-margin_bottom = 768.0
+margin_bottom = 769.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -226,12 +227,12 @@ __meta__ = {
 modulate = Color( 0.921569, 0.890196, 0.890196, 1 )
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -114.0
-margin_top = -4.0
-margin_right = 114.0
-margin_bottom = 56.0
+margin_left = -101.0
+margin_top = -1.0
+margin_right = 127.0
+margin_bottom = 42.0
 custom_fonts/font = SubResource( 7 )
-text = "Stage 1"
+text = "Nivel 3"
 __meta__ = {
 "_edit_use_anchors_": false
 }

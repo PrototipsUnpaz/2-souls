@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/mirror_player/MirrorPlayer.tscn" type="PackedScene" id=2]
@@ -9,17 +9,23 @@
 [ext_resource path="res://scenes/stick_digital/StickDigital.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/button_attack/ButtonAttack.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/enemy/Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/font_win/Roman SD.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://scenes/portal/Portal.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/ui/text_win/TextWin.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/audio/music/musica_lvl1.ogg" type="AudioStream" id=13]
 [ext_resource path="res://scenes/tilemap/SmallWall.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/audio/sfx/sfx_muerte.wav" type="AudioStream" id=15]
+[ext_resource path="res://scenes/ui/BackHud.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 675.348, 15.279 )
+extents = Vector2( 675.348, 33.8572 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10.3129, 372.603 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 10 )
 
 [node name="WorldTest" type="Node2D"]
 script = ExtResource( 4 )
@@ -49,6 +55,7 @@ position = Vector2( 683.791, 11.4152 )
 shape = SubResource( 1 )
 
 [node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2( 0, 27 )
 
 [node name="Collision" type="CollisionShape2D" parent="Floor2"]
 position = Vector2( 678.346, 754.9 )
@@ -99,7 +106,7 @@ velocidad = 200
 [node name="Portal" parent="." instance=ExtResource( 11 )]
 position = Vector2( 683, 83.448 )
 scale = Vector2( 0.612109, 0.612109 )
-frame = 0
+frame = 10
 
 [node name="SmallWall" parent="." instance=ExtResource( 14 )]
 tile_data = PoolIntArray( -458786, 536870912, 0, -458761, 536870912, 0, -524285, 536870912, 0, -524260, 536870912, 0, -524249, 536870912, 0, -524223, 536870912, 0, -524218, 0, 0, -327667, -1610612736, 0, -131059, -1610612736, 0, -51, 0, 0, -46, 1610612736, 0, -65520, 0, 0, 393182, 536870912, 0, 393194, 0, 0, 393206, 536870912, 0, 327693, -1610612736, 0, 327708, 536870912, 0, 327720, 536870912, 0, 327732, 536870912, 0, 851917, 0, 0, 851921, 536870912, 0, 851946, 536870912, 0, 786435, 536870912, 0, 786447, 536870912, 0, 786472, 536870912, 0, 786497, 536870912, 0, 786501, 0, 0, 983053, -1610612736, 0, 1310670, 0, 0, 1310677, 0, 0, 1310687, 0, 0, 1310698, 0, 0, 1310710, 0, 0, 1245212, 536870912, 0, 1245224, 536870912, 0, 1245236, 536870912, 0, 1245248, 0, 0, 1245253, 0, 0, 1441805, -1610612736, 0 )
@@ -137,5 +144,26 @@ stream = ExtResource( 15 )
 [node name="SfxTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="BackHud" parent="." instance=ExtResource( 16 )]
+position = Vector2( 684.484, 17.8997 )
+scale = Vector2( 1, 0.470169 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 1366.0
+margin_bottom = 768.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -86.0
+margin_right = 86.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 3 )
+text = "Nivel 1"
 [connection signal="timeout" from="NextScene" to="." method="_on_NextScene_timeout"]
 [connection signal="timeout" from="SfxTimer" to="." method="_on_SfxTimer_timeout"]
