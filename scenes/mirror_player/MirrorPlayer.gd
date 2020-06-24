@@ -136,9 +136,11 @@ func _on_Area_area_exited(area):
 
 func _on_DurationPowerAtq_timeout():
 	Autoload.powerUpActive = false
+	Autoload.atqUp = false
 	pass 
 
 func power_atq():
 	Autoload.powerUpActive = true
+	Autoload.atqUp = true
 	$DurationPowerAtq.start()
 	pass

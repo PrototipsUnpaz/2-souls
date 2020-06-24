@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/stage1/background/background.png" type="Texture" id=1]
 [ext_resource path="res://scenes/portal/Portal.tscn" type="PackedScene" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://assets/audio/sfx/sfx_muerte.wav" type="AudioStream" id=14]
 [ext_resource path="res://assets/font_win/Roman SD.ttf" type="DynamicFontData" id=15]
 [ext_resource path="res://scenes/ui/BackHud.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/ui/IconSpeed.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/ui/IconAtq.tscn" type="PackedScene" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13.4087, 387.41 )
@@ -121,7 +123,7 @@ shape = SubResource( 4 )
 [node name="Portal" parent="." instance=ExtResource( 2 )]
 position = Vector2( 683, 115.451 )
 scale = Vector2( 0.612, 0.612 )
-frame = 5
+frame = 3
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 0.3, 0.3 )
@@ -235,5 +237,13 @@ __meta__ = {
 [node name="BackHud" parent="." instance=ExtResource( 16 )]
 position = Vector2( 688, 27 )
 scale = Vector2( 1, 0.58 )
+
+[node name="IconAtq" parent="." instance=ExtResource( 18 )]
+position = Vector2( 305, 20.048 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="IconSpeed" parent="." instance=ExtResource( 17 )]
+position = Vector2( 433.888, 20.048 )
+scale = Vector2( 0.5, 0.5 )
 [connection signal="timeout" from="NextScene" to="." method="_on_NextScene_timeout"]
 [connection signal="timeout" from="TimerDeath" to="." method="_on_TimerDeath_timeout"]

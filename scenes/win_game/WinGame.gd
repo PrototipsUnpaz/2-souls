@@ -1,6 +1,10 @@
 extends Node2D
 
+var sfxButtons = preload("res://scenes/audio/sfx/SfxButtons.tscn")
+
 func _on_ButtonBackMenu_pressed():
+	var sfxBbut = sfxButtons.instance()
+	get_parent().add_child(sfxBbut)
 	Autoload.lvl1Dead = false
 	Autoload.lvl2Dead = false
 	Autoload.lvl3Dead = false

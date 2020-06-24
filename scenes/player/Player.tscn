@@ -34,11 +34,6 @@ animations = [ {
 "name": "Idle",
 "speed": 4.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "AtkTop",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "RunBot",
@@ -52,6 +47,11 @@ animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "RunRight",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "AtkTop",
 "speed": 5.0
 } ]
 
@@ -73,7 +73,7 @@ shape = SubResource( 1 )
 position = Vector2( -0.39917, 0 )
 frames = SubResource( 2 )
 animation = "RunBot"
-frame = 3
+frame = 2
 playing = true
 
 [node name="AreaBlue" type="Area2D" parent="."]

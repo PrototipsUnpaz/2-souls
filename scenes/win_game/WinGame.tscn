@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/font_win/Roman SD.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/win_game/WinGame.gd" type="Script" id=2]
 [ext_resource path="res://assets/win_game/fondo_wingame.png" type="Texture" id=3]
+[ext_resource path="res://assets/creditos/button_cred/volver__negrita.png" type="Texture" id=4]
+[ext_resource path="res://assets/creditos/button_cred/volver_luz.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -53,12 +55,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonBackMenu" type="Button" parent="."]
+[node name="ButtonBackMenu" type="TextureButton" parent="."]
 margin_left = 88.0
 margin_top = 648.0
-margin_right = 192.0
-margin_bottom = 704.0
-text = "Volver"
+margin_right = 660.0
+margin_bottom = 767.0
+rect_min_size = Vector2( 150, 80 )
+rect_scale = Vector2( 0.4, 0.4 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
