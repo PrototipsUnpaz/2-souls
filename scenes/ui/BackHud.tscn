@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://assets/ui/hud3.png" type="Texture" id=1]
+[ext_resource path="res://assets/ui/hud.png" type="Texture" id=1]
 
 [node name="BackHud" type="Sprite"]
 texture = ExtResource( 1 )

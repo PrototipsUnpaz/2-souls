@@ -41,6 +41,7 @@ func _ready():
 		
 func adrenalin():
 	SPEED = SPEED + 100
+	Autoload.spdUp = true
 	var sfx_powerup = sfx_power.instance()
 	self.get_parent().add_child(sfx_powerup)
 	pass

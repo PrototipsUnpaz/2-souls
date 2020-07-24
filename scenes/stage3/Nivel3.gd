@@ -10,6 +10,8 @@ func _ready():
 	$StickDigital.modulate = Color(1,1,1,0.4)
 	$ButtonAttack.modulate = Color(1,1,1,0.4)
 	$TextWin.visible = false
+	$IconSpeed.modulate = Color(1,1,1,0.4)
+	$IconAtq.modulate = Color(1,1,1,0.4)
 	pass
 	
 func _process(delta):
@@ -21,15 +23,21 @@ func _process(delta):
 		Autoload.dead = false
 		$TimerDeath.start()
 		$SfxDeath.play()
-		
+	if Autoload.spdUp == true:
+		$IconSpeed.modulate = Color(1,1,1,1)
+	if Autoload.atqUp == true:
+		$IconAtq.modulate = Color(1,1,1,1)
 	pass 
 
 func _on_TimerDeath_timeout():
 	Autoload.lvl3Dead = true
 	get_tree().change_scene("res://scenes/game_over/GameOver.tscn")
 	pass 
-
+	Autoload.spdUp = false
+	Autoload.atqUp = false
 func _on_NextScene_timeout():
+	Autoload.atqUp = false
+	Autoload.spdUp = false
 	Autoload.lv1 = false
 	Autoload.lv2 = false
 	Autoload.lv3 = false
